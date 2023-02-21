@@ -1,0 +1,5 @@
+[user]
+	email = mail@gowizzard.de
+	name = Jonas Kwiedor
+[init]
+	defaultBranch = main
