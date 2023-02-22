@@ -16,7 +16,6 @@ plugins=(
 	docker-compose
 	vi-mode
 	zsh-autosuggestions
-	thefuck
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -35,15 +34,19 @@ alias gomi="go_mod_init"
 
 # Define functions to optimize workflow.
 project() {
-	if [ $# -eq 0 ]; then
-		cd ~/Projects
-	else 
+	if [ $# -gt 1 ]; then
+		echo "too many arguments were handed over"
+	elif [ $# -eq 1 ]; then
 		cd ~/Projects/$1
+	else 
+		cd ~/Projects
 	fi
 }
 
 new_project() {
-	if [ $# -eq 1 ]; then
+	if [ $# -gt 1 ]; then
+		echo "too many arguments were handed over"
+	elif [ $# -eq 1 ]; then
 		mkdir ~/Projects/$1
 		cd ~/Projects/$1
 		git init
@@ -52,11 +55,23 @@ new_project() {
 	fi
 }
 
+go_run() {
+	if [ $# -gt 1 ]; then
+		echo "too many arguments were handed over"
+	elif [ $# -eq 1 ]; then
+		go run $1
+	else 
+		go run main.go
+	fi
+}
+
 go_mod_init() {
-	if [ $# -eq 1 ]; then
+	if [ $# -gt 1 ]; then
+		echo "too many arguments were handed over"
+	elif [ $# -eq 1 ]; then
 		go mod init github.com/$1
 	else
-		echo "no owner/repository specified"
+		echo "no owner/repository specified or the correct number of arguments have not been"
 	fi
 }
 
