@@ -33,6 +33,10 @@ alias rma="rm -r *"
 alias esshc="vim ~/.ssh/config"
 alias gor="go_run"
 alias gomi="go_mod_init"
+alias dkp="docker ps"
+alias dkpa="docker ps --all"
+alias dkl="docker logs"
+alias dklf="docker logs --follow"
 alias bdf="backup_dotfile"
 
 # Define functions to optimize workflow.
