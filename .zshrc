@@ -29,8 +29,11 @@ alias hd="cd ~"
 alias pd="project"
 alias np="new_project"
 alias dd="cd ~/Downloads"
+alias rma="rm -r *"
 alias esshc="vim ~/.ssh/config"
+alias gor="go_run"
 alias gomi="go_mod_init"
+alias bdf="backup_dotfile"
 
 # Define functions to optimize workflow.
 project() {
@@ -71,7 +74,16 @@ go_mod_init() {
 	elif [ $# -eq 1 ]; then
 		go mod init github.com/$1
 	else
-		echo "no owner/repository specified or the correct number of arguments have not been"
+		echo "no owner/repository specified"
 	fi
 }
 
+backup_dotfile() {
+	if [ $# -gt 1 ]; then
+		echo "too many arguments were handed over"
+	elif [ $# -eq 1 ]; then
+		cp -r $1 ~/Projects/dotfiles
+	else
+		echo "no file or folder was specified"
+	fi
+}
