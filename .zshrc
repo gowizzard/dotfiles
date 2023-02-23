@@ -42,6 +42,7 @@ alias dkp="docker ps"
 alias dkpa="docker ps --all"
 alias dkl="docker logs"
 alias dklf="docker logs --follow"
+alias gko="gitkraken_open"
 alias bdf="backup_dotfile"
 
 # Define functions to optimize workflow.
@@ -84,6 +85,16 @@ go_mod_init() {
 		go mod init github.com/$1
 	else
 		echo "no owner/repository specified"
+	fi
+}
+
+gitkraken_open() {
+	if [ $# -gt 1 ]; then
+		echo "too many arguments were handed over"
+	elif [ $# -eq 1 ]; then
+		gitkraken -p ~/Projects/$1 -s false
+	else
+		echo "no project title given"
 	fi
 }
 
