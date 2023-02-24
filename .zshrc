@@ -28,6 +28,7 @@ alias somz="source ~/.zshrc"
 alias hd="cd ~"
 alias pd="project"
 alias np="new_project"
+alias opv="open_project vim"
 alias dd="cd ~/Downloads"
 alias rma="rm -r *"
 alias pmud="sudo apt update"
@@ -68,6 +69,18 @@ new_project() {
 	fi
 }
 
+open_project() {
+	if [ $# -gt 2 ]; then
+		echo "too many arguments were handed over"
+	elif [ $# -eq 2 ]; then
+		case $1 in
+		"vim") vim ~/Projects/$2 ;;
+		esac
+	else
+		echo "no project title given"
+	fi
+}
+
 go_run() {
 	if [ $# -gt 1 ]; then
 		echo "too many arguments were handed over"
@@ -94,11 +107,11 @@ gitkraken_open() {
 	elif [ $# -eq 1 ]; then
 		gitkraken -p ~/Projects/$1 -s false
 	else
-		echo "no project title given"
+		gitkraken -p $(pwd) -s false	
 	fi
 }
 
-backup_dotfile() {
+backup_dotfile() {	
 	if [ $# -gt 1 ]; then
 		echo "too many arguments were handed over"
 	elif [ $# -eq 1 ]; then
