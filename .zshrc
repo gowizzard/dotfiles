@@ -30,7 +30,9 @@ alias pd="project"
 alias np="new_project"
 alias opv="open_project vim"
 alias dd="cd ~/Downloads"
+alias rmr="rm -r"
 alias rma="rm -r *"
+alias pml="sudo apt list --installed"
 alias pmud="sudo apt update"
 alias pmug="sudo apt upgrade -y"
 alias pmar="sudo apt autoremove -y"
@@ -38,6 +40,7 @@ alias pmi="sudo apt install"
 alias pmr="sudo apt remove"
 alias essh="vim ~/.ssh/config"
 alias gor="go_run"
+alias gog="go_get"
 alias gomi="go_mod_init"
 alias dkp="docker ps"
 alias dkpa="docker ps --all"
@@ -88,6 +91,16 @@ go_run() {
 		go run $1
 	else 
 		go run main.go
+	fi
+}
+
+go_get() {
+	if [ $# -gt 1 ]; then
+		echo "too many arguments were handed over"
+	elif [ $# -eq 1 ]; then
+		go get $1
+	else 
+		echo "no path to library given"
 	fi
 }
 
