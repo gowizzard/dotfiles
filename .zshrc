@@ -10,11 +10,13 @@ ZSH_THEME="agnoster"
 
 # Define all plugins for oh-my-zsh.
 plugins=(
+	sudo
 	git
 	golang
 	docker
 	docker-compose
 	vi-mode
+	jsontools
 	zsh-autosuggestions
 )
 
