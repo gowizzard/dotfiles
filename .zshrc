@@ -8,9 +8,13 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 # Theme that oh-my-zsh uses.
 ZSH_THEME="agnoster"
 
+# Allow tmux to autostart
+ZSH_TMUX_AUTOSTART=true
+
 # Define all plugins for oh-my-zsh.
 plugins=(
 	sudo
+	tmux
 	git
 	golang
 	docker
@@ -30,7 +34,6 @@ alias somz="source ~/.zshrc"
 alias hd="cd ~"
 alias pd="project"
 alias np="new_project"
-alias opv="open_project vim"
 alias dd="cd ~/Downloads"
 alias rmr="rm -r"
 alias rma="rm -r *"
@@ -69,18 +72,6 @@ new_project() {
 		mkdir ~/Projects/$1
 		cd ~/Projects/$1
 		git init
-	else
-		echo "no project title given"
-	fi
-}
-
-open_project() {
-	if [ $# -gt 2 ]; then
-		echo "too many arguments were handed over"
-	elif [ $# -eq 2 ]; then
-		case $1 in
-		"vim") vim ~/Projects/$2 ;;
-		esac
 	else
 		echo "no project title given"
 	fi
