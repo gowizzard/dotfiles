@@ -30,6 +30,10 @@ source $ZSH/oh-my-zsh.sh
 alias eomz="vim ~/.zshrc"
 alias somz="source ~/.zshrc"
 
+# Define new aliases for tmux.
+alias etmux="vim ~/.tmux.conf"
+alias stmux="tmux source-file ~/.tmux.conf"
+
 # Define new aliases for general work.
 alias hd="cd ~"
 alias pd="project"
