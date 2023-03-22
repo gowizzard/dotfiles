@@ -13,6 +13,7 @@ ZSH_THEME="agnoster"
 
 # Allow tmux to autostart.
 ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOCONNECT=false
 
 # Define all plugins for oh-my-zsh.
 plugins=(
