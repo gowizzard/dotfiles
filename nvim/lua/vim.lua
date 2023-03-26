@@ -19,11 +19,4 @@ set.wildmenu = true
 set.number = true
 set.title = true
 
--- Define search & undo options
-set.hidden = true
-set.history = 1000
-set.undofile = true
-set.undodir = '~/.vim/undodir'
-set.undolevels = 1000
-
 set.swapfile = false
