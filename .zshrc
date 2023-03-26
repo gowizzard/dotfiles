@@ -66,10 +66,11 @@ alias dkl="docker logs"
 alias dklf="docker logs --follow"
 
 # Open project from project directory or actual directory.
+alias vco="vscode_open"
 alias gko="gitkraken_open"
 
 # Backup dotfiles to repository.
-alias bdf="backup_dotfile"
+alias bdf="backup_dotfiles"
 
 # Define functions to optimize workflow.
 projects() {
@@ -94,6 +95,16 @@ new_project() {
 	fi
 }
 
+vscode_open() {
+	if [ $# -gt 1 ]; then
+		echo "too many arguments were handed over"
+	elif [ $# -eq 1 ]; then
+		code $PROJECTS_DIRECTORY/$1 -n
+	else
+		code $(pwd) -n
+	fi
+}
+
 gitkraken_open() {
 	if [ $# -gt 1 ]; then
 		echo "too many arguments were handed over"
@@ -104,12 +115,6 @@ gitkraken_open() {
 	fi
 }
 
-backup_dotfile() {	
-	if [ $# -gt 1 ]; then
-		echo "too many arguments were handed over"
-	elif [ $# -eq 1 ]; then
-		cp -r $1 $PROJECTS_DIRECTORY/dotfiles
-	else
-		echo "no file or folder was specified"
-	fi
+backup_dotfiles() {	
+	cp -r $HOME/.zshrc $HOME/.tmux.conf $HOME/.gitconfig $HOME/.config/nvim $PROJECTS_DIRECTORY/dotfiles
 }
