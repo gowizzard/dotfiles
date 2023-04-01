@@ -3,3 +3,5 @@
 	name = Jonas Kwiedor
 [init]
 	defaultBranch = main
+[alias]
+	caa = "!git add -A && git commit -m"
