@@ -31,18 +31,18 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Define new aliases for oh-my-zsh.
-alias eomz="vim ~/.zshrc"
-alias somz="source ~/.zshrc"
+alias eomz="vim $HOME/.zshrc"
+alias somz="source $HOME/.zshrc"
 
 # Define new aliases for tmux.
-alias etmux="vim ~/.tmux.conf"
-alias stmux="tmux source-file ~/.tmux.conf"
+alias etmux="vim $HOME/.tmux.conf"
+alias stmux="tmux source-file $HOME/.tmux.conf"
 
 # Define new aliases for general work.
-alias hd="cd ~"
+alias hd="cd $HOME"
 alias pd="projects"
 alias np="new_project"
-alias dd="cd ~/Downloads"
+alias dd="cd $HOME/Downloads"
 
 # Remove folders and files.
 alias rmr="rm -r"
@@ -57,7 +57,7 @@ alias pmi="sudo apt install"
 alias pmr="sudo apt remove"
 
 # To edit easy the ssh config file.
-alias essh="vim ~/.ssh/config"
+alias essh="vim $HOME/.ssh/config"
 
 # Docker aliases.
 alias dkp="docker ps"
@@ -69,8 +69,8 @@ alias dklf="docker logs --follow"
 alias vco="vscode_open"
 alias gko="gitkraken_open"
 
-# Backup dotfiles to repository.
-alias bdf="backup_dotfiles"
+# Add aliases for dotfiles.
+alias dfo="cd $PROJECTS_DIRECTORY/dotfiles"
 
 # Define functions to optimize workflow.
 projects() {
@@ -113,8 +113,4 @@ gitkraken_open() {
 	else
 		gitkraken -p $(pwd) -s false	
 	fi
-}
-
-backup_dotfiles() {	
-	cp -r $HOME/.zshrc $HOME/.tmux.conf $HOME/.gitconfig $HOME/.config/nvim $PROJECTS_DIRECTORY/dotfiles
 }
