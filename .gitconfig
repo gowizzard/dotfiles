@@ -4,4 +4,4 @@
 [init]
 	defaultBranch = main
 [alias]
-	caa = "!git add -A && git commit -m"
+	aac = "!git add -A && git commit -m"
