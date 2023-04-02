@@ -1,2 +1,2 @@
 -- Import lua modules for neovim
-require("vim")
+require("default")
