@@ -3,7 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Path to my project directory.
 export PROJECTS_DIRECTORY="$HOME/Projects"
-export SCRIPTS_DIRECTORY="$HOME/Scripts"
+export SCRIPTS_DIRECTORY="$HOME/.scripts"
 
 # Path for golang installation.
 export GOPATH=$HOME/go
@@ -43,6 +43,7 @@ alias stmux="tmux source-file $HOME/.tmux.conf"
 alias hd="cd $HOME"
 alias pd="projects"
 alias np="new_project"
+alias sd="cd $SCRIPTS_DIRECTORY"
 alias dd="cd $HOME/Downloads"
 
 # Remove folders and files.
