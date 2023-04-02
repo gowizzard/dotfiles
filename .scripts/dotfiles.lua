@@ -1,4 +1,10 @@
 -- Save and restore dotfiles from a git repository or to the git repository
+local shell = os.getenv("SHELL")
+if shell ~= "/usr/bin/zsh" then
+    print("shell is not zsh")
+    return
+end
+
 local directories = {
     home = os.getenv("HOME"),
     projects = os.getenv("PROJECTS_DIRECTORY")
