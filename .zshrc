@@ -3,6 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Path to my project directory.
 export PROJECTS_DIRECTORY="$HOME/Projects"
+export SCRIPTS_DIRECTORY="$HOME/Scripts"
 
 # Path for golang installation.
 export GOPATH=$HOME/go
@@ -71,6 +72,8 @@ alias gko="gitkraken_open"
 
 # Add aliases for dotfiles.
 alias dfo="cd $PROJECTS_DIRECTORY/dotfiles"
+alias dfb="lua $SCRIPTS_DIRECTORY/dotfiles.lua backup"
+alias dfr="lua $SCRIPTS_DIRECTORY/dotfiles.lua restore"
 
 # Define functions to optimize workflow.
 projects() {
