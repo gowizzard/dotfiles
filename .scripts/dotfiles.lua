@@ -1,6 +1,6 @@
 -- Save and restore dotfiles from a git repository or to the git repository
 local shell = os.getenv("SHELL")
-if shell == nil or shell ~= "/usr/bin/zsh" then
+if shell == nil or not string.find(shell, "zsh") then
     print("shell is not zsh")
     return
 end
