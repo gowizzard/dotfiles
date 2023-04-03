@@ -3,5 +3,3 @@
 	name = Jonas Kwiedor
 [init]
 	defaultBranch = main
-[alias]
-	aac = "!git add -A && git commit -m"
