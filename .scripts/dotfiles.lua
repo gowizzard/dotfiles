@@ -41,23 +41,15 @@ local function copy_file(source, destination)
 end
 
 if arg[1] == "backup" then
-
     for _, value in pairs(files) do
         copy_file(directories.home .. "/" .. value, directories.projects .. "/dotfiles/" .. value)
     end
-
     print("dotfiles backed up successfully")
-
 elseif arg[1] == "restore" then
-    
     for _, value in pairs(files) do
         copy_file(directories.projects .. "/dotfiles/" .. value, directories.home .. "/" .. value)
     end
-
     print("dotfiles restored successfully")
-
 else
-
     print("invalid argument")
-
 end
