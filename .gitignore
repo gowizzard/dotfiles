@@ -1,0 +1,4 @@
+# This is the global .gitignore file. First irgnore all 
+# unused folders. After that we ignore all other files.
+.idea/
+.vscode/
