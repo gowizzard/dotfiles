@@ -12,6 +12,7 @@ local directories = {
 
 local files = {
     ".gitconfig",
+    ".gitignore",
     ".tmux.conf",
     ".zshrc",
     ".config/nvim/init.lua",
