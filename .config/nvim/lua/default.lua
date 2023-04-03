@@ -1,7 +1,7 @@
 -- Set default options from vim configuration 
 local set = vim.opt
 
-set.tabstop = 3
+set.tabstop = 4
 set.shiftwidth = 2
 set.softtabstop = 2
 set.expandtab = true
