@@ -1,5 +1,8 @@
+# This is the default .gitconfig file for my local git setup.
 [user]
 	email = mail@gowizzard.de
 	name = Jonas Kwiedor
 [init]
 	defaultBranch = main
+[core]
+	excludesfile = ~/.gitignore
