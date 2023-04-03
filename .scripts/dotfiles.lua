@@ -48,8 +48,6 @@ if arg[1] == "backup" then
 
     end
 
-    os.execute("cd " .. directories.projects .. "/dotfiles; git aac \"ci: The data was added automatically.\"")
-
     print("dotfiles backed up successfully")
 
 elseif arg[1] == "restore" then
