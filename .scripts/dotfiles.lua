@@ -17,6 +17,8 @@ local files = {
     ".zshrc",
     ".config/nvim/init.lua",
     ".config/nvim/lua/default.lua",
+    ".install/golang.sh",
+    ".install/lua.sh",
     ".scripts/dotfiles.lua"
 }
 
