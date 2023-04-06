@@ -18,4 +18,5 @@ make install
 cd ..
 rm -rf lua-$VERSION
 
+echo "lua $VERSION installed"
 exit 0
