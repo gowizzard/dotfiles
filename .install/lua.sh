@@ -17,3 +17,5 @@ make all test
 make install
 cd ..
 rm -rf lua-$VERSION
+
+exit 0
