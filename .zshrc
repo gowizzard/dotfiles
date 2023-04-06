@@ -3,6 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Path to my project directory.
 export PROJECTS_DIRECTORY="$HOME/Projects"
+export INSTALL_DIRECTORY="$HOME/.install"
 export SCRIPTS_DIRECTORY="$HOME/.scripts"
 
 # Path for golang installation.
@@ -68,8 +69,13 @@ alias dkl="docker logs"
 alias dklf="docker logs --follow"
 
 # Open project from project directory or actual directory.
+alias glo="goland_open"
 alias vco="vscode_open"
 alias gko="gitkraken_open"
+
+# Aliasses for update or install dependencies.
+alias goud="sudo $INSTALL_DIRECTORY/golang.sh"
+alias luaud="sudo $INSTALL_DIRECTORY/lua.sh"
 
 # Add aliases for dotfiles.
 alias dfo="cd $PROJECTS_DIRECTORY/dotfiles"
@@ -97,6 +103,16 @@ new_project() {
 	else
 		echo "no project title given"
 	fi
+}
+
+goland_open() {
+    if [ $# -gt 1 ]; then
+        echo "too many arguments were handed over"
+    elif [ $# -eq 1 ]; then
+        goland nosplash $PROJECTS_DIRECTORY/$1 > /dev/null 2>&1 &
+    else
+        goland nosplash $(pwd) > /dev/null 2>&1 &
+    fi
 }
 
 vscode_open() {
