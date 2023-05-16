@@ -16,6 +16,3 @@ curl -L -o /tmp/go$VERSION.$OS-$ARCH.tar.gz https://go.dev/dl/go$VERSION.$OS-$AR
 rm -rf /usr/local/go
 tar -C /usr/local -xzf /tmp/go$VERSION.$OS-$ARCH.tar.gz
 rm /tmp/go$VERSION.$OS-$ARCH.tar.gz
-
-echo "golang $VERSION installed"
-exit 0
