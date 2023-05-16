@@ -77,6 +77,10 @@ alias gko="gitkraken_open"
 alias goud="sudo $INSTALL_DIRECTORY/golang.sh"
 alias luaud="sudo $INSTALL_DIRECTORY/lua.sh"
 
+# Aliasses for dump or load terminal profiles.
+alias gtpd="gnome_terminal_profiles dump"
+alias gtpl="gnome_terminal_profiles load"
+
 # Add aliases for dotfiles.
 alias dfo="cd $PROJECTS_DIRECTORY/dotfiles"
 alias dfb="lua $SCRIPTS_DIRECTORY/dotfiles.lua backup"
@@ -133,4 +137,21 @@ gitkraken_open() {
 	else
 		gitkraken -p $(pwd) -s false	
 	fi
+}
+
+gnome_terminal_profiles() {
+  if [ $# -gt 1 ]; then
+    echo "too many arguments were handed over"
+  elif [ $# -eq 1 ]; then
+    if [ $1 = "dump" ]; then
+      mkdir -p $HOME/.config/gnome-terminal
+      dconf dump /org/gnome/terminal/legacy/profiles:/ > $HOME/.config/gnome-terminal/profiles.conf
+      echo "dumped terminal profiles"
+    elif [ $1 = "load" ]; then
+      dconf load /org/gnome/terminal/legacy/profiles:/ < $HOME/.config/gnome-terminal/profiles.conf
+      echo "loaded terminal profiles"
+    fi
+  else
+    echo "no profile operation given"
+  fi
 }
