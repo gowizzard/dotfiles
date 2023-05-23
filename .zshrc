@@ -5,6 +5,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export PROJECTS_DIRECTORY="$HOME/Projects"
 export INSTALL_DIRECTORY="$HOME/.install"
 export SCRIPTS_DIRECTORY="$HOME/.scripts"
+export DOTFILES_DIRECTORY="$PROJECTS_DIRECTORY/dotfiles"
 
 # Path for golang installation.
 export GOPATH=$HOME/go
@@ -82,7 +83,7 @@ alias gtpd="gnome_terminal_profiles dump"
 alias gtpl="gnome_terminal_profiles load"
 
 # Add aliases for dotfiles.
-alias dfo="cd $PROJECTS_DIRECTORY/dotfiles"
+alias dfo="cd $DOTFILES_DIRECTORY"
 alias dfb="lua $SCRIPTS_DIRECTORY/dotfiles.lua backup"
 alias dfr="lua $SCRIPTS_DIRECTORY/dotfiles.lua restore"
 
