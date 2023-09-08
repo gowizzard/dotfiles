@@ -3,7 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Path to my project directory.
 export PROJECTS_DIRECTORY="$HOME/Projects"
-export SCRIPTS_DIRECTORY="$HOME/.install"
+export SCRIPTS_DIRECTORY="$HOME/.scripts"
 export DOTFILES_DIRECTORY="$PROJECTS_DIRECTORY/dotfiles"
 
 # Path for golang installation.
