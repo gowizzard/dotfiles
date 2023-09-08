@@ -3,7 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Path to my project directory.
 export PROJECTS_DIRECTORY="$HOME/Projects"
-export INSTALL_DIRECTORY="$HOME/.install"
+export SCRIPTS_DIRECTORY="$HOME/.install"
 export DOTFILES_DIRECTORY="$PROJECTS_DIRECTORY/dotfiles"
 
 # Path for golang installation.
@@ -23,6 +23,7 @@ plugins=(
 	tmux
 	git
 	golang
+    redis-cli
 	docker
 	docker-compose
 	vi-mode
@@ -40,12 +41,25 @@ alias somz="source $HOME/.zshrc"
 alias etmux="vim $HOME/.tmux.conf"
 alias stmux="tmux source-file $HOME/.tmux.conf"
 
+# Define new aliases for bat.
+alias cat="batcat"
+
 # Define new aliases for general work.
 alias hd="cd $HOME"
 alias pd="projects"
 alias np="new_project"
-alias sd="cd $SCRIPTS_DIRECTORY"
 alias dd="cd $HOME/Downloads"
+alias drm="rm -r $HOME/Downloads/*"
+
+# Define new aliases for open files.
+alias ddo="xdg-open $HOME/Downloads"
+
+# Define new aliases for move around.
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias cdb="cd -INSTALL_DIRECTORY"
 
 # Remove folders and files.
 alias rmr="rm -r"
@@ -62,20 +76,14 @@ alias pmr="sudo apt remove"
 # To edit easy the ssh config file.
 alias essh="vim $HOME/.ssh/config"
 
-# Docker aliases.
-alias dkp="docker ps"
-alias dkpa="docker ps --all"
-alias dkl="docker logs"
-alias dklf="docker logs --follow"
-
 # Open project from project directory or actual directory.
 alias glo="goland_open"
 alias vco="vscode_open"
 alias gko="gitkraken_open"
 
 # Aliasses for update or install dependencies.
-alias goud="sudo $INSTALL_DIRECTORY/golang.sh"
-alias luaud="sudo $INSTALL_DIRECTORY/lua.sh"
+alias goud="sudo $SCRIPTS_DIRECTORY/install/golang.sh"
+alias luaud="sudo $SCRIPTS_DIRECTORY/install/lua.sh"
 
 # Aliasses for dump or load terminal profiles.
 alias gtpd="gnome_terminal_profiles dump"
@@ -83,6 +91,25 @@ alias gtpl="gnome_terminal_profiles load"
 
 # Add aliases for dotfiles.
 alias dfo="cd $DOTFILES_DIRECTORY"
+
+# Add aliases for notes.
+alias nto="obsidian $PROJECTS/notes"
+alias ntgh="notes_to_github"
+
+# Add aliases for golang.
+alias gmi="go mod init"
+alias gmt="go mod tidy"
+alias gg="go get"
+
+# Add aliases for docker.
+alias dcu="docker-compose up"
+alias dcud="docker-compose up -d"
+alias dcd="docker-compose down"
+alias dcdr="docker-compose down --rmi all"
+alias dcr="docker-compose restart"
+
+# Add aliases for redis-cli.
+alias rcc="redis-cli -h localhost -p 6379"
 
 # Define functions to optimize workflow.
 projects() {
@@ -152,4 +179,12 @@ gnome_terminal_profiles() {
   else
     echo "no profile operation given"
   fi
+}
+
+notes_to_github() {
+  cd $PROJECTS_DIRECTORY/notes
+  git add .
+  git commit -m "ci: Add or update notes."
+  git push
+  cd -
 }
