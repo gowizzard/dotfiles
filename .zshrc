@@ -59,7 +59,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias cdb="cd -INSTALL_DIRECTORY"
+alias cdb="cd -"
 
 # Remove folders and files.
 alias rmr="rm -r"
