@@ -113,8 +113,10 @@ smart_gaps on
 
 # Define settings for the bar.
 bar {
-    output primary
-    tray_output primary
+    output eDP
+    output DisplayPort-8
+    tray_output eDP
+    tray_output DisplayPort-8
     status_command ~/.config/i3/i3status
     separator_symbol " | "
     font pango: JetBrains Mono SemiBold, Font Awesome 6 Brands 10
@@ -128,7 +130,6 @@ bar {
 }
 
 bar {
-    output eDP
     output DisplayPort-7
     tray_output none
     font pango: JetBrains Mono SemiBold 10
