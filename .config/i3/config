@@ -12,6 +12,11 @@ exec --no-startup-id dex --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+# Set motnitor layout
+exec --no-startup-id xrandr --output eDP-1 --auto --mode 2560x1440
+exec --no-startup-id xrandr --output DisplayPort-8 --primary --auto --mode 2560x1440 --left-of eDP
+exec --no-startup-id xrandr --output DisplayPort-7 --auto --mode 2560x1440 --left-of DisplayPort-8 --rotate left
+
 # Use Mouse+$mod to drag floating windows to their wanted position.
 floating_modifier $mod
 
@@ -34,7 +39,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Exit i3 (logs you out of your X session).
-bindsym $mod+Shift+e exec "i3-nagbar -m 'Do you want to end the i3 session?' -B 'Yes, exit' 'i3-msg exit' --font 'pango: JetBrains Mono Bold 10'"
+bindsym $mod+Shift+e exec "i3-nagbar -m 'Do you want to end the i3 session?' -B 'Yes, exit' 'i3-msg exit' --font 'pango: JetBrains Mono SemiBold 10'"
 
 # Define the focus keys.
 bindsym $mod+Left focus left
@@ -48,23 +53,43 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# Define workspaces on monitors.
+workspace 1 output DisplayPort-8
+workspace 2 output DisplayPort-8
+workspace 3 output DisplayPort-8
+workspace 4 output DisplayPort-8
+workspace 5 output DisplayPort-8
+workspace 6 output DisplayPort-7
+workspace 7 output DisplayPort-7
+workspace 8 output eDP
+workspace 9 output eDP
+
 # Switch to workspace.
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
 
 # Move focused container to workspace.
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
 
 # Define autostart for programms.
 exec --no-startup-id i3-msg 'workspace number 1; exec firefox'
 
 # Define workspace for applications
-assign [class="^firefox$"] 1
 assign [class="^jetbrains-goland$"] 2
 assign [class="^code$"] 2
 assign [class="^gitkraken$"] 3
@@ -73,9 +98,10 @@ assign [class="^thunderbird$"] 4
 # Set theme colors.
 set $blue #19ABFF
 set $grey #262626
+set $red #FF1938
 
 # Define font for windows.
-font pango: JetBrains Mono Bold 10
+font pango: JetBrains Mono SemiBold 10
 
 # Set default border for normal and floating.
 default_border pixel 0
@@ -87,14 +113,28 @@ smart_gaps on
 
 # Define settings for the bar.
 bar {
-    status_command ~/.config/i3/status_bar.sh
+    output primary
+    tray_output primary
+    status_command ~/.config/i3/i3status
     separator_symbol " | "
-    font pango: JetBrains Mono Bold 10
+    font pango: JetBrains Mono SemiBold, Font Awesome 6 Brands 10
     padding 0 10px 0 0
-    tray_padding 5px
     colors {
-	separator $grey
+        separator $grey
         focused_workspace  $grey $blue #000000
         inactive_workspace $grey $grey #FFFFFF
+        urgent_workspace $grey $red #FFFFFF
+    }
+}
+
+bar {
+    output eDP
+    output DisplayPort-7
+    tray_output none
+    font pango: JetBrains Mono SemiBold 10
+    colors {
+        focused_workspace  $grey $blue #000000
+        inactive_workspace $grey $grey #FFFFFF
+        urgent_workspace $grey $red #FFFFFF 
     }
 }
