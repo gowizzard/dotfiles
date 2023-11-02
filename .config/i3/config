@@ -13,12 +13,9 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # Set motnitor layout
-exec --no-startup-id xrandr --output eDP-1 --auto --mode 2560x1440
-exec --no-startup-id xrandr --output DisplayPort-8 --primary --auto --mode 2560x1440 --left-of eDP
-exec --no-startup-id xrandr --output DisplayPort-7 --auto --mode 2560x1440 --left-of DisplayPort-8 --rotate left
-
-# Use Mouse+$mod to drag floating windows to their wanted position.
-floating_modifier $mod
+exec --no-startup-id xrandr --output eDP --auto --mode 1920x1200
+exec --no-startup-id xrandr --output DisplayPort-8 --auto --mode 2560x1440 --left-of eDP --pos 0x0
+exec --no-startup-id xrandr --output DisplayPort-7 --auto --mode 2560x1440 --left-of DisplayPort-8 --rotate left --pos 1280x0
 
 # Start dmenu (a program launcher).
 bindsym $mod+space exec --no-startup-id dmenu_run -fn 'JetBrains Mono' -nb '#262626' -nf '#FFFFFF' -sb '#19ABFF' -sf '#000000'
@@ -35,11 +32,11 @@ bindsym $mod+Shift+q kill
 # Reload the configuration file.
 bindsym $mod+Shift+c reload
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3).
 bindsym $mod+Shift+r restart
 
-# Exit i3 (logs you out of your X session).
-bindsym $mod+Shift+e exec "i3-nagbar -m 'Do you want to end the i3 session?' -B 'Yes, exit' 'i3-msg exit' --font 'pango: JetBrains Mono SemiBold 10'"
+# Exit i3.
+bindsym $mod+Shift+e exit
 
 # Define the focus keys.
 bindsym $mod+Left focus left
@@ -93,7 +90,7 @@ exec --no-startup-id i3-msg 'workspace number 1; exec firefox'
 assign [class="^jetbrains-goland$"] 2
 assign [class="^code$"] 2
 assign [class="^gitkraken$"] 3
-assign [class="^thunderbird$"] 4
+assign [class="^thunderbird$"] 5
 
 # Set theme colors.
 set $blue #19ABFF
@@ -116,11 +113,11 @@ bar {
     output eDP
     output DisplayPort-8
     tray_output eDP
-    tray_output DisplayPort-8
     status_command ~/.config/i3/i3status
     separator_symbol " | "
     font pango: JetBrains Mono SemiBold, Font Awesome 6 Brands 10
     padding 0 10px 0 0
+    workspace_min_width 22
     colors {
         separator $grey
         focused_workspace  $grey $blue #000000
@@ -133,6 +130,7 @@ bar {
     output DisplayPort-7
     tray_output none
     font pango: JetBrains Mono SemiBold 10
+    workspace_min_width 22
     colors {
         focused_workspace  $grey $blue #000000
         inactive_workspace $grey $grey #FFFFFF
