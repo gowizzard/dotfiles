@@ -5,7 +5,7 @@
 # Set the mod key.
 set $mod Mod4
 
-# Start XDG autostart .desktop files using dex. See also https://wiki.archlinux.org/index.php/XDG_Autostart.
+# Start XDG autostart .desktop files using dex.
 exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
@@ -34,7 +34,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Exit i3.
-bindsym $mod+Shift+e exit
+bindsym $mod+Shift+Escape exit
 
 # Define the focus keys.
 bindsym $mod+Left focus left
