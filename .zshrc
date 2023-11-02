@@ -10,6 +10,9 @@ export DOTFILES_DIRECTORY="$PROJECTS_DIRECTORY/dotfiles"
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
+# Path for docker labs debug tools.
+export PATH=$PATH:/home/jonaskwiedor/.local/bin
+
 # Theme that oh-my-zsh uses.
 ZSH_THEME="agnoster"
 
@@ -22,11 +25,10 @@ plugins=(
 	sudo
 	tmux
 	git
-	golang
+    golang
     redis-cli
 	docker
 	docker-compose
-	vi-mode
 	jsontools
 	zsh-autosuggestions
 )
@@ -37,6 +39,9 @@ source $ZSH/oh-my-zsh.sh
 alias eomz="vim $HOME/.zshrc"
 alias somz="source $HOME/.zshrc"
 
+# Define new alias for i3.
+alias ei3="vim $HOME/.config/i3/config"
+
 # Define new aliases for tmux.
 alias etmux="vim $HOME/.tmux.conf"
 alias stmux="tmux source-file $HOME/.tmux.conf"
@@ -46,7 +51,7 @@ alias cat="batcat"
 
 # Define new aliases for general work.
 alias hd="cd $HOME"
-alias pd="projects"
+alias pd="cd $PROJECTS_DIRECTORY"
 alias np="new_project"
 alias dd="cd $HOME/Downloads"
 alias drm="rm -r $HOME/Downloads/*"
@@ -112,16 +117,6 @@ alias dcr="docker-compose restart"
 alias rcc="redis-cli -h localhost -p 6379"
 
 # Define functions to optimize workflow.
-projects() {
-	if [ $# -gt 1 ]; then
-		echo "too many arguments were handed over"
-	elif [ $# -eq 1 ]; then
-		cd $PROJECTS_DIRECTORY/$1
-	else 
-		cd $PROJECTS_DIRECTORY
-	fi
-}
-
 new_project() {
 	if [ $# -gt 1 ]; then
 		echo "too many arguments were handed over"
