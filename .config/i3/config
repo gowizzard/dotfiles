@@ -12,6 +12,9 @@ exec --no-startup-id dex --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+# Start docker desktop
+exec --no-startup-id systemctl --user start docker-desktop
+
 # Set motnitor layout
 exec_always --no-startup-id xrandr --output eDP --auto --mode 1920x1200 --output DisplayPort-8 --auto --mode 2560x1440 --left-of eDP --pos 0x0 --output DisplayPort-7 --auto --mode 2560x1440 --left-of DisplayPort-8 --rotate left --pos 1280x0
 
