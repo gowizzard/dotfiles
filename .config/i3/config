@@ -10,7 +10,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 000000 --nofork
 
 # Start docker desktop
 exec --no-startup-id systemctl --user start docker-desktop
@@ -38,6 +38,9 @@ bindsym $mod+Shift+r restart
 
 # Exit i3.
 bindsym $mod+Shift+Escape exit
+
+# Activate lock screen.
+bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 --nofork
 
 # Define the focus keys.
 bindsym $mod+Left focus left
