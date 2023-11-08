@@ -22,7 +22,7 @@ exec_always --no-startup-id xrandr --output eDP --auto --mode 1920x1200 --output
 bindsym $mod+space exec --no-startup-id dmenu_run -fn 'JetBrains Mono' -nb '#262626' -nf '#FFFFFF' -sb '#19ABFF' -sf '#000000'
 
 # Start the gnome terminal.
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec kitty
 
 # Start nautilus file manager.
 bindsym $mod+f exec nautilus
@@ -53,6 +53,11 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+# Audio control keybindings.
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%- unmute
+bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
 
 # Music control keybindings.
 bindsym XF86AudioPlay exec playerctl play-pause
