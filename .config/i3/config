@@ -100,6 +100,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 
 # Define autostart for programms.
 exec --no-startup-id i3-msg 'workspace number 1; exec firefox'
+exec --no-startup-id i3-msg 'workspace number 2; exec kitty'
 
 # Define workspace for applications
 assign [class="^jetbrains-goland$"] 2
