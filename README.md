@@ -2,8 +2,10 @@
 
 This repository contains dotfiles and configuration settings for:
 
-- Git: My version control of choice.
 - i3: A popular tiling window manager.
-- Tmux: Terminal multiplexer to manage multiple sessions.
+- Kitty: My terminal emulator of choice.
 - Oh-my-zsh: Framework for managing Zsh configuration.
+- Tmux: Terminal multiplexer to manage multiple sessions.
+- Git: My version control of choice.
+- Vim: My text editor of choice for terminal.
 - ... and various other tools that boost my productivity!
