@@ -11,7 +11,7 @@ export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 # Path for docker labs debug tools.
-export PATH=$PATH:/home/jonaskwiedor/.local/bin
+export PATH=$PATH:/home/gowizzard/.local/bin
 
 # Theme that oh-my-zsh uses.
 ZSH_THEME="agnoster"
@@ -23,7 +23,7 @@ ZSH_TMUX_AUTOCONNECT=false
 # Define all plugins for oh-my-zsh.
 plugins=(
 	sudo
-	tmux
+    tmux
 	git
     golang
     redis-cli
@@ -41,6 +41,9 @@ alias somz="source $HOME/.zshrc"
 
 # Define new alias for i3.
 alias ei3="vim $HOME/.config/i3/config"
+
+# Define new aliases for kitty.
+alias ekitty="vim $HOME/.config/kitty/kitty.conf"
 
 # Define new aliases for tmux.
 alias etmux="vim $HOME/.tmux.conf"
@@ -82,17 +85,12 @@ alias pmr="sudo apt remove"
 alias essh="vim $HOME/.ssh/config"
 
 # Open project from project directory or actual directory.
-alias glo="goland_open"
 alias vco="vscode_open"
 alias gko="gitkraken_open"
 
 # Aliasses for update or install dependencies.
 alias goud="sudo $SCRIPTS_DIRECTORY/install/golang.sh"
 alias luaud="sudo $SCRIPTS_DIRECTORY/install/lua.sh"
-
-# Aliasses for dump or load terminal profiles.
-alias gtpd="gnome_terminal_profiles dump"
-alias gtpl="gnome_terminal_profiles load"
 
 # Add aliases for dotfiles.
 alias dfo="cd $DOTFILES_DIRECTORY"
@@ -116,6 +114,12 @@ alias dcr="docker-compose restart"
 # Add aliases for redis-cli.
 alias rcc="redis-cli -h localhost -p 6379"
 
+# Add aliases for bluetooth.
+alias btc="bluetooth_connect"
+
+# Add alias for neofetch.
+alias nf="neofetch"
+
 # Define functions to optimize workflow.
 new_project() {
 	if [ $# -gt 1 ]; then
@@ -127,16 +131,6 @@ new_project() {
 	else
 		echo "no project title given"
 	fi
-}
-
-goland_open() {
-    if [ $# -gt 1 ]; then
-        echo "too many arguments were handed over"
-    elif [ $# -eq 1 ]; then
-        goland nosplash $PROJECTS_DIRECTORY/$1 > /dev/null 2>&1 &
-    else
-        goland nosplash $(pwd) > /dev/null 2>&1 &
-    fi
 }
 
 vscode_open() {
@@ -159,27 +153,27 @@ gitkraken_open() {
 	fi
 }
 
-gnome_terminal_profiles() {
-  if [ $# -gt 1 ]; then
-    echo "too many arguments were handed over"
-  elif [ $# -eq 1 ]; then
-    if [ $1 = "dump" ]; then
-      mkdir -p $HOME/.config/gnome-terminal
-      dconf dump /org/gnome/terminal/legacy/profiles:/ > $HOME/.config/gnome-terminal/profiles.conf
-      echo "dumped terminal profiles"
-    elif [ $1 = "load" ]; then
-      dconf load /org/gnome/terminal/legacy/profiles:/ < $HOME/.config/gnome-terminal/profiles.conf
-      echo "loaded terminal profiles"
-    fi
-  else
-    echo "no profile operation given"
-  fi
-}
-
 notes_to_github() {
   cd $PROJECTS_DIRECTORY/notes
   git add .
   git commit -m "ci: Add or update notes."
   git push
   cd -
+}
+
+bluetooth_connect() {
+  if [ $# -gt 1]; then
+    echo "too many arguments were handed over"
+  elif [ $# -eq 1 ]; then
+    case $1 in
+      "work")
+        bluetoothctl connect C8:7B:23:56:3D:95
+        ;;
+      "home")
+        bluetoothctl connect 78:2B:64:D1:66:57
+        ;;
+    esac
+  else
+    echo "no bluetooth device given"
+  fi
 }
