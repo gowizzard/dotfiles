@@ -60,10 +60,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%- unmut
 bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
 
 # Music control keybindings.
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Define workspaces on monitors.
 workspace 1 output DisplayPort-8
@@ -100,7 +100,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 
 # Define autostart for programms.
 exec --no-startup-id i3-msg 'workspace number 1; exec firefox'
-exec --no-startup-id i3-msg 'workspace number 2; exec kitty'
+exec --no-startup-id i3-msg 'workspace number 6; exec kitty'
 
 # Define workspace for applications
 assign [class="^jetbrains-goland$"] 2
