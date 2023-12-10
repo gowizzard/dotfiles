@@ -12,17 +12,32 @@ exec --no-startup-id dex --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 000000 --nofork
 
+# Start dunst notification agent.
+exec --no-startup-id dunst
+
+# Start network manager applet.
+exec --no-startup-id nm-applet
+
+# Start jetbrains toolbox minimized mode.
+exec --no-startup-id jetbrains-toolbox --minimize
+
+# Start 1password in silent mode.
+exec --no-startup-id 1password --silent
+
 # Start docker desktop
 exec --no-startup-id systemctl --user start docker-desktop
 
 # Set motnitor layout
 exec_always --no-startup-id xrandr --output eDP --auto --mode 1920x1200 --output DisplayPort-8 --auto --mode 2560x1440 --left-of eDP --pos 0x0 --output DisplayPort-7 --auto --mode 2560x1440 --left-of DisplayPort-8 --rotate left --pos 1280x0
 
+# Set mouse + modifier to drag floating windows. 
+floating_modifier $mod
+
 # Start dmenu (a program launcher).
 bindsym $mod+space exec --no-startup-id dmenu_run -fn 'JetBrains Mono' -nb '#262626' -nf '#FFFFFF' -sb '#19ABFF' -sf '#000000'
 
 # Start the gnome terminal.
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec kitty -e tmux
 
 # Start nautilus file manager.
 bindsym $mod+f exec nautilus
@@ -37,7 +52,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Exit i3.
-bindsym $mod+Shift+Escape exit
+bindsym $mod+Shift+Escape exec i3 exit
 
 # Activate lock screen.
 bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 --nofork
@@ -100,7 +115,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 
 # Define autostart for programms.
 exec --no-startup-id i3-msg 'workspace number 1; exec firefox'
-exec --no-startup-id i3-msg 'workspace number 6; exec kitty'
+exec --no-startup-id i3-msg 'workspace number 6; exec kitty -e tmux'
 
 # Define workspace for applications
 assign [class="^jetbrains-goland$"] 2
