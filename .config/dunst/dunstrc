@@ -1,0 +1,41 @@
+# Define global configuration.
+[global]
+	
+	monitor = 0
+	offset = 30x30
+
+	padding = 20
+	horizontal_padding = 15
+	text_icon_padding = 15
+
+	font = "JetBrains Mono" 10
+	line_height = 5
+	vertical_alignment = center
+
+	frame_width = 0
+
+	enable_recursive_icon_lookup = true
+   	icon_theme = Papirus-Dark
+	min_icon_size = 32
+
+
+# Define the configuration for low notification settings.
+[urgency_low]
+	
+	background = "#262626"
+	foreground = "#FFFFFF"
+	timeout = 5
+
+# Define the configuration for normal notification settings.
+[urgency_normal]
+	
+	background = "#262626"
+	foreground = "#FFFFFF"
+	timeout = 5
+
+# Define the configuration for critical notification settings
+[urgency_critical]
+	
+	background = "#FF1938"
+	foreground = "#FFFFFF"
+	timeout = 10
