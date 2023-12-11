@@ -6,27 +6,19 @@ export PROJECTS_DIRECTORY="$HOME/Projects"
 export SCRIPTS_DIRECTORY="$HOME/.scripts"
 export DOTFILES_DIRECTORY="$PROJECTS_DIRECTORY/dotfiles"
 
-# Path for golang installation.
-export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
-
-# Path for docker labs debug tools.
-export PATH=$PATH:/home/gowizzard/.local/bin
+# Path for jetbrains toolbox scripts.
+export PATH=$PATH:/home/gowizzard/.local/share/JetBrains/Toolbox/scripts
 
 # Theme that oh-my-zsh uses.
 ZSH_THEME="agnoster"
 
-# Allow tmux to autostart.
-ZSH_TMUX_AUTOSTART=true
-ZSH_TMUX_AUTOCONNECT=false
-
 # Define all plugins for oh-my-zsh.
 plugins=(
 	sudo
-    tmux
+	tmux
 	git
-    golang
-    redis-cli
+	golang
+	redis-cli
 	docker
 	docker-compose
 	jsontools
@@ -49,8 +41,11 @@ alias ekitty="vim $HOME/.config/kitty/kitty.conf"
 alias etmux="vim $HOME/.tmux.conf"
 alias stmux="tmux source-file $HOME/.tmux.conf"
 
+# Define new aliases for vim/nvim.
+alias vim="nvim"
+
 # Define new aliases for bat.
-alias cat="batcat"
+alias cat="bat"
 
 # Define new aliases for general work.
 alias hd="cd $HOME"
@@ -72,14 +67,6 @@ alias cdb="cd -"
 # Remove folders and files.
 alias rmr="rm -r"
 alias rma="rm -r *"
-
-# Package manager aliases.
-alias pml="sudo apt list --installed"
-alias pmud="sudo apt update"
-alias pmug="sudo apt upgrade -y"
-alias pmar="sudo apt autoremove -y"
-alias pmi="sudo apt install"
-alias pmr="sudo apt remove"
 
 # To edit easy the ssh config file.
 alias essh="vim $HOME/.ssh/config"
