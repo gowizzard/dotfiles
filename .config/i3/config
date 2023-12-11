@@ -24,9 +24,6 @@ exec --no-startup-id jetbrains-toolbox --minimize
 # Start 1password in silent mode.
 exec --no-startup-id 1password --silent
 
-# Start docker desktop
-exec --no-startup-id systemctl --user start docker-desktop
-
 # Set motnitor layout
 exec_always --no-startup-id xrandr --output eDP --auto --mode 1920x1200 --output DisplayPort-8 --auto --mode 2560x1440 --left-of eDP --pos 0x0 --output DisplayPort-7 --auto --mode 2560x1440 --left-of DisplayPort-8 --rotate left --pos 1280x0
 
