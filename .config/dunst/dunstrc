@@ -29,7 +29,7 @@
 # Define the configuration for normal notification settings.
 [urgency_normal]
 	
-	background = "#262626"
+	background = "#19ABFF"
 	foreground = "#FFFFFF"
 	timeout = 5
 
