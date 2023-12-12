@@ -7,7 +7,7 @@ export SCRIPTS_DIRECTORY="$HOME/.scripts"
 export DOTFILES_DIRECTORY="$PROJECTS_DIRECTORY/dotfiles"
 
 # Path for jetbrains toolbox scripts.
-export PATH=$PATH:/home/gowizzard/.local/share/JetBrains/Toolbox/scripts
+export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 
 # Theme that oh-my-zsh uses.
 ZSH_THEME="agnoster"
