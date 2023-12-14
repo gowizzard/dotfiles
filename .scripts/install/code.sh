@@ -3,7 +3,12 @@
 # Install GitKraken latest version for linux x64 systems.
 
 if [ -d "/opt/code" ]; then
-    sudo rm -rf /opt/code
+    read -p "Visual Studio Code is already installed. Do you want to update it? [Y/n] " answer
+    if [[ "$answer" =~ ^[Yy](es)?$ ]]; then
+        sudo rm -rf /opt/code
+    else
+        exit 1
+    fi
 fi
 
 wget -O /tmp/code.tar.gz https://code.visualstudio.com/sha/download?build=stable&os=linux-x64

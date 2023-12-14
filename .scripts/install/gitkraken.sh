@@ -3,7 +3,12 @@
 # Install GitKraken latest version for linux x64 systems.
 
 if [ -d "/opt/gitkraken" ]; then
-    sudo rm -rf /opt/gitkraken
+    read -p "GitKraken is already installed. Do you want to update it? [Y/n] " answer
+    if [[ "$answer" =~ ^[Yy](es)?$ ]]; then
+        sudo rm -rf /opt/gitkraken
+    else
+        exit 1
+    fi
 fi
 
 wget -O /tmp/gitkraken.tar.gz https://release.gitkraken.com/linux/gitkraken-amd64.tar.gz
