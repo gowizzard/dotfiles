@@ -2,6 +2,10 @@
 
 # Install GitKraken latest version for linux x64 systems.
 
+if [ -d "/opt/gitkraken" ]; then
+    sudo rm -rf /opt/gitkraken
+fi
+
 wget -O /tmp/gitkraken.tar.gz https://release.gitkraken.com/linux/gitkraken-amd64.tar.gz
 if [ ! -f "/tmp/gitkraken.tar.gz" ]; then
     echo "Error while downloading GitKraken."
