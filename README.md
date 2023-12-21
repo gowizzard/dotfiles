@@ -26,35 +26,12 @@ In the directory [.scripts/install](.scripts/install) you will find some scripts
 You can find the most important packages here, I need these for the installation and in the operating name of my system, plus other packages that are mapped directly via installation scripts.
 
 ```text
-xorg, xorg-init, i3, dmenu, kitty, zsh, git, tmux, neovim, chromium, firefox, go, rust & python
+xorg, xorg-init, i3, dmenu, kitty, zsh, git, tmux, neovim, chromium, firefox, go & python
 ```
 
 **These packages should be installed directly during the installation process, with some more specific applications or services being added later.**
 
 ### Specific installations
-
-#### Docker
-
-You can download Docker directly via the official Arch Packages, simply execute the following command (possibly install updates first):
-
-```shell
-sudo pacman -S docker docker-compose
-```
-
-The service then only needs to be stored and started. This can be done with the following commands:
-
-```shell
-sudo systemctl enable docker.service
-sudo systemctl start docker.service
-```
-
-Now your user should be added to the group, simply execute the following command:
-
-```shell
-sudo usermod -aG docker $USER
-```
-
-**It is then recommended to restart the system immediately, now you should be able to execute the Docker commands with your user without `sudo`.**
 
 #### Notifications
 
@@ -97,3 +74,40 @@ sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
 ```
 The `blueberry-tray` can now be stored directly in the [i3 configuration](.config/i3/config) so that the GUI starts immediately when the system is started.
+
+#### Docker
+
+You can download Docker directly via the official Arch Packages, simply execute the following command (possibly install updates first):
+
+```shell
+sudo pacman -S docker docker-compose
+```
+
+The service then only needs to be stored and started. This can be done with the following commands:
+
+```shell
+sudo systemctl enable docker.service
+sudo systemctl start docker.service
+```
+
+Now your user should be added to the group, simply execute the following command:
+
+```shell
+sudo usermod -aG docker $USER
+```
+
+**It is then recommended to restart the system immediately, now you should be able to execute the Docker commands with your user without `sudo`.**
+
+#### Rust
+
+In order to use rust correctly, you should install the following package. This is the official rustup package, which is used to install rust.
+
+```shell
+sudo pacman -S rustup
+```
+
+Now you can install the Rust toolchain with the following command. This will install the stable version of rust.
+
+```shell
+rustup default stable
+```
