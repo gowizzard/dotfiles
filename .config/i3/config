@@ -31,7 +31,7 @@ exec --no-startup-id 1password --silent
 exec --no-startup-id xrandr --output Virtual-1 --auto --mode 2560x1440
 
 # Define background.
-exec --no-startup-id feh --bg-scale ~/.images/backgrounds/gowizzardV3.jpg
+exec --no-startup-id feh --bg-scale ~/.images/backgrounds/gowizzardV2.jpg
 
 # Set mouse + modifier to drag floating windows. 
 floating_modifier $mod
