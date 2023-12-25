@@ -17,6 +17,10 @@ This repository contains dotfiles and configuration settings for:
 - Dunst: My notification manager of choice.
 - ... and various other tools that boost my productivity!
 
+## Docker Compose
+
+There is a [.compose](.compose) directory where I store all the Docker Compose files that I need locally, like creating a small database for testing etc. 
+
 ## Installation
 
 In the directory [.scripts/install](.scripts/install) you will find some scripts for the installation of, for me, important applications. There are also a few other services that I need, you can find a few short installation instructions here. Most of it is specific to arch linux.
