@@ -72,12 +72,11 @@ alias rma="rm -r *"
 alias essh="vim $HOME/.ssh/config"
 
 # Open project from project directory or actual directory.
+alias glo="jetbrains_ide_open \"goland\""
+alias rro="jetbrains_ide_open \"rustrover\""
+alias pco="jetbrains_ide_open \"pycharm\""
 alias vco="vscode_open"
 alias gko="gitkraken_open"
-
-# Aliasses for update or install dependencies.
-alias goud="sudo $SCRIPTS_DIRECTORY/install/golang.sh"
-alias luaud="sudo $SCRIPTS_DIRECTORY/install/lua.sh"
 
 # Add aliases for dotfiles.
 alias dfo="cd $DOTFILES_DIRECTORY"
@@ -98,12 +97,6 @@ alias dcd="docker-compose down"
 alias dcdr="docker-compose down --rmi all"
 alias dcr="docker-compose restart"
 
-# Add aliases for redis-cli.
-alias rcc="redis-cli -h localhost -p 6379"
-
-# Add aliases for bluetooth.
-alias btc="bluetooth_connect"
-
 # Add alias for neofetch.
 alias nf="neofetch"
 
@@ -117,6 +110,16 @@ new_project() {
 		git init
 	else
 		echo "no project title given"
+	fi
+}
+
+jetbrains_ide_open() {
+	if [ $# -gt 2 ]; then
+		echo "too many arguments were handed over"
+	elif [ $# -eq 2 ]; then
+		arg-runner $1 nosplash $PROJECTS_DIRECTORY/$2
+	else
+		arg-runner $1 nosplash .
 	fi
 }
 
@@ -141,26 +144,9 @@ gitkraken_open() {
 }
 
 notes_to_github() {
-  cd $PROJECTS_DIRECTORY/notes
-  git add .
-  git commit -m "ci: Add or update notes."
-  git push
-  cd -
-}
-
-bluetooth_connect() {
-  if [ $# -gt 1]; then
-    echo "too many arguments were handed over"
-  elif [ $# -eq 1 ]; then
-    case $1 in
-      "work")
-        bluetoothctl connect C8:7B:23:56:3D:95
-        ;;
-      "home")
-        bluetoothctl connect 78:2B:64:D1:66:57
-        ;;
-    esac
-  else
-    echo "no bluetooth device given"
-  fi
+	cd $PROJECTS_DIRECTORY/notes
+	git add .
+	git commit -m "ci: Add or update notes."
+	git push
+	cd -
 }
