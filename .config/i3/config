@@ -72,6 +72,17 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# Resize window (you can also use the mouse for that).
+mode "resize" {
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
 # Audio control keybindings.
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%- unmute
