@@ -19,7 +19,7 @@ sudo tar -xzf /tmp/postman.tar.gz -C /opt/postman --strip-components=1
 rm /tmp/postman.tar.gz
 
 if [ ! -L "/usr/local/bin/postman" ]; then
-    sudo ln -s /opt/postman/postman /usr/local/bin/postman
+    sudo ln -s /opt/postman/Postman /usr/local/bin/postman
 fi
 
 echo "Postman installation completed."
