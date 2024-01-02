@@ -21,6 +21,13 @@ if [ ! -L "/usr/local/bin/jetbrains-toolbox" ]; then
     sudo ln -s /opt/redisinsight/jetbrains-toolbox /usr/local/bin/jetbrains-toolbox
 fi
 
-sudo pacman -S --noconfirm fuse2 libappindicator-gtk3
+if command -v pacman &> /dev/null; then
+    sudo pacman -S --noconfirm fuse2 libappindicator-gtk3
+elif command -v apt-get &> /dev/null; then
+    sudo apt-get install -y libfuse2
+else
+    echo "Unsupported Linux distribution. Please install the required dependencies manually."
+    exit 1
+fi
 
 echo "JetBrains Toolbox installation completed."
