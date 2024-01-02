@@ -28,7 +28,7 @@ exec --no-startup-id jetbrains-toolbox --minimize
 exec --no-startup-id 1password --silent
 
 # Set motnitor layout.
-exec --no-startup-id xrandr --output Virtual-1 --auto --mode 2560x1440
+exec_always --no-startup-id xrandr --output eDP --auto --mode 1920x1200 --output DisplayPort-8 --auto --mode 2560x1440 --left-of eDP --pos 0x0 --output DisplayPort-7 --auto --mode 2560x1440 --left-of DisplayPort-8 --rotate left --pos 1280x0
 
 # Define background.
 exec --no-startup-id feh --bg-scale ~/.images/backgrounds/gowizzardV2.jpg
@@ -74,11 +74,11 @@ bindsym $mod+Shift+Right move right
 
 # Resize window (you can also use the mouse for that).
 mode "resize" {
-        bindsym Left        resize shrink width 10 px or 10 ppt
-        bindsym Down        resize grow height 10 px or 10 ppt
-        bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
-        bindsym Escape mode "default"
+    bindsym Left        resize shrink width 10 px or 10 ppt
+    bindsym Down        resize grow height 10 px or 10 ppt
+    bindsym Up          resize shrink height 10 px or 10 ppt
+    bindsym Right       resize grow width 10 px or 10 ppt
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
