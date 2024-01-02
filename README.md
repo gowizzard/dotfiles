@@ -25,7 +25,9 @@ There is a [.compose](.compose) directory where I store all the Docker Compose f
 
 In the directory [.scripts/install](.scripts/install) you will find some scripts for the installation of, for me, important applications. There are also a few other services that I need, you can find a few short installation instructions here. Most of it is specific to arch linux.
 
-### Preparations
+### Arch Linux
+
+#### Preparations
 
 You can find the most important packages here, I need these for the installation and in the operating name of my system, plus other packages that are mapped directly via installation scripts.
 
@@ -35,9 +37,9 @@ xorg, xorg-xinit, i3, dmenu, dex, nfs-utils, feh, kitty, zsh, git, tmux, neovim,
 
 **These packages should be installed directly during the installation process, with some more specific applications or services being added later.**
 
-### Specific installations
+#### Specific installations
 
-#### Notifications
+##### Notifications
 
 If you want to install notifications under Arch, you have to proceed as follows. First install the following packages:
 
@@ -47,7 +49,7 @@ sudo pacman -S libnotify dunst
 
 You can now create the folder in `~/.config/dunst` and create the file [dunstrc](.config/dunst/dunstrc) in it so that you can customize the notifications. The start of `dunstrc` must also be stored in the [i3 configuration](.config/i3/config).
 
-#### Network Manager
+##### Network Manager
 
 In order to have a network manager under Arch Linux, you must install the following package:
 
@@ -64,7 +66,7 @@ sudo systemctl start NetworkManager.service
 
 I have now stored the `nm-applet` in my [i3 configuration](.config/i3/config) so that it is automatically started in the window manager.
 
-#### Bluetooth
+##### Bluetooth
 
 If you want to install Bluetooth under Arch Linux, you can do this as follows. First install the following packages:
 
@@ -79,7 +81,7 @@ sudo systemctl start bluetooth.service
 ```
 The `blueberry-tray` can now be stored directly in the [i3 configuration](.config/i3/config) so that the GUI starts immediately when the system is started.
 
-#### Docker
+##### Docker
 
 You can download Docker directly via the official Arch Packages, simply execute the following command (possibly install updates first):
 
@@ -102,7 +104,7 @@ sudo usermod -aG docker $USER
 
 **It is then recommended to restart the system immediately, now you should be able to execute the Docker commands with your user without `sudo`.**
 
-#### Rust
+##### Rust
 
 In order to use rust correctly, you should install the following package. This is the official rustup package, which is used to install rust.
 
