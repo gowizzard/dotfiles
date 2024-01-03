@@ -24,7 +24,7 @@ fi
 if command -v pacman &> /dev/null; then
     sudo pacman -S --noconfirm fuse2 libappindicator-gtk3
 elif command -v apt &> /dev/null; then
-    sudo apt install -y libfuse2
+    sudo apt install -y libfuse2 libxi6 libxrender1 libxtst6 mesa-utils libfontconfig libgtk-3-bin 
 else
     echo "Unsupported Linux distribution. Please install the required dependencies manually."
     exit 1
