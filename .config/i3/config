@@ -31,7 +31,7 @@ exec --no-startup-id 1password --silent
 exec_always --no-startup-id xrandr --output eDP --auto --mode 1920x1200 --output DisplayPort-8 --auto --mode 2560x1440 --left-of eDP --pos 0x0 --output DisplayPort-7 --auto --mode 2560x1440 --left-of DisplayPort-8 --rotate left --pos 1280x0
 
 # Define background.
-exec --no-startup-id feh --bg-scale ~/.images/backgrounds/gowizzardV2.jpg
+exec --no-startup-id feh --bg-center ~/.images/backgrounds/gowizzardV2.jpg
 
 # Set mouse + modifier to drag floating windows. 
 floating_modifier $mod
