@@ -68,9 +68,6 @@ alias cdb="cd -"
 alias rmr="rm -r"
 alias rma="rm -r *"
 
-# To edit easy the ssh config file.
-alias essh="vim $HOME/.ssh/config"
-
 # Open project from project directory or actual directory.
 alias glo="jetbrains_ide_open \"goland\""
 alias rro="jetbrains_ide_open \"rustrover\""
