@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Install JetBrains Toolbox latest version for linux x64 systems.
+
 if [ -d "/opt/jetbrains-toolbox" ]; then
     echo "JetBrains Toolbox is already installed."
     exit 1

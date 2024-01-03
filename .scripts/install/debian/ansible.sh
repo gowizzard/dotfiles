@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Add ansible repository to apt and install the debian package.
+
 if [ -x "$(command -v ansible)" ]; then
     echo "Ansible is already installed."
     exit 0

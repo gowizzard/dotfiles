@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Add docker repository to apt and install the debian package.
+
 if [ -x "$(command -v docker)" ]; then
     echo "Docker is already installed."
     exit 0

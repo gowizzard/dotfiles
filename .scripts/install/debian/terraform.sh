@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Add terraform repository to apt and install the debian package.
+
 if [ -x "$(command -v terraform)" ]; then
     echo "Terraform is already installed."
     exit 0

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Install the given version of golang for x64 systems.
+
 if [ $# -eq 0 ]; then
     echo "no version specified"
     exit 1
