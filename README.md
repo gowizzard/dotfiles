@@ -119,6 +119,10 @@ rustup default stable
 ```
 ### Debian
 
+Partly the installations are similar between Arch Linux and Debian, but since I mainly develop on Debian in the office, you can find some additional information for Debian here.
+
+**P.S.: I decided to use Debian because I need a permanently available system, but of course I have to make concessions with Debian, especially when it comes to updating the packages.**
+
 #### Preparations
 
 You can find the most important packages here, I need these for the installation and in the operating name of my system, plus other packages that are mapped directly via installation scripts.
