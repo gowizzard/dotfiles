@@ -20,7 +20,7 @@ if [ ! -f "/tmp/python.tar.xz" ]; then
     exit 1
 fi
 
-tar -xf /tmp/python-$1.tar.gz -C /tmp
+tar -xf /tmp/python-$1.tar.xz -C /tmp
 cd /tmp/Python-$1
 
 ./configure --enable-optimizations

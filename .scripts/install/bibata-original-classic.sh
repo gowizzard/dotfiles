@@ -18,7 +18,7 @@ if [ ! -f "/tmp/Bibata-Original-Classic.tar.xz" ]; then
 fi
 
 sudo mkdir -p /usr/share/icons/Bibata-Original-Classic
-sudo tar -xzf /tmp/Bibata-Original-Classic.tar.xz -C /usr/share/icons/Bibata-Original-Classic --strip-components=1
+sudo tar -xf /tmp/Bibata-Original-Classic.tar.xz -C /usr/share/icons/Bibata-Original-Classic --strip-components=1
 rm /tmp/Bibata-Original-Classic.tar.xz
 
 echo "Bibata Original Classic installation completed. Please check your cursor settings in .xintrc file."
