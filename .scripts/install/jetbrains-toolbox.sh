@@ -1,14 +1,12 @@
 #!/bin/bash
 
 # Install JetBrains Toolbox latest version for linux x64 systems.
-
 if [ -d "/opt/jetbrains-toolbox" ]; then
     echo "JetBrains Toolbox is already installed."
     exit 1
 fi
 
-wget -O /tmp/jetbrains-toolbox.tar.gz $(curl -s 'https://data.services.jetbrains.com/products/releases?code=TBA&latest=true&type=release' | \
-    jq -r '.TBA[0].downloads.linux.link')
+wget -O /tmp/jetbrains-toolbox.tar.gz $(curl -s 'https://data.services.jetbrains.com/products/releases?code=TBA&latest=true&type=release' | jq -r '.TBA[0].downloads.linux.link')
 
 if [ ! -f "/tmp/jetbrains-toolbox.tar.gz" ]; then
     echo "Error while downloading JetBrains Toolbox."
