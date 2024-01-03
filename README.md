@@ -128,7 +128,7 @@ Partly the installations are similar between Arch Linux and Debian, but since I 
 You can find the most important packages here, I need these for the installation and in the operating name of my system, plus other packages that are mapped directly via installation scripts.
 
 ```text
-xorg, xinit, i3, dmenu, dex, feh, kitty, zsh, git, tmux, neovim, chromium, gimp, vlc
+xorg, xinit, i3, dmenu, dex, feh, kitty, zsh, git, tmux, neovim, chromium, neofetch, gimp, vlc
 ``` 
 
 #### Specific installations
