@@ -1,3 +1,6 @@
+# Disable system beep.
+xset b off
+
 # Set xresources file.
 xrdb -merge ~/.Xresources
 
