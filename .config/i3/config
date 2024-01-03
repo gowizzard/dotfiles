@@ -42,8 +42,8 @@ bindsym $mod+space exec --no-startup-id dmenu_run -fn 'JetBrains Mono' -nb '#262
 # Start the gnome terminal.
 bindsym $mod+Return exec kitty -e tmux
 
-# Start nautilus file manager.
-bindsym $mod+f exec nautilus
+# Enter fullscreen mode for the focused container.
+bindsym $mod+f fullscreen toggle
 
 # Kill focused window.
 bindsym $mod+Shift+q kill
