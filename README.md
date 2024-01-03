@@ -117,3 +117,29 @@ Now you can install the Rust toolchain with the following command. This will ins
 ```shell
 rustup default stable
 ```
+### Debian
+
+#### Preparations
+
+You can find the most important packages here, I need these for the installation and in the operating name of my system, plus other packages that are mapped directly via installation scripts.
+
+```text
+xorg, xinit, i3, dmenu, dex, feh, kitty, zsh, git, tmux, neovim, chromium
+``` 
+
+#### Specific installations
+
+##### Wireguard
+
+In order to install Wireguard under Debian, you have to proceed as follows. First install the following packages:
+
+```shell
+sudo apt install wireguard resolfconf
+```
+
+Now you can create the configuration file for Wireguard, this is located in `/etc/wireguard/wg0.conf`. After that you can start the service with the following command:
+
+```shell
+sudo systemctl enable wg-quick@wg0.service
+sudo systemctl start wg-quick@wg0.service
+```
