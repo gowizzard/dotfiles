@@ -10,13 +10,20 @@ elif [ $# -gt 1 ]; then
     exit 1
 fi
 
+if [ -d "/usr/local/go" ]; then
+    read -p "Go is already installed. Do you want to update it? [Y/n] " answer
+    if [[ "$answer" =~ ^[Yy](es)?$ ]]; then
+        sudo rm -rf /usr/local/go
+    else
+        exit 1
+    fi
+fi
+
 wget -O /tmp/go$1.linux-amd64.tar.gz https://go.dev/dl/go$1.linux-amd64.tar.gz
 if [ ! -f "/tmp/go$1.linux-amd64.tar.gz" ]; then
     echo "Error while downloading Go."
     exit 1
 fi
-
-rm -rf /usr/local/go
 
 tar -C /usr/local -xzf /go$1.linux-amd64.tar.gz
 rm /tmp/go$1.linux-amd64.tar.gz
