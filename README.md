@@ -23,7 +23,7 @@ There is a [.compose](.compose) directory where I store all the Docker Compose f
 
 ## Ansible Playbooks
 
-There is also an [.ansible](.playbooks) directory where I store all the Ansible Playbooks that I need locally, like update my pi-hole etc.
+There is also an [.playbooks](.playbooks) directory where I store all the Ansible Playbooks that I need locally, like update my pi-hole etc.
 
 ## Installation
 
