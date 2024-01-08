@@ -5,6 +5,7 @@ create-symlinks:
 	ln -sfn $(PWD)/.compose ~/.compose
 	ln -sfn $(PWD)/.images ~/.images
 	ln -sfn $(PWD)/.playbooks ~/.playbooks
+	ln -sfn $(PWD)/.scripts ~/.scripts
 
 update-files:
 	cp -r .config/dunst/* ~/.config/dunst/
