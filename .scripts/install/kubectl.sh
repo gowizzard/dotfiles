@@ -27,6 +27,6 @@ echo "$(cat /tmp/kubectl.sha256)  /tmp/kubectl" | sha256sum --check
 
 chmod +x /tmp/kubectl
 sudo cp /tmp/kubectl /usr/local/bin
-rm /tmp/kubectl
+rm /tmp/kubectl /tmp/kubectl.sha256
 
 echo "kubectl installation completed."
