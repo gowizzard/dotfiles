@@ -133,9 +133,11 @@ exec --no-startup-id i3-msg 'workspace number 6; exec kitty -e tmux'
 
 # Define workspace for applications
 assign [class="^jetbrains-goland$"] 2
-assign [class="^jetbrains-rustrover$"] 2
 assign [class="^jetbrains-pycharm$"] 2
+assign [class="^Code"] 2
+assign [class="^GitKraken"] 4
 assign [class="^thunderbird$"] 5
+assign [class="^Signal$"] 8
 
 # Set theme colors.
 set $blue #19ABFF
