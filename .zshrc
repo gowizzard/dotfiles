@@ -27,6 +27,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# Define autocompletion for kubectl.
+source <(kubectl completion zsh)
+
 # Define new aliases for oh-my-zsh.
 alias eomz="vim $HOME/.zshrc"
 alias somz="source $HOME/.zshrc"
