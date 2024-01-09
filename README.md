@@ -36,7 +36,7 @@ In the directory [.scripts/install](.scripts/install) you will find some scripts
 You can find the most important packages here, I need these for the installation and in the operating name of my system, plus other packages that are mapped directly via installation scripts.
 
 ```text
-xorg, xorg-xinit, i3, dmenu, dex, nfs-utils, feh, kitty, zsh, git, make, tmux, neovim, chromium, firefox, go, python, npm, terraform, ansible, neofetch, obsidian, gimp, vlc
+xorg, xorg-xinit, i3, dmenu, dex, nfs-utils, feh, kitty, zsh, git, make, tmux, neovim, chromium, firefox, go, python, npm, terraform, ansible, jq, neofetch, obsidian, gimp, vlc
 ```
 
 **These packages should be installed directly during the installation process, with some more specific applications or services being added later.**
@@ -132,7 +132,7 @@ Partly the installations are similar between Arch Linux and Debian, but since I 
 You can find the most important packages here, I need these for the installation and in the operating name of my system, plus other packages that are mapped directly via installation scripts.
 
 ```text
-xorg, xinit, i3, dmenu, dex, feh, kitty, zsh, git, make, tmux, neovim, chromium, neofetch, gimp, vlc
+xorg, xinit, i3, dmenu, dex, feh, kitty, zsh, git, make, tmux, neovim, chromium, jq, neofetch, gimp, vlc
 ``` 
 
 #### Specific installations
