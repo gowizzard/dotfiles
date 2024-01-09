@@ -21,6 +21,6 @@ sudo apt update
 
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-sudo docker run hello-world
+sudo usermod -aG docker $USER
 
-echo "Docker installation completed."
+echo "Docker installation completed. Please reboot your system."
