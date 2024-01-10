@@ -5,6 +5,9 @@
 # Set the mod key.
 set $mod Mod4
 
+# Start dbus for keyring etc.
+exec --no-startup-id dbus-update-activation-environment --all
+
 # Start XDG autostart .desktop files using dex.
 exec --no-startup-id dex --autostart --environment i3
 
