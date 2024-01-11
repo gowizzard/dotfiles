@@ -2,7 +2,7 @@
 [global]
 	
 	monitor = 0
-    width = 350
+    width = 300
 	offset = 30x30
 
 	padding = 20
