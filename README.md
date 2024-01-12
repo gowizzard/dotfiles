@@ -137,6 +137,38 @@ xorg, xinit, i3, dmenu, dex, feh, kitty, zsh, git, make, tmux, neovim, chromium,
 
 #### Specific installations
 
+##### Network Manager
+
+In order to have a network manager under Debian, you must install the following package:
+
+```shell
+sudo apt install network-manager network-manager-gnome
+```
+
+Now you should activate and start the service once, you can do this with these two commands:
+
+```shell
+sudo systemctl enable NetworkManager.service
+sudo systemctl start NetworkManager.service
+```
+
+I have now stored the `nm-applet` in my [i3 configuration](.config/i3/config) so that it is automatically started in the window manager.
+
+##### Bluetooth
+
+If you want to install Bluetooth under Debian, you can do this as follows. First install the following packages:
+
+```shell
+sudo apt install bluez blueman
+```
+Once this has been installed, all that remains is to create and start the service, which works as follows:
+
+```shell
+sudo systemctl enable bluetooth.service
+sudo systemctl start bluetooth.service
+```
+The `blueman-applet` can now be stored directly in the [i3 configuration](.config/i3/config) so that the GUI starts immediately when the system is started.
+
 ##### Wireguard
 
 In order to install Wireguard under Debian, you have to proceed as follows. First install the following packages:
