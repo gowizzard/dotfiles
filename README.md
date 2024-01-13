@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://github.com/gowizzard/dotfiles/assets/30717818/87c3657e-1e5b-42ab-8e83-034e018bac7a" alt="dotfiles" width="650" style="margin:50px 0;">
+<img src="https://github.com/gowizzard/dotfiles/assets/30717818/8157bba0-e567-4e2b-9d27-3ee88cb84748" alt="dotfiles" width="650" style="margin:50px 0;">
 
 # dotfiles
 
