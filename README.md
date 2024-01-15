@@ -29,6 +29,34 @@ There is also an [.playbooks](.playbooks) directory where I store all the Ansibl
 
 In the directory [.scripts/install](.scripts/install) you will find some scripts for the installation of, for me, important applications. There are also a few other services that I need, you can find a few short installation instructions here. Most of it is specific to arch linux.
 
+### General
+
+#### Themes
+
+Here you can find the themes that I use, I have also linked the installation instructions here.
+
+##### Fluent Dark
+
+Here you can find the [Fluent Dark](https://github.com/vinceliuice/Fluent-gtk-theme) theme, which I use for GTK. You can install it with the following commands:
+
+```shell
+git clone https://github.com/vinceliuice/Fluent-gtk-theme.git
+cd Fluent-gtk-theme
+./install.sh
+```
+
+#### Icons
+
+Here you can find the icon themes that I use, I have also linked the installation instructions here.
+
+##### Papirus Dark
+
+The [Papirus Dark](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) icon theme is a free and open source SVG icon theme for Linux. You can istall it in the root directory with the following command:
+
+```shell
+wget -qO- https://git.io/papirus-icon-theme-install | sh
+```
+
 ### Arch Linux
 
 #### Preparations
