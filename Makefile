@@ -15,6 +15,7 @@ update-files:
 	cp -r .config/nvim/* ~/.config/nvim/
 	cp .gitconfig ~
 	cp .gitignore ~
+	cp .gtkrc-2.0 ~
 	cp .tmux.conf ~
 	cp .xinitrc ~
 	cp .Xresources ~
@@ -28,6 +29,7 @@ backup-files:
 	cp -r ~/.config/nvim/* .config/nvim/
 	cp ~/.gitconfig .
 	cp ~/.gitignore .
+	cp ~/.gtkrc-2.0 .
 	cp ~/.tmux.conf .
 	cp ~/.xinitrc .
 	cp ~/.Xresources .	
