@@ -9,7 +9,7 @@ create-symlinks:
 
 update-files:
 	cp -r .config/dunst/* ~/.config/dunst/
-	cp -r .config/gtk-3.0/* ~/.config/gtk-3.0/
+	cp -r .config/gtk-3.0/settings.ini ~/.config/gtk-3.0/
 	cp -r .config/i3/* ~/.config/i3/
 	cp -r .config/kitty/* ~/.config/kitty/
 	cp -r .config/nvim/* ~/.config/nvim/
@@ -23,7 +23,7 @@ update-files:
 
 backup-files:
 	cp -r ~/.config/dunst/* .config/dunst/
-	cp -r ~/.config/gtk-3.0/* .config/gtk-3.0/
+	cp -r ~/.config/gtk-3.0/settings.ini .config/gtk-3.0/
 	cp -r ~/.config/i3/* .config/i3/
 	cp -r ~/.config/kitty/* .config/kitty/
 	cp -r ~/.config/nvim/* .config/nvim/
