@@ -9,6 +9,9 @@ export DOTFILES_DIRECTORY="$PROJECTS_DIRECTORY/dotfiles"
 # Path for jetbrains toolbox scripts.
 export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 
+# Path for 1password ssh auth socket.
+export SSH_AUTH_SOCK=~/.1password/agent.sock
+
 # Theme that oh-my-zsh uses.
 ZSH_THEME="agnoster"
 
