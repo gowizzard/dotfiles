@@ -8,7 +8,7 @@ set $mod Mod4
 # Start dbus for keyring etc.
 exec --no-startup-id dbus-update-activation-environment --all
 
-# Start XDG autostart .desktop files using dex.
+# Start xdg autostart .desktop files using dex.
 exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
@@ -35,6 +35,9 @@ exec_always --no-startup-id xrandr --output eDP --auto --mode 1920x1200 --output
 
 # Define background.
 exec --no-startup-id feh --bg-center ~/.images/backgrounds/gowizzardV2.jpg
+
+# Start thunar file manager in daemon mode.
+exec --no-startup-id thunar --daemon
 
 # Set mouse + modifier to drag floating windows. 
 floating_modifier $mod
