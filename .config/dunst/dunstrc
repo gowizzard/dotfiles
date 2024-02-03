@@ -7,13 +7,11 @@
 
 	padding = 20
 	horizontal_padding = 15
-	text_icon_padding = 15
+	text_icon_padding = 10
 
 	font = "JetBrains Mono" 10
 	line_height = 5
 	vertical_alignment = center
-
-	frame_width = 0
 
 	enable_recursive_icon_lookup = true
    	icon_theme = Papirus-Dark
@@ -23,20 +21,22 @@
 # Define the configuration for low notification settings.
 [urgency_low]
 	
-	background = "#262626"
+	background = "#000000"
 	foreground = "#FFFFFF"
-	timeout = 5
+	timeout = 10
 
 # Define the configuration for normal notification settings.
 [urgency_normal]
 	
-	background = "#262626"
+	background = "#000000"
 	foreground = "#FFFFFF"
-	timeout = 5
+	frame_color = "#19ABFF"
+	timeout = 10
 
 # Define the configuration for critical notification settings
 [urgency_critical]
 	
-	background = "#FF1938"
+	background = "#000000"
 	foreground = "#FFFFFF"
-	timeout = 10
+	frame_color = "#FF1938"
+	timeout = 20
