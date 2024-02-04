@@ -64,7 +64,7 @@ wget -qO- https://git.io/papirus-icon-theme-install | sh
 You can find the most important packages here, I need these for the installation and in the operating name of my system, plus other packages that are mapped directly via installation scripts.
 
 ```text
-xorg, xorg-xinit, i3, dmenu, dex, kwallet5, pulseaudio, pulseaudio-bluetooth, pulseaudio-equalizer, pasystray, nfs-utils, feh, kitty, zsh, git, make, tmux, neovim, chromium, firefox, go, python, npm, terraform, ansible, jq, neofetch, thunar, obsidian, gimp, vlc
+xorg, xorg-xinit, i3, dex, kwallet5, pulseaudio, pulseaudio-bluetooth, pulseaudio-equalizer, pasystray, nfs-utils, feh, kitty, zsh, git, make, tmux, neovim, chromium, firefox, go, python, npm, terraform, ansible, jq, neofetch, thunar, obsidian, gimp, vlc
 ```
 
 **These packages should be installed directly during the installation process, with some more specific applications or services being added later.**
@@ -112,6 +112,25 @@ sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
 ```
 The `blueberry-tray` can now be stored directly in the [i3 configuration](.config/i3/config) so that the GUI starts immediately when the system is started.
+
+##### Ulauncher
+
+In order to install Ulauncher under Arch Linux, you have to proceed as follows. First use the installation script from the [official website](https://ulauncher.io/#Download) and then install the following package:
+
+```shell
+git clone https://aur.archlinux.org/ulauncher.git && cd ulauncher && makepkg -is
+```
+After that you can clone my [Ulancher theme](https://github.com/gowizzard/dark-trooper) with the following command:
+
+```shell
+git clone https://github.com/gowizzard/dark-trooper
+```
+
+Now you can move into the repository and install the theme with the following commands:
+
+```shell
+make install
+```
 
 ##### Docker
 
