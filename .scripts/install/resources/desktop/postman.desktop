@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Name=Postman
+Comment=Platform for building and using APIs
+Categories=Development;
+Terminal=false
+Exec=/opt/postman/Postman
+Icon=/opt/postman/app/resources/app/assets/icon.png

@@ -25,4 +25,8 @@ if [ ! -L "/usr/local/bin/code" ]; then
     sudo ln -s /opt/code/code /usr/local/bin/code
 fi
 
+if [ ! -f "~/.local/share/applications/code.desktop" ]; then
+    cp resources/desktop/code.desktop ~/.local/share/applications/
+fi
+
 echo "Visual Sturio Code installation completed."

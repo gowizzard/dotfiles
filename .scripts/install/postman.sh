@@ -22,4 +22,8 @@ if [ ! -L "/usr/local/bin/postman" ]; then
     sudo ln -s /opt/postman/Postman /usr/local/bin/postman
 fi
 
+if [ ! -f "~/.local/share/applications/postman.desktop" ]; then
+    cp resources/desktop/postman.desktop ~/.local/share/applications/
+fi
+
 echo "Postman installation completed."

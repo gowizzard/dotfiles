@@ -21,4 +21,8 @@ if [ ! -L "/usr/local/bin/redisinsight" ]; then
     sudo ln -s /opt/redisinsight/redisinsight /usr/local/bin/redisinsight
 fi
 
+if [ ! -f "~/.local/share/applications/redisinsight.desktop" ]; then
+    ln -s /opt/redisinsight/redisinstight.desktop ~/.local/share/applications/redisinsight.desktop
+fi
+
 echo "RedisInsight installation completed."

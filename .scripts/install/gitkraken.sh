@@ -22,7 +22,11 @@ sudo tar -xzf /tmp/gitkraken.tar.gz -C /opt/gitkraken --strip-components=1
 rm /tmp/gitkraken.tar.gz
 
 if [ ! -L "/usr/local/bin/gitkraken" ]; then
-    sudo ln -s /opt/gitkraken/gitkraken /usr/local/bin/gitkraken
+    sudo ln -s "/opt/gitkraken/gitkraken" /usr/local/bin/gitkraken
+fi
+
+if [ ! -f "~/.local/share/applications/gitkraken.desktop" ]; then
+    cp resources/desktop/gitkraken.desktop ~/.local/share/applications/
 fi
 
 echo "GitKraken installation completed."
