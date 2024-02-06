@@ -7,7 +7,7 @@ if [ -d "/opt/redisinsight" ]; then
     exit 1
 fi
 
-wget -O /tmp/redisinsight.tar.gz https://download.redisinsight.redis.com/latest/redisstack/RedisInsight-app-linux.x86_64.tar.gz
+wget -O /tmp/redisinsight.tar.gz https://download.redisinsight.redis.com/latest/redisstack/RedisInsight-app-darwin.x64.tar.gz 
 if [ ! -f "/tmp/redisinsight.tar.gz" ]; then
     echo "Error while downloading RedisInsight."
     exit 1
