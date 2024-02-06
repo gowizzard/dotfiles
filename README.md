@@ -115,23 +115,20 @@ The `blueberry-tray` can now be stored directly in the [i3 configuration](.confi
 
 ##### Ulauncher
 
-In order to install Ulauncher under Arch Linux, you have to proceed as follows. First use the installation script from the [official website](https://ulauncher.io/#Download) and then install the following package:
+In order to install Ulauncher under Arch Linux, you have to proceed as follows. You can install the package directly from the AUR, simply execute the following commands: 
 
 ```shell
-git clone https://aur.archlinux.org/ulauncher.git && cd ulauncher && makepkg -is
+git clone https://aur.archlinux.org/ulauncher.git
+cd ulauncher
+makepkg -is
 ```
-After that you can clone my [Ulancher theme](https://github.com/gowizzard/dark-trooper) with the following command:
+After that you can install my [Ulancher theme](https://github.com/gowizzard/dark-trooper) with the following commands, so the theme is installed in the right directory:
 
 ```shell
 git clone https://github.com/gowizzard/dark-trooper
-```
-
-Now you can move into the repository and install the theme with the following commands:
-
-```shell
+cd dark-trooper
 make install
 ```
-
 ##### Docker
 
 You can download Docker directly via the official Arch Packages, simply execute the following command (possibly install updates first):
