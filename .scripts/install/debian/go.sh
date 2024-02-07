@@ -25,7 +25,7 @@ if [ ! -f "/tmp/go$1.linux-amd64.tar.gz" ]; then
     exit 1
 fi
 
-tar -C /usr/local -xzf /go$1.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf /tmp/go$1.linux-amd64.tar.gz
 rm /tmp/go$1.linux-amd64.tar.gz
 
 echo "Go $1 has been installed, please add the path to your .zshrc file."
