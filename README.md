@@ -176,7 +176,7 @@ Partly the installations are similar between Arch Linux and Debian, but since I 
 You can find the most important packages here, I need these for the installation and in the operating name of my system, plus other packages that are mapped directly via installation scripts.
 
 ```text
-xorg, xinit, i3, dmenu, dex, kwalletmanager, pulseaudio, pulseaudio-equalizer, pulseaudio-module-bluetooth, pasystray, feh, kitty, zsh, git, make, tmux, neovim, chromium, jq, neofetch, thunar, gimp, vlc
+xorg, xinit, i3, dex, kwalletmanager, pulseaudio, pulseaudio-equalizer, pulseaudio-module-bluetooth, pasystray, feh, kitty, zsh, git, make, tmux, neovim, chromium, jq, neofetch, thunar, gimp, vlc
 ``` 
 
 #### Specific installations
