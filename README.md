@@ -64,7 +64,7 @@ wget -qO- https://git.io/papirus-icon-theme-install | sh
 You can find the most important packages here, I need these for the installation and in the operating name of my system, plus other packages that are mapped directly via installation scripts.
 
 ```text
-xorg, xorg-xinit, i3, dex, kwallet5, pulseaudio, pulseaudio-bluetooth, pulseaudio-equalizer, pasystray, nfs-utils, feh, kitty, zsh, git, make, tmux, neovim, chromium, firefox, go, python, npm, terraform, ansible, jq, neofetch, thunar, obsidian, gimp, vlc
+xorg, xorg-xinit, i3, dex, kwallet5, pulseaudio, pulseaudio-bluetooth, pulseaudio-equalizer, pasystray, nfs-utils, feh, kitty, zsh, git, make, tmux, neovim, chromium, firefox, go, python, npm, terraform, ansible, jq, neofetch, thunar, obsidian, gimp, vlc, noto-fonts-emoji
 ```
 
 **These packages should be installed directly during the installation process, with some more specific applications or services being added later.**
