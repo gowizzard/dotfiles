@@ -71,6 +71,24 @@ xorg, xorg-xinit, i3, dex, kwallet5, pulseaudio, pulseaudio-bluetooth, pulseaudi
 
 #### Specific installations
 
+##### Yay
+
+In order to install AUR packages under Arch Linux, you have to proceed as follows. First install the following package:
+
+```shell
+pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay-bin.git
+cd yay-bin
+makepkg -si
+```
+
+Here is a list of the AUR packages that I use:
+
+```text
+clipster
+ulauncher
+```
+
 ##### Notifications
 
 If you want to install notifications under Arch, you have to proceed as follows. First install the following packages:
