@@ -133,13 +133,12 @@ The `blueberry-tray` can now be stored directly in the [i3 configuration](.confi
 
 ##### Ulauncher
 
-In order to install Ulauncher under Arch Linux, you have to proceed as follows. You can install the package directly from the AUR, simply execute the following commands: 
+Install Ulauncher directly via the AUR, simply execute the following command:
 
 ```shell
-git clone https://aur.archlinux.org/ulauncher.git
-cd ulauncher
-makepkg -is
+yay -S ulauncher
 ```
+
 After that you can install my [Ulancher theme](https://github.com/gowizzard/dark-trooper) with the following commands, so the theme is installed in the right directory:
 
 ```shell
