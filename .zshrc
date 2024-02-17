@@ -30,6 +30,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# Define autocompletion for zoxide.
+eval "$(zoxide init zsh)"
+
 # Define autocompletion for kubectl.
 source <(kubectl completion zsh)
 
@@ -46,6 +49,10 @@ alias ekitty="vim $HOME/.config/kitty/kitty.conf"
 # Define new aliases for tmux.
 alias etmux="vim $HOME/.tmux.conf"
 alias stmux="tmux source-file $HOME/.tmux.conf"
+
+# Define new aliases for zoxide.
+alias cd="z"
+alias fzf="zi"
 
 # Define new aliases for vim/nvim.
 alias vim="nvim"
@@ -130,9 +137,9 @@ vscode_open() {
 	if [ $# -gt 1 ]; then
 		echo "too many arguments were handed over"
 	elif [ $# -eq 1 ]; then
-		code $PROJECTS_DIRECTORY/$1 -n
+		arg-runner code $PROJECTS_DIRECTORY/$1 -n
 	else
-		code $(pwd) -n
+		arg-runner code $(pwd) -n
 	fi
 }
 
