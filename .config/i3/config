@@ -63,12 +63,6 @@ bindsym $mod+Shift+c reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3).
 bindsym $mod+Shift+r restart
 
-# Exit i3.
-bindsym $mod+Shift+Escape exec i3 exit
-
-# Activate lock screen.
-bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 --nofork
-
 # Define the focus keys.
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -80,6 +74,16 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+# Modes for system controls (lock, reboot, poweroff).
+mode "system" {
+    bindsym l exec --no-startup-id i3lock -c 000000 --nofork, mode "default"
+    bindsym Shift+r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Escape mode "system"
 
 # Resize window (you can also use the mouse for that).
 mode "resize" {
