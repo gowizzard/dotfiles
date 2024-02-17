@@ -48,8 +48,11 @@ floating_modifier $mod
 # Start ulauncher (a program launcher).
 bindsym $mod+space exec --no-startup-id ulauncher-toggle
 
-# Start the gnome terminal.
+# Start the kitty terminal.
 bindsym $mod+Return exec kitty -e tmux
+
+# Start thunar file manager.
+bindsym $mod+e exec thunar
 
 # Enter fullscreen mode for the focused container.
 bindsym $mod+f fullscreen toggle
@@ -83,7 +86,7 @@ mode "system" {
     bindsym Escape mode "default"
 }
 
-bindsym $mod+Escape mode "system"
+bindsym $mod+s mode "system"
 
 # Resize window (you can also use the mouse for that).
 mode "resize" {
@@ -158,6 +161,8 @@ for_window [title="Ulauncher Preference"] floating enable
 for_window [title="JetBrains Toolbox"] floating enable
 
 # Set theme colors.
+set $white #FFFFFF
+set $black #000000
 set $blue #19ABFF
 set $grey #262626
 set $red #FF1938
@@ -185,9 +190,9 @@ bar {
     workspace_min_width 22
     colors {
         separator $grey
-        focused_workspace  $grey $blue #000000
-        inactive_workspace $grey $grey #FFFFFF
-        urgent_workspace $grey $red #FFFFFF
+        focused_workspace  $grey $blue $black
+        inactive_workspace $grey $grey $white
+        urgent_workspace $grey $red $white
     }
 }
 
@@ -197,8 +202,8 @@ bar {
     font pango: JetBrains Mono SemiBold 10
     workspace_min_width 22
     colors {
-        focused_workspace  $grey $blue #000000
-        inactive_workspace $grey $grey #FFFFFF
-        urgent_workspace $grey $red #FFFFFF 
+        focused_workspace  $grey $blue $black
+        inactive_workspace $grey $grey $white
+        urgent_workspace $grey $red $white
     }
 }
