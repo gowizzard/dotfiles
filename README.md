@@ -59,11 +59,7 @@ wget -qO- https://git.io/papirus-icon-theme-install | sh
 
 ### Arch Linux
 
-<div align="center">
-
-<img src="https://github.com/gowizzard/dotfiles/assets/30717818/20d74cb8-55ca-4852-a553-beb7208b1671" alt="Arch Linux">
-
-</div>
+![Arch Linux](https://github.com/gowizzard/dotfiles/assets/30717818/20d74cb8-55ca-4852-a553-beb7208b1671)
 
 #### Preparations
 
