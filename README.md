@@ -61,7 +61,8 @@ wget -qO- https://git.io/papirus-icon-theme-install | sh
 
 I use Arch Linux as my main operating system, so I have to install some packages and services directly. Here you can find some information about my installations and configurations.
 
-![Arch Linux](https://github.com/gowizzard/dotfiles/assets/30717818/20d74cb8-55ca-4852-a553-beb7208b1671)
+![Arch Linux](https://github.com/gowizzard/dotfiles/assets/30717818/923be3ea-0fd7-4c7c-93ac-71b96c0b9ce0)
+
 
 #### Preparations
 
