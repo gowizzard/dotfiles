@@ -192,6 +192,8 @@ Partly the installations are similar between Arch Linux and Debian, but since I 
 
 **P.S.: I decided to use Debian because I need a permanently available system, but of course I have to make concessions with Debian, especially when it comes to updating the packages.**
 
+![Debian](https://github.com/gowizzard/dotfiles/assets/30717818/bce35e4c-6c2d-4a38-89d4-2484dc3e3384)
+
 #### Preparations
 
 You can find the most important packages here, I need these for the installation and in the operating name of my system, plus other packages that are mapped directly via installation scripts.
