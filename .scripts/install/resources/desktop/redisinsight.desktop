@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Name=RedisInsight
+Comment=The Best Redis GUI
+Categories=Development;IDE;Database;
+Terminal=false
+Exec=/opt/redisinsight/redisinsight
+Icon=/opt/redisinsight/redisinsight.png
