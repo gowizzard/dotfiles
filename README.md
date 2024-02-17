@@ -59,6 +59,12 @@ wget -qO- https://git.io/papirus-icon-theme-install | sh
 
 ### Arch Linux
 
+<div align="center">
+
+<img src="https://github.com/gowizzard/dotfiles/assets/30717818/20d74cb8-55ca-4852-a553-beb7208b1671" alt="Arch Linux">
+
+</div>
+
 #### Preparations
 
 You can find the most important packages here, I need these for the installation and in the operating name of my system, plus other packages that are mapped directly via installation scripts.
