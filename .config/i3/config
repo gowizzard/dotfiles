@@ -190,9 +190,9 @@ bar {
     workspace_min_width 22
     colors {
         separator $grey
-        focused_workspace  $grey $blue $black
-        inactive_workspace $grey $grey $white
-        urgent_workspace $grey $red $white
+        focused_workspace  $blue $black $white
+        inactive_workspace $black $black $white
+        urgent_workspace $red $black $white
     }
 }
 
@@ -202,8 +202,8 @@ bar {
     font pango: JetBrains Mono SemiBold 10
     workspace_min_width 22
     colors {
-        focused_workspace  $grey $blue $black
-        inactive_workspace $grey $grey $white
-        urgent_workspace $grey $red $white
+        focused_workspace  $blue $black $white
+        inactive_workspace $black $black $white
+        urgent_workspace $red $black $white
     }
 }
