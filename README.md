@@ -89,6 +89,7 @@ makepkg -si
 Here is a list of the AUR packages that I use:
 
 ```text
+1password
 clipster
 ulauncher
 ```
