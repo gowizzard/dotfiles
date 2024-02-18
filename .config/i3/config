@@ -60,12 +60,6 @@ bindsym $mod+f fullscreen toggle
 # Kill focused window.
 bindsym $mod+Shift+q kill
 
-# Reload the configuration file.
-bindsym $mod+Shift+c reload
-
-# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3).
-bindsym $mod+Shift+r restart
-
 # Define the focus keys.
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -87,6 +81,16 @@ mode "system" {
 }
 
 bindsym $mod+s mode "system"
+
+# Mode for configuration (reload, restart, exit).
+mode "config" {
+    bindsym c reload, mode "default"
+    bindsym r restart, mode "default"
+    bindsym e exit, mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+c mode "config"
 
 # Resize window (you can also use the mouse for that).
 mode "resize" {
