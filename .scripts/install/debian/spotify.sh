@@ -16,4 +16,8 @@ echo "deb http://repository.spotify.com stable non-free" | \
 sudo apt update
 sudo apt install -y spotify-client
 
+if [ ! -f "~/.local/share/applications/spotify.desktop" ]; then
+    cp resources/desktop/spotify.desktop ~/.local/share/applications/
+fi
+
 echo "Spotify installation completed."
