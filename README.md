@@ -68,7 +68,7 @@ I use Arch Linux as my main operating system, so I have to install some packages
 You can find the most important packages here, I need these for the installation and in the operating name of my system, plus other packages that are mapped directly via installation scripts.
 
 ```text
-xorg, xorg-xinit, i3, dex, kwallet5, pulseaudio, pulseaudio-bluetooth, pulseaudio-equalizer, pasystray, nfs-utils, feh, kitty, zsh, git, make, tmux, zoxide, fzf, neovim, chromium, firefox, go, python, npm, terraform, ansible, jq, neofetch, thunar, obsidian, gimp, vlc, noto-fonts-emoji
+xorg, xorg-xinit, i3, dex, kwallet5, pulseaudio, pulseaudio-bluetooth, pulseaudio-equalizer, pasystray, nfs-utils, feh, kitty, zsh, git, make, tmux, zoxide, fzf, neovim, chromium, firefox, go, python, npm, terraform, ansible, jq, neofetch, thunar, obsidian, gimp, gnome-screenshot, vlc, noto-fonts-emoji
 ```
 
 **These packages should be installed directly during the installation process, with some more specific applications or services being added later.**
