@@ -11,7 +11,7 @@ if [ -d "/opt/code" ]; then
     fi
 fi
 
-wget -O /tmp/code.tar.gz https://code.visualstudio.com/sha/download?build=stable&os=linux-x64
+wget -O /tmp/code.tar.gz "https://code.visualstudio.com/sha/download?build=stable&os=linux-x64"
 if [ ! -f "/tmp/code.tar.gz" ]; then
     echo "Error while downloading Visual Studio Code."
     exit 1
