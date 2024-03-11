@@ -29,4 +29,4 @@ if [ ! -f "~/.local/share/applications/code.desktop" ]; then
     cp resources/desktop/code.desktop ~/.local/share/applications/
 fi
 
-echo "Visual Sturio Code installation completed."
+echo "Visual Studio Code installation completed."
