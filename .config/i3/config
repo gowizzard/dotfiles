@@ -157,7 +157,8 @@ assign [class="^jetbrains-pycharm$"] 2
 assign [class="^Code"] 2
 assign [class="^GitKraken"] 4
 assign [class="^thunderbird$"] 5
-assign [class="^Signal$"] 8
+assign [class="^Slack$"] 8
+assign [class="^Signal$"] 9
 
 # Define floating windows.
 for_window [title="Network Connections"] floating enable
