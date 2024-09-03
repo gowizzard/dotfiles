@@ -8,13 +8,13 @@
 
 This repository contains dotfiles and configuration settings for:
 
-- i3: A popular tiling window manager.
-- Kitty: My terminal emulator of choice.
+- i3: A popular tiling window manager for Linux.
+- Kitty: My terminal emulator of choice for Linux.
 - Oh-my-zsh: Framework for managing Zsh configuration.
 - Tmux: Terminal multiplexer to manage multiple sessions.
 - Git: My version control of choice.
 - Neovim: My text editor of choice for terminal.
-- Dunst: My notification manager of choice.
+- Dunst: My notification manager of choice for Linux.
 - ... and various other tools that boost my productivity!
 
 ## Docker Compose
@@ -24,6 +24,20 @@ There is a [.compose](.compose) directory where I store all the Docker Compose f
 ## Ansible Playbooks
 
 There is also an [.playbooks](.playbooks) directory where I store all the Ansible Playbooks that I need locally, like update my pi-hole etc.
+
+## macOS
+
+I currently use Debian for my work, but I might want to switch back to a MacBook or similar due to the new M chips from Apple, so I'm currently testing some functions, here you can find some of my dotfiles, some of which I use for both macOS and Linux.
+
+![macOS](https://github.com/user-attachments/assets/f7454c7f-f4ec-47c6-9203-bcd6c8078dc9)
+
+### Homebrew
+
+On macOS I use Homebrew as my package manager, so I have to install some packages and services directly. Here you can find some information about my installations and configurations.
+
+```text
+tmux, neovim, python@3.12, node@20, lua, redis, terraform, kubernetes-cli, pipx, 1password-cli, monitorcontrol, gh, bat, tree, jq, thefuck, neofetch
+```
 
 ## Linux
 
