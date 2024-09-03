@@ -25,17 +25,19 @@ There is a [.compose](.compose) directory where I store all the Docker Compose f
 
 There is also an [.playbooks](.playbooks) directory where I store all the Ansible Playbooks that I need locally, like update my pi-hole etc.
 
-## Installation
+## Linux
+
+### Installation
 
 In the directory [.scripts/install](.scripts/install) you will find some scripts for the installation of, for me, important applications. There are also a few other services that I need, you can find a few short installation instructions here. Most of it is specific to arch linux.
 
-### General
+#### General
 
-#### Themes
+##### Themes
 
 Here you can find the themes that I use, I have also linked the installation instructions here.
 
-##### Fluent Dark
+###### Fluent Dark
 
 Here you can find the [Fluent Dark](https://github.com/vinceliuice/Fluent-gtk-theme) theme, which I use for GTK. You can install it with the following commands:
 
@@ -45,11 +47,11 @@ cd Fluent-gtk-theme
 ./install.sh
 ```
 
-#### Icons
+##### Icons
 
 Here you can find the icon themes that I use, I have also linked the installation instructions here.
 
-##### Papirus Dark
+###### Papirus Dark
 
 The [Papirus Dark](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) icon theme is a free and open source SVG icon theme for Linux. You can istall it in the root directory with the following command:
 
@@ -57,13 +59,13 @@ The [Papirus Dark](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
 wget -qO- https://git.io/papirus-icon-theme-install | sh
 ```
 
-### Arch Linux
+#### Arch Linux
 
 I use Arch Linux as my main operating system, so I have to install some packages and services directly. Here you can find some information about my installations and configurations.
 
 ![Arch Linux](https://github.com/gowizzard/dotfiles/assets/30717818/a96f5dc9-0889-471c-8bfb-6a0c9dc0dbeb)
 
-#### Preparations
+##### Preparations
 
 You can find the most important packages here, I need these for the installation and in the operating name of my system, plus other packages that are mapped directly via installation scripts.
 
@@ -73,9 +75,9 @@ xorg, xorg-xinit, i3, dex, kwallet5, pulseaudio, pulseaudio-bluetooth, pulseaudi
 
 **These packages should be installed directly during the installation process, with some more specific applications or services being added later.**
 
-#### Specific installations
+##### Specific installations
 
-##### Yay
+###### Yay
 
 In order to install AUR packages under Arch Linux, you have to proceed as follows. First install the following package:
 
@@ -94,7 +96,7 @@ clipster
 ulauncher
 ```
 
-##### Notifications
+###### Notifications
 
 If you want to install notifications under Arch, you have to proceed as follows. First install the following packages:
 
@@ -104,7 +106,7 @@ sudo pacman -S libnotify dunst
 
 You can now create the folder in `~/.config/dunst` and create the file [dunstrc](.config/dunst/dunstrc) in it so that you can customize the notifications. The start of `dunstrc` must also be stored in the [i3 configuration](.config/i3/config).
 
-##### Network Manager
+###### Network Manager
 
 In order to have a network manager under Arch Linux, you must install the following package:
 
@@ -121,7 +123,7 @@ sudo systemctl start NetworkManager.service
 
 I have now stored the `nm-applet` in my [i3 configuration](.config/i3/config) so that it is automatically started in the window manager.
 
-##### Bluetooth
+###### Bluetooth
 
 If you want to install Bluetooth under Arch Linux, you can do this as follows. First install the following packages:
 
@@ -136,7 +138,7 @@ sudo systemctl start bluetooth.service
 ```
 The `blueberry-tray` can now be stored directly in the [i3 configuration](.config/i3/config) so that the GUI starts immediately when the system is started.
 
-##### Ulauncher
+###### Ulauncher
 
 Install Ulauncher directly via the AUR, simply execute the following command:
 
@@ -151,7 +153,7 @@ git clone https://github.com/gowizzard/dark-trooper
 cd dark-trooper
 make install
 ```
-##### Docker
+###### Docker
 
 You can download Docker directly via the official Arch Packages, simply execute the following command (possibly install updates first):
 
@@ -174,7 +176,7 @@ sudo usermod -aG docker $USER
 
 **It is then recommended to restart the system immediately, now you should be able to execute the Docker commands with your user without `sudo`.**
 
-##### Rust
+###### Rust
 
 In order to use rust correctly, you should install the following package. This is the official rustup package, which is used to install rust.
 
@@ -187,7 +189,7 @@ Now you can install the Rust toolchain with the following command. This will ins
 ```shell
 rustup default stable
 ```
-### Debian
+#### Debian
 
 Partly the installations are similar between Arch Linux and Debian, but since I mainly develop on Debian in the office, you can find some additional information for Debian here.
 
@@ -195,7 +197,7 @@ Partly the installations are similar between Arch Linux and Debian, but since I 
 
 ![Debian](https://github.com/gowizzard/dotfiles/assets/30717818/bce35e4c-6c2d-4a38-89d4-2484dc3e3384)
 
-#### Preparations
+##### Preparations
 
 You can find the most important packages here, I need these for the installation and in the operating name of my system, plus other packages that are mapped directly via installation scripts.
 
@@ -203,9 +205,9 @@ You can find the most important packages here, I need these for the installation
 xorg, xinit, i3, dex, kwalletmanager, pulseaudio, pulseaudio-equalizer, pulseaudio-module-bluetooth, pasystray, playerctl, feh, kitty, zsh, git, make, tmux, neovim, chromium, jq, neofetch, thunar, gimp, gnome-screenshot, vlc, fonts-noto-color-emoji
 ``` 
 
-#### Specific installations
+##### Specific installations
 
-##### Network Manager
+###### Network Manager
 
 In order to have a network manager under Debian, you must install the following package:
 
@@ -222,7 +224,7 @@ sudo systemctl start NetworkManager.service
 
 I have now stored the `nm-applet` in my [i3 configuration](.config/i3/config) so that it is automatically started in the window manager.
 
-##### Bluetooth
+###### Bluetooth
 
 If you want to install Bluetooth under Debian, you can do this as follows. First install the following packages:
 
@@ -237,7 +239,7 @@ sudo systemctl start bluetooth.service
 ```
 The `blueman-applet` can now be stored directly in the [i3 configuration](.config/i3/config) so that the GUI starts immediately when the system is started.
 
-##### Wireguard
+###### Wireguard
 
 In order to install Wireguard under Debian, you have to proceed as follows. First install the following packages:
 
