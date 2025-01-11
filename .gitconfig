@@ -1,6 +1,6 @@
 # This is the default .gitconfig file for my local git setup.
 [user]
-	email = mail@gowizzard.de
+	email = mail@jonaskwiedor.de
 	name = Jonas Kwiedor
 [init]
 	defaultBranch = main

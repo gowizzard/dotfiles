@@ -4,3 +4,5 @@
 .fleet/
 .vscode/
 .obsidian/
+
+.DS_Store
