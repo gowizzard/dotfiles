@@ -1,10 +1,8 @@
-<div align="center">
-
-<img src="https://github.com/gowizzard/dotfiles/assets/30717818/acd99ee6-84b9-4081-8761-5a0b77dd2d1b" alt="dotfiles" width="650" style="margin:50px 0;">
-
 # dotfiles
 
-</div>
+I changed my operating system back from Debian to macOS, so here you can find some of my configurations and dotfiles that I use.
+
+![macOS](https://github.com/user-attachments/assets/c879851a-efb2-42da-aa7a-73df09743308)
 
 This repository contains dotfiles and configuration settings for:
 
@@ -15,13 +13,15 @@ This repository contains dotfiles and configuration settings for:
 - Neovim: My text editor of choice for terminal.
 - ... and various other tools that boost my productivity!
 
-## macOS
+## Installation
 
-I changed my operating system back from Debian to macOS, so here you can find some of my configurations and dotfiles that I use.
+To install the configurations, you can run the following command in the terminal.
 
-![macOS](https://github.com/user-attachments/assets/c879851a-efb2-42da-aa7a-73df09743308)
+```shell
+make all
+```
 
-### Homebrew
+## Homebrew
 
 On macOS I use Homebrew as my package manager, so I have to install some packages and services directly. Here you can find some information about my installations and configurations.
 
