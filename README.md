@@ -17,7 +17,7 @@ This repository contains dotfiles and configuration settings for:
 
 ## macOS
 
-I currently use Debian for my work, but I might want to switch back to a MacBook or similar due to the new M chips from Apple, so I'm currently testing some functions, here you can find some of my dotfiles, some of which I use for both macOS and Linux.
+I changed my operating system back from Debian to macOS, so here you can find some of my configurations and dotfiles that I use.
 
 ![macOS](https://github.com/user-attachments/assets/c879851a-efb2-42da-aa7a-73df09743308)
 
