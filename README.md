@@ -1,6 +1,9 @@
 # dotfiles
 
-I changed my operating system back from Debian to macOS, so here you can find some of my configurations and dotfiles that I use.
+Here you can find my dotfiles and configurations that I use on my macOS system. I have been using these configurations for a while now, and I am quite happy with them. I have tried to keep the configurations as simple as possible, so that they can be easily understood and modified. I have also included a Makefile to automate the installation process, so that you can easily set up your system with my configurations.
+
+> [!NOTE]
+> I have recently switched to macOS, so I am still in the process of setting up my system. I will update this repository as I make changes.
 
 ![macOS](https://github.com/user-attachments/assets/c879851a-efb2-42da-aa7a-73df09743308)
 
