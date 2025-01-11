@@ -19,7 +19,7 @@ This repository contains dotfiles and configuration settings for:
 
 I currently use Debian for my work, but I might want to switch back to a MacBook or similar due to the new M chips from Apple, so I'm currently testing some functions, here you can find some of my dotfiles, some of which I use for both macOS and Linux.
 
-![macOS](https://github.com/user-attachments/assets/f7454c7f-f4ec-47c6-9203-bcd6c8078dc9)
+![macOS](https://github.com/user-attachments/assets/c879851a-efb2-42da-aa7a-73df09743308)
 
 ### Homebrew
 
