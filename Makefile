@@ -13,12 +13,12 @@ zsh: $(HOME)/.zshrc
 
 ghostty:
 	mkdir -p $(HOME)/.config/ghostty/themes
-	ln -sf $(DOTFILE_PATH)/ghostty/config $(HOME)/.config/ghostty/config
-	ln -sf $(DOTFILE_PATH)/ghostty/themes/jjideenschmiede $(HOME)/.config/ghostty/themes/jjideenschmiede
+	ln -sf $(DOTFILE_PATH)/.config/ghostty/config $(HOME)/.config/ghostty/config
+	ln -sf $(DOTFILE_PATH)/.config/ghostty/themes/jjideenschmiede $(HOME)/.config/ghostty/themes/jjideenschmiede
 
 nvim:
 	mkdir -p $(HOME)/.config/nvim/lua
-	ln -sf $(DOTFILE_PATH)/nvim/init.lua $(HOME)/.config/nvim/init.lua
-	ln -sf $(DOTFILE_PATH)/nvim/lua/default.lua $(HOME)/.config/nvim/lua/default.lua
+	ln -sf $(DOTFILE_PATH)/.config/nvim/init.lua $(HOME)/.config/nvim/init.lua
+	ln -sf $(DOTFILE_PATH)/.config/nvim/lua/default.lua $(HOME)/.config/nvim/lua/default.lua
 
 all: git tmux zsh ghostty nvim
