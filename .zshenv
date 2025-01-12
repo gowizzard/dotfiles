@@ -3,7 +3,6 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Path to my project directory.
 export PROJECTS_DIRECTORY="$HOME/Documents/Projects"
-export DOTFILES_DIRECTORY="$PROJECTS_DIRECTORY/dotfiles"
 
 # Path for homebrew installed packages.
 export PATH="/opt/homebrew/bin:$PATH"

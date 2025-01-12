@@ -23,8 +23,9 @@ source $HOME/.config/op/plugins.sh
 eval $(thefuck --alias)
 
 # Define new aliases for oh-my-zsh.
-alias eomz="vim $HOME/.zshrc"
-alias somz="source $HOME/.zshrc"
+alias ezsh="vim $HOME/.zshrc"
+alias ezshenv="vim $HOME/.zshenv"
+alias szsh="source $HOME/.zshrc"
 
 # Define new aliases for tmux.
 alias etmux="vim $HOME/.tmux.conf"
@@ -46,6 +47,9 @@ alias sshd="cd $HOME/.ssh"
 # Define new aliases for open files.
 alias ddo="open $HOME/Downloads"
 
+# Define new alias for open dotfiles.
+alias doto="code $PROJECTS_DIRECTORY/dotfiles"
+
 # Define new aliases for open files in code.
 alias sshdo="code $HOME/.ssh"
 
@@ -54,13 +58,6 @@ alias glo="goland ."
 alias rro="rustrover ."
 alias pco="pycharm ."
 alias vco="code ."
-
-# Add aliases for dotfiles.
-alias dfo="cd $DOTFILES_DIRECTORY"
-
-# Add aliases for notes.
-alias nto="obsidian $PROJECTS/notes"
-alias ntgh="notes_to_github"
 
 # Define functions to optimize workflow.
 new_project() {
@@ -73,12 +70,4 @@ new_project() {
 	else
 		echo "no project title given"
 	fi
-}
-
-notes_to_github() {
-	cd $PROJECTS_DIRECTORY/notes
-	git add .
-	git commit -m "ci: Add or update notes."
-	git push
-	cd -
 }
