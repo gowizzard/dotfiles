@@ -20,6 +20,9 @@ This repository contains dotfiles and configuration settings for:
 
 To install the configurations, you can run the following command in the terminal.
 
+> [!WARNING]
+> This will overwrite your existing configurations, so make sure to back up your files before running this command.
+
 ```shell
 make all
 ```
