@@ -31,10 +31,13 @@ alias szsh="source $HOME/.zshrc"
 alias etmux="vim $HOME/.tmux.conf"
 alias stmux="tmux source-file $HOME/.tmux.conf"
 
-# Define new aliases for vim/nvim.
+# Define new alias for vim/nvim.
 alias vim="nvim"
 
-# Define new aliases for bat.
+# Define new alias for make.
+alias make="gmake"
+
+# Define new alias for bat.
 alias cat="bat"
 
 # Define new aliases for general work.
@@ -44,13 +47,13 @@ alias np="new_project"
 alias dd="cd $HOME/Downloads"
 alias sshd="cd $HOME/.ssh"
 
-# Define new aliases for open files.
+# Define new alias for open files.
 alias ddo="open $HOME/Downloads"
 
 # Define new alias for open dotfiles.
 alias dfo="code $PROJECTS_DIRECTORY/dotfiles"
 
-# Define new aliases for open files in code.
+# Define new alias for open files in code.
 alias sshdo="code $HOME/.ssh"
 
 # Open project from project directory or actual directory.
