@@ -48,7 +48,7 @@ alias sshd="cd $HOME/.ssh"
 alias ddo="open $HOME/Downloads"
 
 # Define new alias for open dotfiles.
-alias doto="code $PROJECTS_DIRECTORY/dotfiles"
+alias dfo="code $PROJECTS_DIRECTORY/dotfiles"
 
 # Define new aliases for open files in code.
 alias sshdo="code $HOME/.ssh"

@@ -15,7 +15,7 @@ export PATH="$HOME/.cargo/env:$PATH"
 export PATH="/Users/gowizzard/.local/bin:$PATH"
 
 # Path for make with is installed as gmake via homebrew.
-PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
 
 # Path for pipx to install packages in isolated environments.
 export PATH="${PATH}:$(python3 -c 'import site; print(site.USER_BASE)')/bin"
