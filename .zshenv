@@ -27,4 +27,4 @@ export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # Path for 1password ssh auth socket.
-export SSH_AUTH_SOCK=~/.1password/agent.sock
+export SSH_AUTH_SOCK="~/.1password/agent.sock"

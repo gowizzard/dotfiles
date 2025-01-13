@@ -60,6 +60,8 @@ alias sshdo="code $HOME/.ssh"
 alias glo="goland ."
 alias rro="rustrover ."
 alias pco="pycharm ."
+alias ido="idea ."
+alias fto="fleet ."
 alias vco="code ."
 
 # Define functions to optimize workflow.
