@@ -19,6 +19,9 @@ source $ZSH/oh-my-zsh.sh
 # Define plugins for 1password.
 source $HOME/.config/op/plugins.sh
 
+# Define alias for fzf.
+source <(fzf --zsh)
+
 # Define alias for thefuck.
 eval $(thefuck --alias)
 
