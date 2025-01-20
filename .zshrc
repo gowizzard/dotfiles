@@ -44,7 +44,6 @@ alias make="gmake"
 alias cat="bat"
 
 # Define new aliases for general work.
-alias hd="cd $HOME"
 alias pd="cd $PROJECTS_DIRECTORY"
 alias np="new_project"
 alias dd="cd $HOME/Downloads"
