@@ -5,7 +5,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export PROJECTS_DIRECTORY="$HOME/Documents/Projects"
 
 # Path for 1password ssh auth socket.
-export SSH_AUTH_SOCK="~/.1password/agent.sock"
+export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
 
 # Path for homebrew installed packages.
 export PATH="/opt/homebrew/bin:$PATH"
@@ -21,7 +21,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.cargo/env:$PATH"
 
 # Path for pipx installed modules.
-export PATH="/Users/gowizzard/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="${PATH}:$(python3 -c 'import site; print(site.USER_BASE)')/bin"
 
 # Path for visual studio code shell commands.
