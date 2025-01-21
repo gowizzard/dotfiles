@@ -3,7 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export ZSH_THEME="agnoster"
 
 # Define the path to the oh-my-zsh installation.
-source $HOME/.oh-my-zsh/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
 # Define all plugins for oh-my-zsh.
 plugins=(
@@ -13,10 +13,6 @@ plugins=(
 	docker
 	docker-compose
 	fzf
-	gh
-	git
-	golang
-	redis-cli
 	jsontools
 	terraform
 	thefuck
@@ -66,6 +62,7 @@ alias stmux="tmux source-file $HOME/.tmux.conf"
 alias vim="nvim"
 alias make="gmake"
 alias cat="bat"
+alias neofetch="fastfetch"
 
 # Define new aliases for general work.
 alias pd="cd $PROJECTS_DIRECTORY"
