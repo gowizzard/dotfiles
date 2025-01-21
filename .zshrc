@@ -1,5 +1,9 @@
-# Theme that oh-my-zsh uses.
-ZSH_THEME="agnoster"
+# Paths for the zsh shell & oh-my-zsh configuration.
+export ZSH="$HOME/.oh-my-zsh"
+export ZSH_THEME="agnoster"
+
+# Define the path to the oh-my-zsh installation.
+source $HOME/.oh-my-zsh/oh-my-zsh.sh
 
 # Define all plugins for oh-my-zsh.
 plugins=(
@@ -17,29 +21,50 @@ plugins=(
 	terraform
 	thefuck
 	tmux
+	zsh-autosuggestions
 )
-
-source $ZSH/oh-my-zsh.sh
 
 # Define plugins for 1password.
 source $HOME/.config/op/plugins.sh
 
-# Define new aliases for oh-my-zsh.
-alias ezsh="vim $HOME/.zshrc"
-alias ezshenv="vim $HOME/.zshenv"
-alias szsh="source $HOME/.zshrc"
+# Enable the auto tab suggestion for terraform.
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
-# Define new aliases for tmux.
-alias etmux="vim $HOME/.tmux.conf"
+# Path to my project directory.
+export PROJECTS_DIRECTORY="$HOME/Documents/Projects"
+
+# Path for 1password ssh auth socket.
+export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
+
+# Paths for homebrew installed packages.
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+
+# Path for make with is installed as gmake via homebrew.
+export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+
+# Path for node.js installed via homebrew.
+export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
+
+# Paths for rust toolchain.
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/env:$PATH"
+
+# Paths for pipx installed modules.
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="${PATH}:$(python3 -c 'import site; print(site.USER_BASE)')/bin"
+
+# Path for visual studio code shell commands.
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# Define new aliases for source files.
+alias szsh="source $HOME/.zshrc"
 alias stmux="tmux source-file $HOME/.tmux.conf"
 
-# Define new alias for vim/nvim.
+# Define new alias to change cli applications to a more modern version.
 alias vim="nvim"
-
-# Define new alias for make.
 alias make="gmake"
-
-# Define new alias for bat.
 alias cat="bat"
 
 # Define new aliases for general work.
