@@ -49,22 +49,9 @@ alias np="new_project"
 alias dd="cd $HOME/Downloads"
 alias sshd="cd $HOME/.ssh"
 
-# Define new alias for open files.
+# Define new alias for open directories in different applications.
 alias ddo="open $HOME/Downloads"
-
-# Define new alias for open dotfiles.
 alias dfo="code $PROJECTS_DIRECTORY/dotfiles"
-
-# Define new alias for open files in code.
-alias sshdo="code $HOME/.ssh"
-
-# Open project from project directory or actual directory.
-alias glo="goland ."
-alias rro="rustrover ."
-alias pco="pycharm ."
-alias ido="idea ."
-alias fto="fleet ."
-alias vco="code ."
 
 # Define functions to optimize workflow.
 new_project() {
