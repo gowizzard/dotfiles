@@ -1,6 +1,6 @@
 # This Makefile is used to create symlinks to the dotfiles in this repository.
 
-.PHONY: git tmux zsh ghostty all
+.PHONY: git tmux zsh fastfetch ghostty all
 
 DOTFILE_PATH := $(shell pwd)
 
@@ -10,6 +10,10 @@ $(HOME)/%: %
 git: $(HOME)/.gitconfig $(HOME)/.gitignore
 tmux: $(HOME)/.tmux.conf
 zsh: $(HOME)/.zshrc
+
+fastfetch:
+	mkdir $(HOME)/.config/fastfetch
+	ln -sf $(DOTFILE_PATH)/.config/fastfetch/config.jsonc $(HOME)/.config/fastfetch/config.jsonc
 
 ghostty:
 	mkdir -p $(HOME)/.config/ghostty/themes
@@ -21,4 +25,4 @@ nvim:
 	ln -sf $(DOTFILE_PATH)/.config/nvim/init.lua $(HOME)/.config/nvim/init.lua
 	ln -sf $(DOTFILE_PATH)/.config/nvim/lua/default.lua $(HOME)/.config/nvim/lua/default.lua
 
-all: git tmux zsh ghostty nvim
+all: git tmux zsh fastfetch ghostty nvim
