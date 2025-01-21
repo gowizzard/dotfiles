@@ -9,7 +9,7 @@ $(HOME)/%: %
 
 git: $(HOME)/.gitconfig $(HOME)/.gitignore
 tmux: $(HOME)/.tmux.conf
-zsh: $(HOME)/.zshenv $(HOME)/.zshrc
+zsh: $(HOME)/.zshrc
 
 ghostty:
 	mkdir -p $(HOME)/.config/ghostty/themes
