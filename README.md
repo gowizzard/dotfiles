@@ -5,7 +5,7 @@ Here you can find my dotfiles and configurations that I use on my macOS system. 
 > [!NOTE]
 > I have recently switched to macOS, so I am still in the process of setting up my system. I will update this repository as I make changes.
 
-![macOS](https://github.com/user-attachments/assets/c879851a-efb2-42da-aa7a-73df09743308)
+![macOS](https://github.com/user-attachments/assets/2afb905f-9e06-484d-b762-280bc05375d4)
 
 This repository contains dotfiles and configuration settings for:
 
