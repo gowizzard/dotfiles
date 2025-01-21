@@ -2,9 +2,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_THEME="agnoster"
 
-# Define the path to the oh-my-zsh installation.
-source $ZSH/oh-my-zsh.sh
-
 # Define all plugins for oh-my-zsh.
 plugins=(
 	1password
@@ -19,6 +16,9 @@ plugins=(
 	tmux
 	zsh-autosuggestions
 )
+
+# Define the path to the oh-my-zsh installation.
+source $ZSH/oh-my-zsh.sh
 
 # Define plugins for 1password.
 source $HOME/.config/op/plugins.sh
