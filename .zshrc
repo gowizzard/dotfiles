@@ -3,27 +3,26 @@ ZSH_THEME="agnoster"
 
 # Define all plugins for oh-my-zsh.
 plugins=(
-	sudo
-	tmux
+	1password
+	ansible
+	brew
+	docker
+	docker-compose
+	fzf
+	gh
 	git
 	golang
 	redis-cli
-	docker
-	docker-compose
 	jsontools
-	zsh-autosuggestions
+	terraform
+	thefuck
+	tmux
 )
 
 source $ZSH/oh-my-zsh.sh
 
 # Define plugins for 1password.
 source $HOME/.config/op/plugins.sh
-
-# Define alias for fzf.
-source <(fzf --zsh)
-
-# Define alias for thefuck.
-eval $(thefuck --alias)
 
 # Define new aliases for oh-my-zsh.
 alias ezsh="vim $HOME/.zshrc"
