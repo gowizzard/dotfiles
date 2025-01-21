@@ -16,6 +16,7 @@
         "gpu",
         "memory",
         "break",
-        "colors"
+        "colors",
+        "break"
     ]
 }
