@@ -9,14 +9,11 @@
         "uptime",
         "packages",
         "shell",
-        "display",
-        "de",
         "terminal",
         "cpu",
         "gpu",
         "memory",
         "break",
-        "colors",
-        "break"
+        "colors"
     ]
 }
