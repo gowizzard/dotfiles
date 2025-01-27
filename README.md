@@ -37,5 +37,11 @@ brew bundle --file=Brewfile
 After installing the packages, I run the following command to clean up the cache and remove old versions of the packages.
 
 ```shell
-brew bundle --force cleanup --file=Brewfile
+brew bundle cleanup --file=Brewfile --force
+```
+
+I use the following command to create a backup of my installed packages. This command will create a `Brewfile` in the current directory with all the installed packages.
+
+```shell
+brew bundle dump --file=Brewfile
 ```
