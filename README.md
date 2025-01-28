@@ -18,7 +18,7 @@ This repository contains dotfiles and configuration settings for:
 
 ## Installation
 
-To install the configurations, you can run the following command in the terminal.
+To install the configurations, you can run the following command in the terminal, maybe you need to install `make` first.
 
 > [!WARNING]
 > This will overwrite your existing configurations, so make sure to back up your files before running this command.
@@ -30,6 +30,9 @@ make all
 ## Homebrew
 
 On macOS I use Homebrew as my package manager, so I have to install some packages and services directly. Here you can find some information about my installations and configurations.
+
+> [!NOTE]
+> Make sure to install Homebrew before running the following commands. You can find more information about Homebrew on their [website](https://brew.sh/).
 
 ```shell
 brew bundle --file=Brewfile
