@@ -1,6 +1,6 @@
 # This Makefile is used to create symlinks to the dotfiles in this repository.
 
-.PHONY: git tmux zsh fastfetch ghostty all
+.PHONY: git tmux zsh fastfetch ghostty hammerspoon all
 
 DOTFILE_PATH := $(shell pwd)
 
@@ -25,4 +25,8 @@ nvim:
 	ln -sf $(DOTFILE_PATH)/.config/nvim/init.lua $(HOME)/.config/nvim/init.lua
 	ln -sf $(DOTFILE_PATH)/.config/nvim/lua/default.lua $(HOME)/.config/nvim/lua/default.lua
 
-all: git tmux zsh fastfetch ghostty nvim
+hammerspoon:
+	@[ -d $(HOME)/.hammerspoon ] || mkdir $(HOME)/.hammerspoon
+	ln -sf $(DOTFILE_PATH)/.hammerspoon/init.lua $(HOME)/.hammerspoon/init.lua
+
+all: git tmux zsh fastfetch ghostty nvim hammerspoon
