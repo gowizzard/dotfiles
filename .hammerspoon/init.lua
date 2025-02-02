@@ -13,8 +13,7 @@ path = hs.configdir .. "/init.lua"
 watcher = hs.pathwatcher.new(path, reload):start()
 hs.notify.new({title="Hammerspoon", informativeText="Config file in ~/.hammerspoon/init.lua reloaded"}):send()
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function()
-    hs.reload()
-end)
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function() hs.reload() end)
 
+-- Add new hotkeys to optimize my workflow.
 hs.hotkey.bind({"cmd", "alt"}, "V", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end)
