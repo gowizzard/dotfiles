@@ -15,5 +15,5 @@ hs.notify.new({title="Hammerspoon", informativeText="Config file in ~/.hammerspo
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function() hs.reload() end)
 
--- Add new hotkeys to optimize my workflow.
-hs.hotkey.bind({"cmd", "alt"}, "V", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end)
+-- Load all the modules for my hammerspoon configuration.
+require("hotkeys")
