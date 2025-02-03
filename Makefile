@@ -1,6 +1,6 @@
 # This Makefile is used to create symlinks to the dotfiles in this repository.
 
-.PHONY: git tmux zsh fastfetch ghostty hammerspoon all
+.PHONY: git tmux zsh fastfetch ghostty karabiner nvim hammerspoon all
 
 DOTFILE_PATH := $(shell pwd)
 
@@ -20,6 +20,10 @@ ghostty:
 	ln -sf $(DOTFILE_PATH)/.config/ghostty/config $(HOME)/.config/ghostty/config
 	ln -sf $(DOTFILE_PATH)/.config/ghostty/themes/jjideenschmiede $(HOME)/.config/ghostty/themes/jjideenschmiede
 
+karabiner:
+	@[ -d $(HOME)/.config/karabiner ] || mkdir -p $(HOME)/.config/karabiner
+	ln -sf $(DOTFILE_PATH)/.config/karabiner/karabiner.json $(HOME)/.config/karabiner/karabiner.json
+
 nvim:
 	@[ -d $(HOME)/.config/nvim/lua ] || mkdir -p $(HOME)/.config/nvim/lua
 	ln -sf $(DOTFILE_PATH)/.config/nvim/init.lua $(HOME)/.config/nvim/init.lua
@@ -31,4 +35,4 @@ hammerspoon:
 		ln -sf "$$file" "$(HOME)/.hammerspoon/$$(basename $$file)"; \
 	done
 
-all: git tmux zsh fastfetch ghostty nvim hammerspoon
+all: git tmux zsh fastfetch ghostty karabiner nvim hammerspoon
