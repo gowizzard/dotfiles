@@ -21,8 +21,7 @@ ghostty:
 	ln -sf $(DOTFILE_PATH)/.config/ghostty/themes/jjideenschmiede $(HOME)/.config/ghostty/themes/jjideenschmiede
 
 karabiner:
-	@[ -d $(HOME)/.config/karabiner ] || mkdir -p $(HOME)/.config/karabiner
-	ln -sf $(DOTFILE_PATH)/.config/karabiner/karabiner.json $(HOME)/.config/karabiner/karabiner.json
+	cp -r $(DOTFILE_PATH)/.config/karabiner $(HOME)/.config
 
 nvim:
 	@[ -d $(HOME)/.config/nvim/lua ] || mkdir -p $(HOME)/.config/nvim/lua
