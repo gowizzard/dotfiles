@@ -27,8 +27,9 @@ source $HOME/.config/op/plugins.sh
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
-# Path to my project directory.
+# Paths to specific directories.
 export PROJECTS_DIRECTORY="$HOME/Documents/Projects"
+export DOTFILES_DIRECTORY="$PROJECTS_DIRECTORY/dotfiles"
 
 # Path for 1password ssh auth socket.
 export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
@@ -70,9 +71,12 @@ alias np="new_project"
 alias dd="cd $HOME/Downloads"
 alias sshd="cd $HOME/.ssh"
 
-# Define new alias for open directories in different applications.
+# Define new aliases for open directories in different applications.
 alias ddo="open $HOME/Downloads"
 alias dfo="code $PROJECTS_DIRECTORY/dotfiles"
+
+# Define new alias to backup brew to my dotfiles.
+alias bbrew="brew bundle dump --file=$DOTFILES_DIRECTORY/Brewfile --force"
 
 # Define functions to optimize workflow.
 new_project() {
