@@ -9,11 +9,10 @@ local function reload(files)
     end
 end
 
-path = hs.configdir .. "/init.lua"
-watcher = hs.pathwatcher.new(path, reload):start()
+watcher = hs.pathwatcher.new(hs.configdir, reload):start()
 hs.notify.new({title="Hammerspoon", informativeText="Config file in ~/.hammerspoon/init.lua reloaded"}):send()
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function() hs.reload() end)
 
--- Load all the modules for my hammerspoon configuration.
+-- Load all the modules for my hammerspoon configuration. This keeps my init.lua file clean and easy to read.
 require("hotkeys")
