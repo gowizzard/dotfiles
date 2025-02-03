@@ -75,8 +75,9 @@ alias sshd="cd $HOME/.ssh"
 alias ddo="open $HOME/Downloads"
 alias dfo="code $PROJECTS_DIRECTORY/dotfiles"
 
-# Define new alias to backup brew to my dotfiles.
+# Define new aliases to backup my dotfiles.
 alias bbrew="brew bundle dump --file=$DOTFILES_DIRECTORY/Brewfile --force"
+alias bkarabiner="cp $HOME/.config/karabiner/karabiner.json $DOTFILES_DIRECTORY/.config/karabiner/karabiner.json"
 
 # Define functions to optimize workflow.
 new_project() {
