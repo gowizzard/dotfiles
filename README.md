@@ -46,5 +46,5 @@ brew bundle cleanup --file=Brewfile --force
 I use the following command to create a backup of my installed packages. This command will create a `Brewfile` in the current directory with all the installed packages.
 
 ```shell
-brew bundle dump --file=Brewfile
+brew bundle dump --file=Brewfile --force
 ```
