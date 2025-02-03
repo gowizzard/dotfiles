@@ -13,7 +13,5 @@ end
 hs.pathwatcher.new(os.getenv("HOME") .. "/Documents/Projects/dotfiles/.hammerspoon", reload):start()
 hs.notify.new({title="Hammerspoon", informativeText="Config files in ~/.hammerspoon reloaded"}):send()
 
-hs.hotkey.bind({"cmd", "alt"}, "R", function() hs.reload() end)
-
 -- Load all the modules for my hammerspoon configuration. This keeps my init.lua file clean and easy to read.
 require("hotkeys")
