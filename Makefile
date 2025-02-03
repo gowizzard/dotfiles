@@ -27,6 +27,8 @@ nvim:
 
 hammerspoon:
 	@[ -d $(HOME)/.hammerspoon ] || mkdir $(HOME)/.hammerspoon
-	ln -sf $(DOTFILE_PATH)/.hammerspoon/init.lua $(HOME)/.hammerspoon/init.lua
+	@for file in $(DOTFILE_PATH)/.hammerspoon/*.lua; do \
+		ln -sf "$$file" "$(HOME)/.hammerspoon/$$(basename $$file)"; \
+	done
 
 all: git tmux zsh fastfetch ghostty nvim hammerspoon
