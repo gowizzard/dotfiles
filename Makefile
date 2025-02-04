@@ -21,8 +21,7 @@ ghostty:
 	ln -sf $(DOTFILE_PATH)/.config/ghostty/themes/jjideenschmiede $(HOME)/.config/ghostty/themes/jjideenschmiede
 
 karabiner:
-	cp -rf $(DOTFILE_PATH)/.config/karabiner/karabiner.json $(HOME)/.config/karabiner/karabiner.json
-	ln -sf $(HOME)/.config/karabiner/karabiner.json $(DOTFILE_PATH)/.config/karabiner/karabiner.json
+	@[ -d $(HOME)/.config/karabiner ] || ln -sf $(DOTFILE_PATH)/.config/karabiner $(HOME)/.config/karabiner
 
 nvim:
 	@[ -d $(HOME)/.config/nvim/lua ] || mkdir -p $(HOME)/.config/nvim/lua
@@ -30,9 +29,6 @@ nvim:
 	ln -sf $(DOTFILE_PATH)/.config/nvim/lua/default.lua $(HOME)/.config/nvim/lua/default.lua
 
 hammerspoon:
-	@[ -d $(HOME)/.hammerspoon ] || mkdir $(HOME)/.hammerspoon
-	@for file in $(DOTFILE_PATH)/.hammerspoon/*.lua; do \
-		ln -sf "$$file" "$(HOME)/.hammerspoon/$$(basename $$file)"; \
-	done
+	@[ -d $(HOME)/.hammerspoon ] || ln -sf $(DOTFILE_PATH)/.hammerspoon $(HOME)/.hammerspoon
 
 all: git tmux zsh fastfetch ghostty karabiner nvim hammerspoon
