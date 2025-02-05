@@ -10,10 +10,11 @@ Here you can find my dotfiles and configurations that I use on my macOS system. 
 This repository contains dotfiles and configuration settings for:
 
 - Ghostty: A fast, feature-rich, and cross-platform terminal emulator.
-- Oh-my-zsh: Framework for managing Zsh configuration.
-- Tmux: Terminal multiplexer to manage multiple sessions.
-- Git: My version control of choice.
 - Neovim: My text editor of choice for terminal.
+- Hammerspoon: A powerful automation tool for macOS.
+- Git: My version control of choice.
+- Tmux: Terminal multiplexer to manage multiple sessions.
+- Oh-my-zsh: Framework for managing Zsh configuration.
 - ... and various other tools that boost my productivity!
 
 ## Installation
