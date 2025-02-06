@@ -3,7 +3,10 @@
 local hyper = {"cmd", "ctrl", "option", "shift"}
 
 hs.hotkey.bind(hyper, "r", function() notifications("reload_config") end)
-hs.hotkey.bind(hyper, "l", function() hs.caffeinate.lockScreen() end)
+hs.hotkey.bind(hyper, "c", function() hs.openConsole() end)
+
+hs.hotkey.bind(hyper, "q", function() hs.caffeinate.lockScreen() end)
+
 hs.hotkey.bind(hyper, "v", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end)
 
 hs.hotkey.bind(hyper, "right", function() hs.window.focusedWindow():moveOneScreenEast() end)
