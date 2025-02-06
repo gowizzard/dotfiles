@@ -5,3 +5,9 @@ local hyper = {"cmd", "ctrl", "option", "shift"}
 hs.hotkey.bind(hyper, "r", function() notifications("reload_config") end)
 hs.hotkey.bind(hyper, "l", function() hs.caffeinate.lockScreen() end)
 hs.hotkey.bind(hyper, "v", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end)
+
+hs.hotkey.bind(hyper, "right", function() hs.window.focusedWindow():moveOneScreenEast() end)
+hs.hotkey.bind(hyper, "left", function() hs.window.focusedWindow():moveOneScreenWest() end)
+hs.hotkey.bind(hyper, "return", function() hs.window.focusedWindow():maximize() end)
+hs.hotkey.bind(hyper, "h", function() hs.window.focusedWindow():moveToUnit(hs.layout.left50) end)
+hs.hotkey.bind(hyper, "l", function() hs.window.focusedWindow():moveToUnit(hs.layout.right50) end)
