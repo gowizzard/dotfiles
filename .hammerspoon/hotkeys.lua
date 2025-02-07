@@ -5,8 +5,8 @@ local hyper = {"cmd", "ctrl", "option", "shift"}
 hs.hotkey.bind(hyper, "r", function() notifications("reload_config") end)
 hs.hotkey.bind(hyper, "x", function() hs.toggleConsole() end)
 
-hs.hotkey.bind(hyper, "s", function() hs.caffeinate.sleepSystem() end)
-hs.hotkey.bind(hyper, "q", function() hs.osascript.applescript("tell application \"System Events\" to shut down") end)
+hs.hotkey.bind(hyper, "q", function() hs.caffeinate.shutdownSystem() end)
+hs.hotkey.bind(hyper, "s", function() hs.caffeinate.systemSleep() end)
 
 hs.hotkey.bind(hyper, "f", function() hs.application.launchOrFocus("Finder") end)
 
