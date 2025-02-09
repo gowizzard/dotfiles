@@ -2,7 +2,7 @@
 -- I can then require this file in my init.lua file to keep my configuration file clean and easy to read.
 local hyper = {"cmd", "ctrl", "option", "shift"}
 
-hs.hotkey.bind(hyper, "r", function() notifications("reload_config") end)
+hs.hotkey.bind(hyper, "r", function() reload() end)
 hs.hotkey.bind(hyper, "x", function() hs.toggleConsole() end)
 
 hs.hotkey.bind(hyper, "right", function() hs.window.focusedWindow():moveOneScreenEast() end)
