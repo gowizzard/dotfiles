@@ -21,6 +21,11 @@ function moveWindow(direction)
     local moveLeft = (direction == "left")
     local moveRight = (direction == "right")
 
+    if window:frame().w == screen:frame().w then
+        window:moveToUnit(moveLeft and hs.layout.left50 or hs.layout.right50)
+        return
+    end
+
     if (moveLeft and window:frame().x <= screen:frame().x + 5) or 
        (moveRight and window:frame().x + window:frame().w >= screen:frame().x + screen:frame().w - 5) then
 
