@@ -1,6 +1,6 @@
 -- In this file, I define little utility functions that I use in my other files like hotkeys.lua and pathwatchers.lua.
 -- I can then require this file in my other files to keep my configuration files clean and easy to read.
-function reload()
+function reloadConfig()
     local notification = hs.notify.new({
         informativeText = "Config files in ~/.hammerspoon reloaded",
         title = "Hammerspoon",
@@ -11,4 +11,25 @@ function reload()
         notification:withdraw()
         hs.reload()
     end)
+end
+
+function moveWindow(direction)
+    local window = hs.window.focusedWindow()
+    if not window then return end
+
+    local screen = window:screen()
+    local moveLeft = (direction == "left")
+    local moveRight = (direction == "right")
+
+    if (moveLeft and window:frame().x <= screen:frame().x + 5) or 
+       (moveRight and window:frame().x + window:frame().w >= screen:frame().x + screen:frame().w - 5) then
+
+        local newScreen = moveLeft and screen:toWest() or screen:toEast()
+        if newScreen then
+            window:moveToScreen(newScreen, false, true)
+            window:moveToUnit(moveLeft and hs.layout.right50 or hs.layout.left50)
+        end
+    else
+        window:moveToUnit(moveLeft and hs.layout.left50 or hs.layout.right50)
+    end
 end

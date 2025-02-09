@@ -3,7 +3,7 @@
 hs.pathwatcher.new(hs.configdir, function(files)
     for _, v in ipairs(files) do
         if v:match("%.lua$") then
-            reload() 
+            reloadConfig() 
             return
         end
     end
