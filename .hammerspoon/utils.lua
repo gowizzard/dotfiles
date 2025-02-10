@@ -18,11 +18,12 @@ function muteOrUnmute()
     local slack = hs.application.find("com.tinyspeck.slackmacgap")
 
     local function activateApp(app)
+        if not app then return end
+
         if not app:isFrontmost() then
             app:activate()
-        elseif app:minimized() then
-            app:unminimize()
         end
+
     end
 
     if zoom then
