@@ -13,6 +13,27 @@ function reloadConfig()
     end)
 end
 
+function muteOrUnmute()
+    local zoom = hs.application.find("us.zoom.xos")
+    local slack = hs.application.find("com.tinyspeck.slackmacgap")
+
+    local function activateApp(app)
+        if not app:isFrontmost() then
+            app:activate()
+        elseif app:minimized() then
+            app:unminimize()
+        end
+    end
+
+    if zoom then
+        activateApp(zoom)
+        hs.eventtap.keyStroke({"cmd", "shift"}, "a")
+    elseif slack then
+        activateApp(slack)
+        hs.eventtap.keyStroke({"cmd", "shift"}, "space")
+    end
+end
+
 function moveWindow(direction)
     local window = hs.window.focusedWindow()
     if not window then return end
