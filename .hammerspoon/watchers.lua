@@ -8,12 +8,3 @@ hs.pathwatcher.new(hs.configdir, function(files)
         end
     end
 end):start()
-
-hs.caffeinate.watcher.new(function(event)
-    if event == hs.caffeinate.watcher.screensDidUnlock then
-        local browser = hs.application.find("company.thebrowser.Browser")
-        if browser then
-            browser:hide()
-        end
-    end
-end):start()
