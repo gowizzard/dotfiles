@@ -14,8 +14,13 @@ hs.hotkey.bind(hyper, "down", function() hs.window.focusedWindow():moveToUnit({0
 hs.hotkey.bind(hyper, "right", function() moveWindow("right") end)
 
 local caffeinate = hs.hotkey.modal.new(hyper, "c")
+function caffeinate:entered() 
+    hs.notify.new({informativeText = "Enter caffeinate mode (press escape to exit)", title = "Hammerspoon"}):send()
+end
 
 caffeinate:bind({}, "escape", function() caffeinate:exit() end)
 
 caffeinate:bind({}, "q", function() hs.caffeinate.shutdownSystem() caffeinate:exit() end)
 caffeinate:bind({}, "s", function() hs.caffeinate.systemSleep() caffeinate:exit() end)
+caffeinate:bind({}, "t", function() temporaryCaffeinate() caffeinate:exit() end)
+caffeinate:bind({}, "d", function() disableCaffeinate() caffeinate:exit() end)

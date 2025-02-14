@@ -60,3 +60,18 @@ function moveWindow(direction)
         window:moveToUnit(moveLeft and hs.layout.left50 or hs.layout.right50)
     end
 end
+
+function temporaryCaffeinate()
+    hs.caffeinate.set("systemIdle", true)
+    hs.notify.new({informativeText = "Caffeinate enabled for 1 hour", title = "Hammerspoon"}):send()
+    
+    hs.timer.doAfter(3600, function()
+        hs.caffeinate.set("systemIdle", false)
+        hs.notify.new({informativeText = "Caffeinate automatically disabled", title = "Hammerspoon"}):send()
+    end) 
+end
+
+function disableCaffeinate()
+    hs.caffeinate.set("systemIdle", false)
+    hs.notify.new({informativeText = "Caffeinate successfully disabled", title = "Hammerspoon"}):send()
+end
