@@ -1,3 +1,4 @@
+# The function new_project is to create a new project directory in the projects directory and initialize a git repository.
 function new_project
     if test (count $argv) -gt 1
         echo "too many arguments were handed over"
