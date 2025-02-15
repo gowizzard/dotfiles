@@ -1,6 +1,6 @@
 # This Makefile is used to create symlinks to the dotfiles in this repository.
 
-.PHONY: git tmux zsh fastfetch ghostty karabiner nvim hammerspoon all
+.PHONY: git tmux zsh fastfetch fish ghostty karabiner nvim hammerspoon all
 
 DOTFILES := $(shell pwd)
 
@@ -35,4 +35,4 @@ hammerspoon:
 	@rm -rf $(HOME)/.hammerspoon
 	ln -sf $(DOTFILES)/.hammerspoon $(HOME)/.hammerspoon
 
-all: git tmux zsh fastfetch ghostty karabiner nvim hammerspoon
+all: git tmux zsh fastfetch fish ghostty karabiner nvim hammerspoon
