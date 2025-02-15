@@ -15,6 +15,10 @@ fastfetch:
 	@rm -rf $(HOME)/.config/fastfetch
 	ln -sf $(DOTFILES)/.config/fastfetch $(HOME)/.config/fastfetch
 
+fish:
+	@rm -rf $(HOME)/.config/fish
+	ln -sf $(DOTFILES)/.config/fish $(HOME)/.config/fish
+
 ghostty:
 	@rm -rf $(HOME)/.config/ghostty
 	ln -sf $(DOTFILES)/.config/ghostty $(HOME)/.config/ghostty
