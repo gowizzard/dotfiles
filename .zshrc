@@ -1,24 +1,5 @@
-# Paths for the zsh shell & oh-my-zsh configuration.
-export ZSH="$HOME/.oh-my-zsh"
-export ZSH_THEME="agnoster"
-
-# Define all plugins for oh-my-zsh.
-plugins=(
-	1password
-	ansible
-	brew
-	docker
-	docker-compose
-	fzf
-	jsontools
-	terraform
-	thefuck
-	tmux
-	zsh-autosuggestions
-)
-
-# Define the path to the oh-my-zsh installation.
-source $ZSH/oh-my-zsh.sh
+# Initialize the starship prompt for zsh.
+eval "$(starship init zsh)"
 
 # Define plugins for 1password.
 source $HOME/.config/op/plugins.sh
