@@ -8,18 +8,3 @@ hs.pathwatcher.new(hs.configdir, function(files)
         end
     end
 end):start()
-
-hs.pathwatcher.new(os.getenv("HOME") .. "/.tmux.conf", function(files)
-    print("Reloading tmux configuration")
-    hs.execute("tmux source-file ~/.tmux.conf")
-end):start()
-
-hs.pathwatcher.new(os.getenv("HOME") .. "/.config/fish", function(files)
-    for _, v in ipairs(files) do
-        if v:match("%.fish$") then
-            print("Reloading fish configuration")
-            hs.execute("source ~/.config/fish/config.fish")
-            return
-        end
-    end
-end):start()
