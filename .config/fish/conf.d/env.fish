@@ -1,3 +1,6 @@
+# Disable the default welcome message.
+set -gx fish_greeting
+
 # Paths to specific directories.
 set -gx PROJECTS_DIRECTORY $HOME/Documents/Projects
 set -gx DOTFILES_DIRECTORY $PROJECTS_DIRECTORY/dotfiles

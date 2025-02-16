@@ -1,5 +1,6 @@
 # Add files to source here. This is the main configuration file for fish shell.
 # Source the functions and completions.
+starship init fish | source
 source $HOME/.config/op/plugins.sh
 
 # Add abbreviations here. Abbreviations are shortcuts for commands. For example, 
