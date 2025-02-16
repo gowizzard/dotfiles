@@ -1,0 +1,14 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+
+[aws]
+disabled = true
+
+[character]
+disabled = true#
+
+[directory]
+truncation_length = 0
+truncate_to_repo = false
+format = "[$path](bold blue) "
