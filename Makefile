@@ -1,6 +1,6 @@
 # This Makefile is used to create symlinks to the dotfiles in this repository.
 
-.PHONY: git tmux zsh fastfetch fish ghostty karabiner nvim hammerspoon all
+.PHONY: git tmux zsh starship fastfetch fish ghostty karabiner nvim hammerspoon all
 
 DOTFILES := $(shell pwd)
 
@@ -10,6 +10,9 @@ $(HOME)/%: %
 git: $(HOME)/.gitconfig $(HOME)/.gitignore
 tmux: $(HOME)/.tmux.conf
 zsh: $(HOME)/.zshrc
+
+starship:
+	ln -sf $(DOTFILES)/.config/starship.toml $(HOME)/.config/starship.toml
 
 fastfetch:
 	@rm -rf $(HOME)/.config/fastfetch
@@ -35,4 +38,4 @@ hammerspoon:
 	@rm -rf $(HOME)/.hammerspoon
 	ln -sf $(DOTFILES)/.hammerspoon $(HOME)/.hammerspoon
 
-all: git tmux zsh fastfetch fish ghostty karabiner nvim hammerspoon
+all: git tmux zsh starship fastfetch fish ghostty karabiner nvim hammerspoon
