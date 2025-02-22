@@ -53,6 +53,23 @@ stow .
 
 I use Fish as my shell, and I have configured it to be as simple and efficient as possible. You can find my Fish configuration in the `.config/fish` directory.
 
+### Change default shell
+
+> [!TIP]
+> Fish is not installed by default on macOS, so i have installed it using Homebrew.
+
+To change the default shell to Fish, you need to add the following line to the `/etc/shells` file.
+
+```text
+/opt/homebrew/bin/fish
+```
+
+After adding the line to the `/etc/shells` file, you can run the following command in the terminal to change the default shell to Fish.
+
+```shell
+chsh -s /opt/homebrew/bin/fish
+```
+
 ### Update completions
 
 To update the completions for Fish, you can run the following command in the terminal. This will update the completions for all the installed packages.
