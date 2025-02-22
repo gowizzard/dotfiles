@@ -4,5 +4,3 @@
 	name = Jonas Kwiedor
 [init]
 	defaultBranch = main
-[core]
-	excludesfile = ~/.gitignore
