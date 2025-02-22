@@ -2,7 +2,7 @@
 # Add abbreviations here. Abbreviations are shortcuts for commands. For example, 
 # `abbr -a vim nvim` will allow you to use `vim` as a shortcut for `nvim`.
 abbr -a ls eza
-abbr -a la eza -l
+abbr -a cd z
 abbr -a vim nvim
 abbr -a make gmake
 abbr -a cat bat
@@ -12,5 +12,4 @@ abbr -a neofetch fastfetch
 source $HOME/.config/op/plugins.sh
 
 starship init fish | source
-atuin init fish | source
 zoxide init fish | source
