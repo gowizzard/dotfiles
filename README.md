@@ -42,8 +42,8 @@ brew bundle cleanup --file=Brewfile --force
 
 I use GNU Stow to manage my dotfiles. It is a simple tool that symlinks files from one directory to another. This makes it easy to manage dotfiles across multiple systems. To install GNU Stow, you can run the following command in the terminal.
 
-> [!NOTE]
-> Make sure that you are in the dotfiles directory before running the following command.
+> [!WARNING]
+> Make sure that you are in the dotfiles directory before running the following command. This will create symlinks for the dotfiles in the home directory.
 
 ```shell
 stow .
