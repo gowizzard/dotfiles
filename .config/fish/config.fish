@@ -12,4 +12,5 @@ abbr -a neofetch fastfetch
 source $HOME/.config/op/plugins.sh
 
 starship init fish | source
+atuin init fish | source
 zoxide init fish | source
