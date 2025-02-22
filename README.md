@@ -56,7 +56,7 @@ I use Fish as my shell, and I have configured it to be as simple and efficient a
 ### Change default shell
 
 > [!TIP]
-> Fish is not installed by default on macOS, so i have installed it using Homebrew.
+> Fish is not installed by default on macOS, so i have installed it using Homebrew. You can find more information about Fish on their [website](https://fishshell.com/).
 
 To change the default shell to Fish, you need to add the following line to the `/etc/shells` file.
 
