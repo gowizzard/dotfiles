@@ -17,5 +17,4 @@ abbr -a bbrew brew bundle dump --file=$DOTFILES_DIRECTORY/Brewfile --force
 source $HOME/.config/op/plugins.sh
 
 starship init fish | source
-atuin init fish | source
 zoxide init fish | source
