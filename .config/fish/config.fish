@@ -1,10 +1,7 @@
 # This is the main configuration file for fish shell. It is loaded every time a new shell is opened.
 # Add abbreviations here. Abbreviations are shortcuts for commands. For example, 
 # `abbr -a vim nvim` will allow you to use `vim` as a shortcut for `nvim`.
-abbr -a ls eza
-abbr -a la eza -la
 abbr -a cd z
-
 abbr -a vim nvim
 abbr -a make gmake
 abbr -a cat bat
