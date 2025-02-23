@@ -1,6 +1,6 @@
 # dotfiles
 
-Here you can find my dotfiles and configurations that I use on my macOS system. I have been using these configurations for a while now, and I am quite happy with them. I have tried to keep the configurations as simple as possible, so that they can be easily understood and modified. I have also included a Makefile to automate the installation process, so that you can easily set up your system with my configurations.
+Here you can find my dotfiles and configurations that I use on my macOS system. I have been using these configurations for a while now, and I am quite happy with them. I have tried to keep the configurations as simple as possible, so that they can be easily understood and modified.
 
 > [!NOTE]
 > I have recently switched to macOS, so I am still in the process of setting up my system. I will update this repository as I make changes.
