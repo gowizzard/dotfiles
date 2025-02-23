@@ -2,11 +2,16 @@
 # Add abbreviations here. Abbreviations are shortcuts for commands. For example, 
 # `abbr -a vim nvim` will allow you to use `vim` as a shortcut for `nvim`.
 abbr -a ls eza
+abbr -a la eza -la
 abbr -a cd z
+
 abbr -a vim nvim
 abbr -a make gmake
 abbr -a cat bat
 abbr -a neofetch fastfetch
+
+abbr -a sfish source $HOME/.config/fish/config.fish
+abbr -a bbrew brew bundle dump --file=$DOTFILES_DIRECTORY/Brewfile --force
 
 # Add files or initialization scripts here to be loaded every time a new shell is opened. 
 source $HOME/.config/op/plugins.sh
