@@ -1,14 +1,6 @@
 # Define plugins for 1password.
 source $HOME/.config/op/plugins.sh
 
-# Enable the auto tab suggestion for terraform.
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
-
-# Paths to specific directories.
-export PROJECTS_DIRECTORY="$HOME/Documents/Projects"
-export DOTFILES_DIRECTORY="$PROJECTS_DIRECTORY/dotfiles"
-
 # Path for 1password ssh auth socket.
 export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
 
@@ -39,16 +31,3 @@ alias neofetch="fastfetch"
 
 # Define new aliases to backup my dotfiles.
 alias bbrew="brew bundle dump --file=$DOTFILES_DIRECTORY/Brewfile --force"
-
-# Define functions to optimize workflow.
-new_project() {
-	if [ $# -gt 1 ]; then
-		echo "too many arguments were handed over"
-	elif [ $# -eq 1 ]; then
-		mkdir $PROJECTS_DIRECTORY/$1
-		cd $PROJECTS_DIRECTORY/$1
-		git init
-	else
-		echo "no project title given"
-	fi
-}
