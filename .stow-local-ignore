@@ -2,7 +2,7 @@
 # After that we ignore all other files.
 /.git
 
-.gitingore
+.gitignore
 .stowrc
 Brewfile
 Makefile
