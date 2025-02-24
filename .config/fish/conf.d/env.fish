@@ -21,4 +21,5 @@ set -gx PATH $HOME/.cargo/env $PATH
 
 set -gx PATH (python3 -c 'import site; print(site.USER_BASE)')/bin $PATH
 
-set -gx PATH $PATH "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+set -gx PATH $HOME/Library/Application\ Support/JetBrains/Toolbox/scripts $PATH
+set -gx PATH /Applications/Visual Studio Code.app/Contents/Resources/app/bin $PATH
