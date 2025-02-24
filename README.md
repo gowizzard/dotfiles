@@ -75,5 +75,5 @@ chsh -s /opt/homebrew/bin/fish
 To update the completions for Fish, you can run the following command in the terminal. This will update the completions for all the installed packages.
 
 ```shell
-fish_update_completion
+fish_update_completions
 ```
