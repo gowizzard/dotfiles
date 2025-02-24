@@ -1,3 +1,6 @@
 # First irgnore all unused folders.
 # After that we ignore all other files.
+.config/karabiner/assets/
+.config/karabiner/automatic_backups/
+
 .config/fish/fish_variables
