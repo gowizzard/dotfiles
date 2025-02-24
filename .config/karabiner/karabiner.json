@@ -31,6 +31,20 @@
                         "vendor_id": 12951
                     },
                     "ignore": true
+                },
+                {
+                    "identifiers": {
+                        "is_pointing_device": true,
+                        "product_id": 45108,
+                        "vendor_id": 1133
+                    },
+                    "ignore": false,
+                    "simple_modifications": [
+                        {
+                            "from": { "pointing_button": "button6" },
+                            "to": [{ "apple_vendor_keyboard_key_code": "mission_control" }]
+                        }
+                    ]
                 }
             ],
             "fn_function_keys": [
