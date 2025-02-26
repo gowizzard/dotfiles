@@ -3,4 +3,4 @@ complete -c docker -n '__fish_seen_subcommand_from logs' -a '(docker ps --format
 complete -c docker -n '__fish_seen_subcommand_from exec' -a '(docker ps --format "{{.Names}}")' -f
 complete -c docker -n '__fish_seen_subcommand_from stop' -a '(docker ps --format "{{.Names}}")' -f
 complete -c docker -n '__fish_seen_subcommand_from restart' -a '(docker ps --format "{{.Names}}")' -f
-complete -c docker -n '__fish_seen_subcommand_from rm' -a '(docker ps -aq)' -f
+complete -c docker -n '__fish_seen_subcommand_from rm' -a '(docker ps --format "{{.Names}}")' -f
