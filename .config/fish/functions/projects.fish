@@ -18,7 +18,7 @@ function projects
         set -a formatted_directories $name
     end
     
-    set -l selected_project (printf "%s\n" $formatted_directories | fzf --height 25% --reverse --border --prompt="Select project: ")
+    set -l selected_project (printf "%s\n" $formatted_directories | fzf --height 25% --reverse --border --prompt="Select project: " --query="$argv[1]")
     if test -n "$selected_project"
         cd "$PROJECTS_DIRECTORY/$selected_project"
     end
