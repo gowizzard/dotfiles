@@ -5,6 +5,7 @@ function brew_update_all
     brew update && brew upgrade && brew cleanup
     brew bundle dump --file=$DOTFILES_DIRECTORY/Brewfile --force
     echo "Brew update complete."
+
     fish_update_completions
     echo "Fish completions updated."
 end
