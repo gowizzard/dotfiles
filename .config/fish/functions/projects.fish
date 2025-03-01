@@ -12,13 +12,13 @@ function projects
         return 1
     end
     
-    set -l formatted_directories
-    for dir in $project_directories
-        set -l name (basename $dir)
-        set -a formatted_directories $name
+    set -l project_names
+    for path in $project_directories
+        set -a project_names (basename $path)
     end
     
-    set -l selected_project (printf "%s\n" $formatted_directories | fzf --height 25% --reverse --border --prompt="Select project: " --query="$argv[1]")
+    set -l selected_project (printf "%s\n" $project_names |
+        fzf --height 25% --reverse --border --prompt="Select project: " --query="$argv[1]")
     if test -n "$selected_project"
         cd "$PROJECTS_DIRECTORY/$selected_project"
     end
