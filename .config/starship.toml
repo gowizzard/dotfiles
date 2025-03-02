@@ -6,9 +6,29 @@ add_newline = false
 disabled = true
 
 [character]
-disabled = true#
+disabled = true
 
 [directory]
 truncation_length = 0
-truncate_to_repo = false
 format = "[$path](bold blue) "
+repo_root_format = "[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style) "
+
+[git_status]
+conflicted = "=${count}"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count}"
+stashed = "*${count}"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+style = "bold yellow"
+
+[golang]
+format = "via [$symbol($version )($mod_version )]($style)"
+
+[status]
+format = "[$status]($style) "
+disabled = false
