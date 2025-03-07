@@ -2,6 +2,7 @@
 # After that we ignore all other files.
 /.git
 
+.DS_Store
 .gitignore
 .stowrc
 Brewfile
