@@ -8,6 +8,7 @@ abbr -a make gmake
 abbr -a cat bat
 abbr -a neofetch fastfetch
 
+abbr -a dotfiles cd $DOTFILES_DIRECTORY
 abbr -a sfish source $HOME/.config/fish/config.fish
 abbr -a bbrew brew bundle dump --file=$DOTFILES_DIRECTORY/Brewfile --force
 
