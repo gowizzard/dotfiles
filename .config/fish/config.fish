@@ -11,6 +11,7 @@ abbr -a neofetch fastfetch
 abbr -a dotfiles code $DOTFILES_DIRECTORY
 abbr -a sfish source $HOME/.config/fish/config.fish
 abbr -a bbrew brew bundle dump --file=$DOTFILES_DIRECTORY/Brewfile --force
+abbr -a dprune docker system prune -a -f
 
 # Add files or initialization scripts here to be loaded every time a new shell is opened. 
 source $HOME/.config/op/plugins.sh
