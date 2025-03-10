@@ -2,5 +2,6 @@
 # After that we ignore all other files.
 .config/karabiner/assets/
 .config/karabiner/automatic_backups/
+.hammerspoon/Spoons/
 
 .config/fish/fish_variables
