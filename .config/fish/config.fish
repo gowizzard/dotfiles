@@ -18,4 +18,3 @@ source $HOME/.config/op/plugins.sh
 
 starship init fish | source
 zoxide init fish | source
-thefuck --alias | source
