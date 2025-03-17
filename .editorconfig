@@ -11,6 +11,9 @@ trim_trailing_whitespace = true
 indent_style = tab
 indent_size = 4
 
+[*.fish]
+indent_style = space
+
 # YAML requires spaces for indentation
 [*.{yml,yaml}]
 indent_style = space
