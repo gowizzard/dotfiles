@@ -1,1 +1,0 @@
-complete -c docker_stop_and_remove -a '(docker ps --format "{{.Names}}")' -f
