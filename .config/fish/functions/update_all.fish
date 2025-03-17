@@ -3,6 +3,9 @@
 # Then, it updates pipx packages by running pipx upgrade-all.
 # Finally, it updates fish completions by running fish_update_completions.
 function update_all
+	git -C $DOTFILES_DIRECTORY pull
+	echo "📦 Dotfiles updated."
+
     brew update && brew upgrade && brew cleanup
     brew bundle dump --file=$DOTFILES_DIRECTORY/Brewfile --force
     echo "🍻 Homebrew and Brewfile updated."
