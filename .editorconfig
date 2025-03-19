@@ -11,6 +11,7 @@ trim_trailing_whitespace = true
 indent_style = tab
 indent_size = 4
 
+# Fish shell scripts need 2-space indentation
 [*.fish]
 indent_style = space
 
@@ -23,7 +24,3 @@ indent_size = 2
 [*.json]
 indent_style = space
 indent_size = 2
-
-# Markdown files need special handling for trailing whitespace
-[*.md]
-trim_trailing_whitespace = false
