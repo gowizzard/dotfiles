@@ -15,12 +15,11 @@ indent_size = 4
 [*.fish]
 indent_style = space
 
-# YAML requires spaces for indentation
-[*.{yml,yaml}]
-indent_style = space
-indent_size = 2
+# Go and Python files should have a newline at the end
+[*.{go,py}]
+insert_final_newline = true
 
-# JSON files often work better with spaces
-[*.json]
+# JSON and YAML files should use spaces, not tabs and 2-space indentation
+[*.{json,yml,yaml}]
 indent_style = space
 indent_size = 2
