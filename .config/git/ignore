@@ -1,8 +1,7 @@
-# This is the global .gitignore file. First irgnore all 
+# This is the global .gitignore file. First irgnore all
 # unused folders. After that we ignore all other files.
-.idea/
 .fleet/
+.idea/
 .vscode/
-.obsidian/
 
 .DS_Store
