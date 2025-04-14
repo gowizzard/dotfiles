@@ -8,16 +8,13 @@ root = true
 charset = utf-8
 end_of_line = lf
 trim_trailing_whitespace = true
+insert_final_newline = true
 indent_style = tab
 indent_size = 4
 
 # Fish shell scripts need 2-space indentation
 [*.fish]
 indent_style = space
-
-# Go and Python files should have a newline at the end
-[*.{go,py}]
-insert_final_newline = true
 
 # JSON and YAML files should use spaces, not tabs and 2-space indentation
 [*.{json,yml,yaml}]
