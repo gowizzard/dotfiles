@@ -4,4 +4,5 @@
 .config/karabiner/automatic_backups/
 .hammerspoon/Spoons/
 
+.config/fish/completions/docker.fish
 .config/fish/fish_variables
