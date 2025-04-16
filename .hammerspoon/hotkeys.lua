@@ -1,4 +1,4 @@
--- In this file, I define all my hotkey functions. 
+-- In this file, I define all my hotkey functions.
 -- I can then require this file in my init.lua file to keep my configuration file clean and easy to read.
 local hyper = {"cmd", "ctrl", "option", "shift"}
 

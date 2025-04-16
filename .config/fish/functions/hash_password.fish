@@ -12,6 +12,6 @@ function hash_password
     set -l tmpfile (mktemp)
     htpasswd -cb -B $tmpfile "user" $argv[1] > /dev/null 2>&1
     string split ":" (cat $tmpfile)[1] | tail -n 1
-    
+
     rm $tmpfile
 end

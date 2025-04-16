@@ -1,4 +1,4 @@
--- Set default options from vim configuration 
+-- Set default options from vim configuration
 local set = vim.opt
 
 set.tabstop = 4

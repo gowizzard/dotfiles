@@ -6,7 +6,7 @@ function reloadConfig()
         title = "Hammerspoon",
     })
     notification:send()
-    
+
     hs.timer.doAfter(2, function()
         notification:withdraw()
         hs.reload()
@@ -48,7 +48,7 @@ function moveWindow(direction)
         return
     end
 
-    if (moveLeft and window:frame().x <= screen:frame().x + 5) or 
+    if (moveLeft and window:frame().x <= screen:frame().x + 5) or
        (moveRight and window:frame().x + window:frame().w >= screen:frame().x + screen:frame().w - 5) then
 
         local newScreen = moveLeft and screen:toWest() or screen:toEast()
@@ -64,11 +64,11 @@ end
 function temporaryCaffeinate()
     hs.caffeinate.set("systemIdle", true)
     hs.notify.new({informativeText = "Caffeinate enabled for 1 hour", title = "Hammerspoon"}):send()
-    
+
     hs.timer.doAfter(3600, function()
         hs.caffeinate.set("systemIdle", false)
         hs.notify.new({informativeText = "Caffeinate automatically disabled", title = "Hammerspoon"}):send()
-    end) 
+    end)
 end
 
 function disableCaffeinate()
