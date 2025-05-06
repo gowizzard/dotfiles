@@ -17,7 +17,7 @@ set -gx PATH /opt/homebrew/sbin $PATH
 
 set -gx PATH /opt/homebrew/opt/make/libexec/gnubin $PATH
 
-set -gx PATH /opt/homebrew/opt/node@20/bin $PATH
+set -gx PATH /opt/homebrew/opt/node@22/bin $PATH
 
 set -gx PATH $HOME/.cargo/bin $PATH
 set -gx PATH $HOME/.cargo/env $PATH
