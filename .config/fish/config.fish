@@ -13,6 +13,14 @@ abbr -a sfish source $HOME/.config/fish/config.fish
 abbr -a bbrew brew bundle dump --file=$DOTFILES_DIRECTORY/Brewfile --force
 abbr -a dprune docker system prune -a -f
 
+# Check if the nvm directory exists and set the NVM_DIR variable.
+if test -s "/opt/homebrew/opt/nvm/nvm.sh"
+    set -gx NVM_SOURCE "/opt/homebrew/opt/nvm/nvm.sh"
+    function nvm
+        bash -c "source $NVM_SOURCE && nvm $argv"
+    end
+end
+
 # Add files or initialization scripts here to be loaded every time a new shell is opened.
 source $HOME/.config/op/plugins.sh
 
