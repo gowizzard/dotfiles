@@ -29,6 +29,12 @@ style = "bold yellow"
 [golang]
 format = "via [$symbol($version )($mod_version )]($style)"
 
+[gradle]
+symbol = "🐘 "
+
+[kotlin]
+symbol = "🤖 "
+
 [status]
 format = "[$status]($style) "
 disabled = false
