@@ -8,6 +8,9 @@ set -gx DOTFILES_DIRECTORY $PROJECTS_DIRECTORY/dotfiles
 # Path for 1password ssh auth socket.
 set -gx SSH_AUTH_SOCK $HOME/.1password/agent.sock
 
+# Delegate builds to bake for better performance
+set -gx COMPOSE_BAKE true
+
 # Path for local installed binaries.
 set -gx PATH $HOME/.local/bin $PATH
 
