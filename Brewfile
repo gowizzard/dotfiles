@@ -19,7 +19,7 @@ brew "lua"
 brew "make"
 brew "maven"
 brew "neovim"
-brew "node@22"
+brew "node", link: false
 brew "pipx"
 brew "python@3.12"
 brew "redis"
