@@ -11,7 +11,10 @@
     },
     "shopify-dev-mcp": {
       "command": "npx",
-      "args": ["-y", "@shopify/dev-mcp@latest"]
+      "args": [
+        "-y",
+        "@shopify/dev-mcp@latest"
+      ]
     },
     "MCP_DOCKER": {
       "command": "docker",
