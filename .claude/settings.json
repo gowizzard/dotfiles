@@ -19,7 +19,7 @@
       "Bash(terraform plan*)",
       "Bash(terraform validate*)",
       "Bash(terraform fmt*)",
-      "Bash(git *)",
+      "Bash(git *)"
     ],
     "deny": [
       "Bash(curl *)",
