@@ -1,0 +1,40 @@
+{
+  "attribution": {
+    "commit": "🤖 Generated with Claude Code\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
+    "pr": "🤖 Generated with Claude Code"
+  },
+  "env": {
+    "CLAUDE_CODE_SHELL": "/opt/homebrew/bin/fish",
+    "PROJECTS_DIRECTORY": "~/Documents/Projects"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(go build*)",
+      "Bash(go test*)",
+      "Bash(go run*)",
+      "Bash(docker ps*)",
+      "Bash(docker logs*)",
+      "Bash(docker build*)",
+      "Bash(docker compose*)",
+      "Bash(terraform plan*)",
+      "Bash(terraform validate*)",
+      "Bash(terraform fmt*)",
+      "Bash(git *)",
+    ],
+    "deny": [
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(rm -rf*)",
+      "Bash(terraform apply*)",
+      "Bash(terraform destroy*)",
+      "Bash(docker rm*)",
+      "Bash(docker rmi*)",
+      "Bash(docker stop*)",
+      "Read(./.env)",
+      "Read(./.env.*)"
+    ]
+  },
+  "respectGitignore": true,
+  "enableAllProjectMcpServers": true,
+  "language": "german"
+}
