@@ -1,8 +1,8 @@
 # This is the global .gitignore file. First irgnore all
 # unused folders. After that we ignore all other files.
-.fleet/
 .idea/
 .vscode/
 
 .DS_Store
 *.env
+**/.claude/settings.local.json
