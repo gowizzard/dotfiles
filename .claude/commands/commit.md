@@ -14,6 +14,14 @@ description: Create a signed git commit following Conventional Commits
 
 Based on the above changes, create a single git commit. Always use `git commit -S` to create a GPG/SSH signed commit. Stage and create the commit using a single message. Do not use any other tools or do anything else. Do not send any other text or messages besides these tool calls.
 
+The commit message must end with the following trailer:
+
+```
+🤖 Generated with Claude Code
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+```
+
 Follow the Conventional Commits specification below for the commit message format.
 
 ---
