@@ -1,3 +1,23 @@
+---
+allowed-tools: Bash(git add:*), Bash(git status:*), Bash(git commit:*)
+description: Create a signed git commit following Conventional Commits
+---
+
+## Context
+
+- Current git status: !`git status`
+- Current git diff (staged and unstaged changes): !`git diff HEAD`
+- Current branch: !`git branch --show-current`
+- Recent commits: !`git log --oneline -10`
+
+## Your task
+
+Based on the above changes, create a single git commit. Always use `git commit -S` to create a GPG/SSH signed commit. Stage and create the commit using a single message. Do not use any other tools or do anything else. Do not send any other text or messages besides these tool calls.
+
+Follow the Conventional Commits specification below for the commit message format.
+
+---
+
 # Conventional Commits Guide for Claude Code
 
 This guide describes the standard for commit messages in this project, based on the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
