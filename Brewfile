@@ -1,4 +1,5 @@
 tap "hashicorp/tap"
+tap "homebrew/autoupdate"
 tap "homebrew/bundle"
 tap "ngrok/ngrok"
 tap "shopify/shopify"
