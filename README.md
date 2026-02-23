@@ -24,7 +24,7 @@ To install the configurations, you need to clone the repository and follow the n
 
 ## Homebrew
 
-On macOS I use Homebrew as my package manager, so here you can find a Brewfile that contains all taps, brews, casks & vscode extensions that I use. To install the packages, you can run the following command in the terminal. 
+On macOS I use Homebrew as my package manager, so here you can find a Brewfile that contains all taps, brews, casks & vscode extensions that I use. To install the packages, you can run the following command in the terminal.
 
 > [!NOTE]
 > Make sure to install Homebrew before running the following commands. You can find more information about Homebrew on their [website](https://brew.sh/).
@@ -36,6 +36,14 @@ After installing the packages, I run the following command to clean up the cache
 
 ```shell
 brew bundle cleanup --file=Brewfile --force
+```
+
+### Autoupdate
+
+To keep all packages up to date automatically, I use the `homebrew/autoupdate` tap. It runs `brew upgrade` and `brew cleanup` every 24 hours in the background via launchd. To enable it, run the following command in the terminal.
+
+```shell
+brew autoupdate start 86400 --upgrade --cleanup
 ```
 
 ## GNU Stow
