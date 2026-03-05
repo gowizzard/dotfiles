@@ -7,16 +7,15 @@ description: Create a GitHub Pull Request
 
 - Current branch: !`git branch --show-current`
 - Default branch: !`gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name' 2>/dev/null || echo "main"`
-- Available branches: !`git branch -r --format='%(refname:short)' | sed 's|origin/||' | grep -v HEAD | sort`
-- Recent commits on this branch: !`git log --oneline $(gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name' 2>/dev/null || echo "main")..HEAD 2>/dev/null || git log --oneline -10`
-- Changed files: !`git diff --name-only $(gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name' 2>/dev/null || echo "main") 2>/dev/null || git diff --name-only HEAD~1`
+- Recent commits on this branch: !`git log --oneline HEAD ^origin/HEAD 2>/dev/null || git log --oneline -10`
+- Changed files: !`git diff --name-only origin/HEAD 2>/dev/null || git diff --name-only HEAD~1`
 - Project README (if exists): !`ls README* readme* 2>/dev/null | head -1 | xargs cat 2>/dev/null | head -30 || echo "No README found"`
 
 # Your task
 
 1. **Detect project language**: Analyze the README content and recent commit messages to determine if this project is primarily in German or English. Use that language for the PR title and description.
 
-2. **Ask the user** (using AskUserQuestion) to select the base branch, showing a numbered list of available branches with the default branch pre-selected as the recommended choice. Accept the default branch if the user just confirms without picking another.
+2. **Fetch available branches** using `git branch -r` via Bash, then parse the output to get branch names (strip `origin/` prefix, exclude `HEAD`). **Ask the user** (using AskUserQuestion) to select the base branch, showing a numbered list with the default branch marked as recommended. Accept the default branch if the user just confirms without picking another.
 
 3. **Ask the user** (using AskUserQuestion) if there is an issue or ticket ID (e.g. GitHub issue number, Jira ticket, YouTrack ID) that should be referenced in the PR. If yes, include it in the PR description.
 
