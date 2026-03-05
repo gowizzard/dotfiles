@@ -1,11 +1,12 @@
 {
-  "attribution": {
-    "commit": "🤖 Generated with Claude Code\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
-    "pr": "🤖 Generated with Claude Code"
-  },
+  "respectGitignore": true,
   "env": {
     "CLAUDE_CODE_SHELL": "/opt/homebrew/bin/fish",
     "PROJECTS_DIRECTORY": "~/Documents/Projects"
+  },
+  "attribution": {
+    "commit": "🤖 Generated with Claude Code\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
+    "pr": "🤖 Generated with Claude Code"
   },
   "permissions": {
     "allow": [
@@ -34,7 +35,7 @@
       "Read(./.env.*)"
     ]
   },
-  "respectGitignore": true,
   "enableAllProjectMcpServers": true,
-  "language": "german"
+  "language": "german",
+  "voiceEnabled": true
 }
