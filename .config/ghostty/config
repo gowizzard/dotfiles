@@ -4,7 +4,6 @@ theme = jjideenschmiede
 cursor-style-blink = true
 mouse-hide-while-typing = true
 command = /opt/homebrew/bin/tmux
-keybind = cmd+t=unbind
 keybind = cmd+shift+r=reload_config
 window-padding-x = 10
 window-padding-y = 10
@@ -18,6 +17,4 @@ quick-terminal-position = center
 macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
 macos-option-as-alt = true
-macos-auto-secure-input = true
-macos-secure-input-indication = true
 auto-update = download
