@@ -55,5 +55,6 @@
     }
   },
   "language": "german",
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "agentPushNotifEnabled": true
 }
