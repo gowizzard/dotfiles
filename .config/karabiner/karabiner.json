@@ -33,14 +33,6 @@
                     "ignore": true
                 },
                 {
-                    "identifiers": {
-                        "is_pointing_device": true,
-                        "product_id": 45108,
-                        "vendor_id": 1133
-                    },
-                    "ignore": false
-                },
-                {
                     "identifiers": { "is_keyboard": true },
                     "simple_modifications": [
                         {
@@ -62,12 +54,6 @@
             ],
             "name": "Default profile",
             "selected": true,
-            "simple_modifications": [
-                {
-                    "from": { "pointing_button": "button6" },
-                    "to": [{ "apple_vendor_keyboard_key_code": "mission_control" }]
-                }
-            ],
             "virtual_hid_keyboard": { "keyboard_type_v2": "iso" }
         }
     ]
