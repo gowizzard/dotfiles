@@ -1,0 +1,46 @@
+schema_version = 2
+
+[app_settings]
+launch_at_login = true
+check_for_updates = true
+update_prompt_seen = true
+show_in_menu_bar = false
+auto_download_assets = true
+thumbwheel_sensitivity = 14
+
+[devices.0b034]
+gesture_owner = "Off"
+
+[devices.0b034.identity]
+display_name = "MX Master 3S"
+kind = "mouse"
+
+[devices.0b034.identity.capabilities]
+buttons = true
+pointer = true
+lighting = false
+
+[devices.0b034.bindings]
+DpiToggle = "CycleDpiPresets"
+GestureButton = "Copy"
+
+[devices.0b034.bindings.MiddleClick]
+Up = "MissionControl"
+Down = "ShowDesktop"
+Left = "PrevTab"
+Right = "NextTab"
+Click = "MiddleClick"
+
+[devices.0b034.bindings.Back]
+Up = "MissionControl"
+Down = "ShowDesktop"
+Left = "PrevTab"
+Right = "NextTab"
+Click = "BrowserBack"
+
+[devices.0b034.bindings.Forward]
+Up = "MissionControl"
+Down = "ShowDesktop"
+Left = "PrevTab"
+Right = "NextTab"
+Click = "BrowserForward"
