@@ -22,6 +22,9 @@ set -gx PATH /opt/homebrew/opt/make/libexec/gnubin $PATH
 
 set -gx PATH /opt/homebrew/opt/node@22/bin $PATH
 
+# Skip description comments when running brew bundle dump.
+set -gx HOMEBREW_BUNDLE_NO_DESCRIBE 1
+
 set -gx PATH $HOME/.cargo/bin $PATH
 set -gx PATH $HOME/.cargo/env $PATH
 
