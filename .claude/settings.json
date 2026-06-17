@@ -1,60 +1,67 @@
 {
-  "respectGitignore": true,
-  "env": {
-    "CLAUDE_CODE_SHELL": "/opt/homebrew/bin/fish",
-    "PROJECTS_DIRECTORY": "~/Documents/Projects"
-  },
-  "attribution": {
-    "commit": "🤖 Generated with Claude Code\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
-    "pr": "🤖 Generated with Claude Code"
-  },
-  "permissions": {
-    "allow": [
-      "Bash(go build*)",
-      "Bash(go test*)",
-      "Bash(go run*)",
-      "Bash(docker ps*)",
-      "Bash(docker logs*)",
-      "Bash(docker build*)",
-      "Bash(docker compose*)",
-      "Bash(terraform plan*)",
-      "Bash(terraform validate*)",
-      "Bash(terraform fmt*)",
-      "Bash(git *)"
-    ],
-    "deny": [
-      "Bash(curl *)",
-      "Bash(wget *)",
-      "Bash(rm -rf*)",
-      "Bash(terraform apply*)",
-      "Bash(terraform destroy*)",
-      "Bash(docker rm*)",
-      "Bash(docker rmi*)",
-      "Bash(docker stop*)",
-      "Read(./.env)",
-      "Read(./.env.*)"
-    ]
-  },
-  "enableAllProjectMcpServers": true,
-  "enabledPlugins": {
-    "codex@openai-codex": true,
-    "shopify-plugin@shopify-ai-toolkit": true
-  },
-  "extraKnownMarketplaces": {
-    "openai-codex": {
-      "source": {
-        "source": "github",
-        "repo": "openai/codex-plugin-cc"
-      }
-    },
-    "shopify-ai-toolkit": {
-      "source": {
-        "source": "github",
-        "repo": "Shopify/shopify-ai-toolkit"
-      }
-    }
-  },
-  "language": "german",
-  "voiceEnabled": true,
-  "agentPushNotifEnabled": true
+	"respectGitignore": true,
+	"env": {
+		"CLAUDE_CODE_SHELL":  "/opt/homebrew/bin/fish",
+		"PROJECTS_DIRECTORY": "~/Documents/Projects"
+	},
+	"attribution": {
+		"commit": "🤖 Generated with Claude Code\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
+		"pr":     "🤖 Generated with Claude Code"
+	},
+	"permissions": {
+		"allow": [
+			"Bash(go build*)",
+			"Bash(go test*)",
+			"Bash(go run*)",
+			"Bash(docker ps*)",
+			"Bash(docker logs*)",
+			"Bash(docker build*)",
+			"Bash(docker compose*)",
+			"Bash(terraform plan*)",
+			"Bash(terraform validate*)",
+			"Bash(terraform fmt*)",
+			"Bash(git *)"
+		],
+		"deny": [
+			"Bash(curl *)",
+			"Bash(wget *)",
+			"Bash(rm -rf*)",
+			"Bash(terraform apply*)",
+			"Bash(terraform destroy*)",
+			"Bash(docker rm*)",
+			"Bash(docker rmi*)",
+			"Bash(docker stop*)",
+			"Read(./.env)",
+			"Read(./.env.*)"
+		]
+	},
+	"enableAllProjectMcpServers": true,
+	"enabledPlugins": {
+		"codex@openai-codex":                true,
+		"gitkraken-hooks@gitkraken":         true,
+		"shopify-plugin@shopify-ai-toolkit": true
+	},
+	"extraKnownMarketplaces": {
+		"gitkraken": {
+			"source": {
+				"path":   "/Users/gowizzard/.claude/plugins/marketplaces/gitkraken",
+				"source": "directory"
+			}
+		},
+		"openai-codex": {
+			"source": {
+				"repo":   "openai/codex-plugin-cc",
+				"source": "github"
+			}
+		},
+		"shopify-ai-toolkit": {
+			"source": {
+				"repo":   "Shopify/shopify-ai-toolkit",
+				"source": "github"
+			}
+		}
+	},
+	"language":              "german",
+	"voiceEnabled":          true,
+	"agentPushNotifEnabled": true
 }
