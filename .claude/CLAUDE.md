@@ -21,6 +21,6 @@
 
 ### Ticket and Email Replies
 
-- **ALWAYS copy customer/ticket replies to the clipboard via `pbcopy`** - never post them automatically (e.g., to YouTrack, GitHub, email)
+- **ALWAYS copy customer/ticket replies to the clipboard via `pbcopy`** - never post them automatically (e.g., to YouTrack, GitLab, E-Mail)
 - Show the drafted reply in the chat as well so it can be reviewed
 - Only post a reply to an external system when explicitly instructed
