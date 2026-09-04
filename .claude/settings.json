@@ -32,7 +32,11 @@
       "Bash(docker rmi*)",
       "Bash(docker stop*)",
       "Read(./.env)",
-      "Read(./.env.*)"
+      "Read(./.env.local)",
+      "Read(./.env.development)",
+      "Read(./.env.staging)",
+      "Read(./.env.production)",
+      "Read(./.env.test)"
     ]
   },
   "enableAllProjectMcpServers": true,
@@ -62,7 +66,11 @@
     }
   },
   "language": "german",
+  "tui": "fullscreen",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
   "agentPushNotifEnabled": true,
-  "voiceEnabled": true,
-  "tui": "fullscreen"
+  "voiceEnabled": true
 }
