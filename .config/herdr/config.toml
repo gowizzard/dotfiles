@@ -1,0 +1,38 @@
+onboarding = false
+
+[keys]
+prefix = "ctrl+b"
+reload_config = "prefix+shift+r"
+new_tab = "prefix+c"
+rename_tab = "prefix+,"
+focus_pane_left = "alt+h"
+focus_pane_down = "alt+j"
+focus_pane_up = "alt+k"
+focus_pane_right = "alt+l"
+split_vertical = "prefix+v"
+split_horizontal = "prefix+-"
+close_pane = "prefix+x"
+edit_scrollback = "prefix+["
+zoom = "prefix+f"
+resize_mode = "prefix+r"
+toggle_sidebar = "prefix+b"
+
+[keys.indexed]
+tabs = "alt"
+
+[[keys.command]]
+key = "prefix+g"
+type = "pane"
+command = "lazygit"
+
+[theme]
+name = "terminal"
+auto_switch = false
+
+[ui]
+window_title = ""
+prompt_new_tab_name = false
+show_agent_labels_on_pane_borders = true
+
+[ui.toast]
+delivery = "system"
