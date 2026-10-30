@@ -11,3 +11,4 @@ set.wildmenu = true
 set.number = true
 set.title = true
 set.swapfile = false
+set.termguicolors = false
