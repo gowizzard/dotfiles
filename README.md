@@ -11,11 +11,13 @@ This repository contains dotfiles and configuration settings for:
 
 - Fish: My shell of choice.
 - Ghostty: A fast, feature-rich, and cross-platform terminal emulator.
+- Rex: Terminal multiplexer to manage sessions, tabs and panes.
 - Neovim: My text editor of choice for terminal.
 - Starship: A minimal, fast, and customizable prompt for any shell.
 - Hammerspoon: A powerful automation tool for macOS.
+- Karabiner-Elements: Keyboard customizer for macOS.
 - Git: My version control of choice.
-- Tmux: Terminal multiplexer to manage multiple sessions.
+- Claude Code: Global settings, agents, commands and skills.
 - ... and various other tools that boost my productivity!
 
 ## Installation
@@ -84,4 +86,24 @@ To update the completions for Fish, you can run the following command in the ter
 
 ```shell
 fish_update_completions
+```
+
+## Ghostty
+
+The color theme `jjideenschmiede` is based on the colors of the J&J Ideenschmiede logo and lives in `.config/ghostty/themes`. Ghostty starts the shell directly, so no multiplexer is configured here.
+
+## Rex
+
+Rex runs without a configuration file, so it uses its default shortcuts. The theme is not part of the Rex configuration and has to be imported once in the app. Open the command palette, run the Ghostty import and select the following file.
+
+```text
+~/.config/ghostty/themes/jjideenschmiede
+```
+
+## Git hooks
+
+This repository is public, so a pre-commit hook blocks commits that contain an `autoMode` block in the Claude Code settings, tokens, private keys or passwords. To enable the hook after cloning the repository, run the following command in the dotfiles directory.
+
+```shell
+git config core.hooksPath .githooks
 ```

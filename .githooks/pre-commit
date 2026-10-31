@@ -1,0 +1,20 @@
+#!/bin/sh
+
+fail=0
+
+if git diff --cached --name-only | grep -qx '.claude/settings.json'; then
+  if git show :.claude/settings.json | grep -q '"autoMode"'; then
+    echo "pre-commit: .claude/settings.json contains an autoMode block (project and customer details). Move it to the project's .claude/settings.local.json." >&2
+    fail=1
+  fi
+fi
+
+if git diff --cached -U0 --no-color | grep -E '^\+' | grep -v '^+++' | grep -nE 'BEGIN [A-Z ]*PRIVATE KEY|ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|glpat-[A-Za-z0-9_-]{20,}|sk-[A-Za-z0-9_-]{20,}|xox[abprs]-[A-Za-z0-9-]{10,}|AKIA[0-9A-Z]{16}|plentysystems\.com|(password|passwd|secret|token)[A-Za-z_]*[[:space:]]*[=:][[:space:]]*["'"'"']?[^[:space:]"'"'"'$]{8,}' >&2; then
+  echo "pre-commit: staged changes look like they contain secrets or customer data (see above)." >&2
+  fail=1
+fi
+
+if [ "$fail" -ne 0 ]; then
+  echo "pre-commit: commit blocked. Use 'git commit --no-verify' only if you are sure." >&2
+  exit 1
+fi

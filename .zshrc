@@ -22,7 +22,6 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 
 # Define new aliases for source files & change cli applications to a more modern version.
 alias szsh="source $HOME/.zshrc"
-alias stmux="tmux source-file $HOME/.tmux.conf"
 
 alias vim="nvim"
 alias make="gmake"
