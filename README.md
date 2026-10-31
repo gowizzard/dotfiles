@@ -94,7 +94,24 @@ The color theme `jjideenschmiede` is based on the colors of the J&J Ideenschmied
 
 ## Rex
 
-Rex runs without a configuration file, so it uses its default shortcuts. The theme is not part of the Rex configuration and has to be imported once in the app. Open the command palette, run the Ghostty import and select the following file.
+The Rex configuration lives in `.config/rex`. `init.lua` loads the custom actions from `actions.lua` and `projects.lua` and binds them in `keys.lua`. All actions also appear in the command palette.
+
+| Shortcut | Action |
+| --- | --- |
+| `⌘W` | Close the focused pane, or the whole tab when it is the last pane. |
+| `⌘⌥C` | Copy the output of the last command to the clipboard. |
+| `⌘⌥⇧C` | Copy the last command together with its output. |
+| `⌘P` | Change the focused shell to the projects directory and open Go to Directory there. |
+| `⌘⇧K` | Start Claude Code on the left of the focused pane in the same directory. |
+| `⌘⇧O` | Open the origin remote of the focused pane's repository in the browser. |
+
+Rex does not watch the configuration file, so reload it after every change.
+
+```shell
+rex config reload
+```
+
+The theme is not part of the Rex configuration and has to be imported once in the app. Open the command palette, run the Ghostty import and select the following file.
 
 ```text
 ~/.config/ghostty/themes/jjideenschmiede
