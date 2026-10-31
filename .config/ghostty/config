@@ -2,6 +2,7 @@ font-family = JetBrains Mono
 font-size = 14
 theme = jjideenschmiede
 cursor-style-blink = true
+shell-integration-features = no-cursor
 mouse-hide-while-typing = true
 keybind = cmd+shift+r=reload_config
 window-padding-x = 12
