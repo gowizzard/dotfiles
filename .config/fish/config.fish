@@ -1,3 +1,7 @@
+# The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:/Users/gowizzard/.docker/bin"
+# End of Docker Desktop section.
+
 # This is the main configuration file for fish shell. It is loaded every time a new shell is opened.
 # Add abbreviations here. Abbreviations are shortcuts for commands. For example,
 # `abbr -a vim nvim` will allow you to use `vim` as a shortcut for `nvim`.

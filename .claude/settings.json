@@ -20,10 +20,10 @@
       "Bash(terraform plan*)",
       "Bash(terraform validate*)",
       "Bash(terraform fmt*)",
-      "Bash(git *)"
+      "Bash(git *)",
+      "Bash(curl:*)"
     ],
     "deny": [
-      "Bash(curl *)",
       "Bash(wget *)",
       "Bash(rm -rf*)",
       "Bash(terraform apply*)",
@@ -40,6 +40,19 @@
     ]
   },
   "enableAllProjectMcpServers": true,
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/bin/sh -c 'rex __internal session-start --agent claude 2>/dev/null || true'",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
   "enabledPlugins": {
     "codex@openai-codex": true,
     "gitkraken-hooks@gitkraken": true,
