@@ -4,8 +4,6 @@ title = 👻
 theme = jjideenschmiede
 cursor-style-blink = true
 mouse-hide-while-typing = true
-background-opacity = 0.92
-background-blur = true
 keybind = cmd+shift+r=reload_config
 window-padding-x = 12
 window-padding-y = 12
