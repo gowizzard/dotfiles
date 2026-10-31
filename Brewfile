@@ -2,7 +2,6 @@ tap "domt4/autoupdate", "https://github.com/DomT4/homebrew-autoupdate.git", trus
 tap "hashicorp/tap", trusted: true
 tap "homebrew/bundle"
 tap "jetbrains/utils", trusted: true
-tap "ngrok/ngrok", trusted: true
 tap "oven-sh/bun"
 tap "shopify/shopify", trusted: true
 tap "shopware/tap", trusted: true
@@ -78,7 +77,7 @@ cask "jetbrains-toolbox"
 cask "karabiner-elements"
 cask "microsoft-word"
 cask "mountain-duck"
-cask "ngrok/ngrok/ngrok"
+cask "ngrok"
 cask "openlogi"
 cask "parallels"
 cask "permute"

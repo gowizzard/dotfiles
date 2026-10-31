@@ -102,8 +102,11 @@ Rex runs without a configuration file, so it uses its default shortcuts. The the
 
 ## Git hooks
 
-This repository is public, so a pre-commit hook blocks commits that contain an `autoMode` block in the Claude Code settings, tokens, private keys or passwords. To enable the hook after cloning the repository, run the following command in the dotfiles directory.
+This repository is public, so a pre-commit hook blocks commits that contain an `autoMode` block in the Claude Code settings, tokens, private keys or passwords. Claude Code only reads `autoMode` from `~/.claude/settings.json`, which is linked to this repository, so a git filter removes the block from every commit while the local file keeps it. To enable both after cloning the repository, run the following commands in the dotfiles directory.
 
 ```shell
 git config core.hooksPath .githooks
+git config filter.strip-automode.clean "jq --indent 2 'del(.autoMode)'"
+git config filter.strip-automode.smudge cat
+git config filter.strip-automode.required true
 ```
