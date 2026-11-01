@@ -106,7 +106,6 @@ The Rex configuration lives in `.config/rex`. `init.lua` loads the custom action
 | `⌘⇧O` | Open the origin remote of the focused pane's repository in the browser. |
 | `⌘⇧U` | Run `update_all` in a background tab named `updates`, or focus that tab when it is already open. |
 | `⌘⇧T` | Open the YouTrack ticket named in the current git branch, such as `feature/daily-627-…`. |
-| `⌘⇧Y` | Start Claude Code on the left and let it summarize the YouTrack ticket of the current branch. |
 
 Tabs are also named automatically. `autostart.lua` starts `auto-label.lua` in the background once per login. Whenever the focused shell changes its directory, the script names the tab after the repository or directory. Tabs you rename yourself keep their name. After editing the script, run Restart Automatic Tab Names from the command palette. Its log is in `~/Library/Logs/rex-auto-label.log`.
 

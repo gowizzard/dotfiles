@@ -55,10 +55,8 @@ rex.action{
   end,
 }
 
-local function open_claude(ctx, prompt)
+local function open_claude(ctx)
   if ctx.block_id == nil then error("no focused pane", 0) end
-  local command = { "claude" }
-  if prompt ~= nil then command[2] = prompt end
   check(rex.session.new_split{
     anchor_id = ctx.block_id,
     direction = "horizontal",
@@ -66,7 +64,7 @@ local function open_claude(ctx, prompt)
     focus = true,
     layout = rex.layout.block{
       flavor = shell,
-      options = { cwd = cwd(ctx), command = command },
+      options = { cwd = cwd(ctx), command = { "claude" } },
     },
   })
 end
@@ -113,19 +111,6 @@ rex.action{
     local url = settings.youtrack_url:gsub("/+$", "") .. "/issue/" .. id
     check(rex.exec({ "open", url }))
     return { ticket = id, url = url }
-  end,
-}
-
-rex.action{
-  name = "youtrack_claude",
-  title = "Ask Claude About Ticket of Branch",
-  description = "Start Claude Code on the left with the YouTrack ticket named in the current git branch.",
-  category = "Tickets",
-  keywords = "youtrack issue ticket branch claude",
-  run = function(ctx, args)
-    local id = ticket(ctx)
-    open_claude(ctx, "Lies das YouTrack-Ticket " .. id .. " inklusive Kommentare und fasse zusammen, was noch offen ist.")
-    return { ticket = id }
   end,
 }
 
