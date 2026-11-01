@@ -94,7 +94,7 @@ The color theme `jjideenschmiede` is based on the colors of the J&J Ideenschmied
 
 ## Rex
 
-The Rex configuration lives in `.config/rex`. `init.lua` loads the custom actions from `actions.lua` and `projects.lua` and binds them in `keys.lua`. All actions also appear in the command palette.
+The Rex configuration lives in `.config/rex`. `init.lua` loads the custom actions from `actions.lua`, `projects.lua` and `updates.lua` and binds them in `keys.lua`. All actions also appear in the command palette.
 
 | Shortcut | Action |
 | --- | --- |
@@ -104,6 +104,7 @@ The Rex configuration lives in `.config/rex`. `init.lua` loads the custom action
 | `⌘P` | Change the focused shell to the projects directory and open Go to Directory there. |
 | `⌘⇧K` | Start Claude Code on the left of the focused pane in the same directory. |
 | `⌘⇧O` | Open the origin remote of the focused pane's repository in the browser. |
+| `⌘⇧U` | Run `update_all` in a background tab named `updates`, or focus that tab when it is already open. |
 
 Rex does not watch the configuration file, so reload it after every change.
 

@@ -17,6 +17,7 @@ function update_all --description "Update dotfiles, Homebrew, Brewfile, pipx and
         echo "🍻 Updating Homebrew…"
         set -lx HOMEBREW_NO_ENV_HINTS 1
         set -lx HOMEBREW_NO_INSTALL_CLEANUP 1
+        set -lx HOMEBREW_NO_ASK 1
 
         brew update; or set -a failed "brew update"
         brew upgrade; or set -a failed "brew upgrade"
