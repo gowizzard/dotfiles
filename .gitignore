@@ -7,3 +7,4 @@
 .config/fish/completions/docker.fish
 .config/fish/fish_variables
 .claude/skills/synced/
+.config/rex/local.lua

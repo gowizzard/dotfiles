@@ -55,6 +55,22 @@ rex.action{
   end,
 }
 
+local function open_claude(ctx, prompt)
+  if ctx.block_id == nil then error("no focused pane", 0) end
+  local command = { "claude" }
+  if prompt ~= nil then command[2] = prompt end
+  check(rex.session.new_split{
+    anchor_id = ctx.block_id,
+    direction = "horizontal",
+    side = "before",
+    focus = true,
+    layout = rex.layout.block{
+      flavor = shell,
+      options = { cwd = cwd(ctx), command = command },
+    },
+  })
+end
+
 rex.action{
   name = "claude_split",
   title = "Open Claude Code on the Left",
@@ -62,17 +78,54 @@ rex.action{
   category = "Projects",
   keywords = "claude agent ai",
   run = function(ctx, args)
-    if ctx.block_id == nil then error("no focused pane", 0) end
-    check(rex.session.new_split{
-      anchor_id = ctx.block_id,
-      direction = "horizontal",
-      side = "before",
-      focus = true,
-      layout = rex.layout.block{
-        flavor = shell,
-        options = { cwd = cwd(ctx), command = { "claude" } },
-      },
-    })
+    open_claude(ctx)
+  end,
+}
+
+local function git(dir, ...)
+  local r = check(rex.exec({ "git", ... }, { cwd = dir }))
+  if not r.ok then return nil end
+  return (r.stdout:gsub("%s+$", ""))
+end
+
+local ok, settings = pcall(require, "local")
+if not ok then settings = {} end
+
+local function ticket(ctx)
+  local dir = cwd(ctx)
+  if dir == nil then error("the pane has not reported its directory", 0) end
+  local branch = git(dir, "branch", "--show-current")
+  if branch == nil or branch == "" then error("not on a git branch", 0) end
+  local project, number = branch:match("(%a+)%-(%d+)")
+  if project == nil then error("no ticket ID in branch " .. branch, 0) end
+  return project:upper() .. "-" .. number
+end
+
+rex.action{
+  name = "youtrack_open",
+  title = "Open YouTrack Ticket of Branch",
+  description = "Open the YouTrack ticket named in the current git branch in the browser.",
+  category = "Tickets",
+  keywords = "youtrack issue ticket branch browser",
+  run = function(ctx, args)
+    if settings.youtrack_url == nil then error("youtrack_url is not set in .config/rex/local.lua", 0) end
+    local id = ticket(ctx)
+    local url = settings.youtrack_url:gsub("/+$", "") .. "/issue/" .. id
+    check(rex.exec({ "open", url }))
+    return { ticket = id, url = url }
+  end,
+}
+
+rex.action{
+  name = "youtrack_claude",
+  title = "Ask Claude About Ticket of Branch",
+  description = "Start Claude Code on the left with the YouTrack ticket named in the current git branch.",
+  category = "Tickets",
+  keywords = "youtrack issue ticket branch claude",
+  run = function(ctx, args)
+    local id = ticket(ctx)
+    open_claude(ctx, "Lies das YouTrack-Ticket " .. id .. " inklusive Kommentare und fasse zusammen, was noch offen ist.")
+    return { ticket = id }
   end,
 }
 

@@ -1,4 +1,5 @@
 require("actions")
 require("projects")
 require("updates")
+require("autostart")
 require("keys")
