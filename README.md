@@ -107,7 +107,7 @@ The Rex configuration lives in `.config/rex`. `init.lua` loads the custom action
 | `⌘⇧U` | Run `update_all` in a background tab named `updates`, or focus that tab when it is already open. |
 | `⌘⇧T` | Open the YouTrack ticket named in the current git branch, such as `feature/daily-627-…`. |
 
-Tabs are also named automatically. `autostart.lua` starts `auto-label.lua` in the background once per login. Whenever the focused shell changes its directory, the script names the tab after the repository or directory. Tabs you rename yourself keep their name. After editing the script, run Restart Automatic Tab Names from the command palette. Its log is in `~/Library/Logs/rex-auto-label.log`.
+Tabs are also named automatically. `autostart.lua` starts `auto-label.lua` in the background once per login. Whenever the focused shell changes its directory, the script names the tab after the repository or directory. While `ssh` runs in the foreground, the tab is named after the user and host instead, such as `root@droneparts`. The user comes from `ssh -G`, so it respects `~/.ssh/config`. If the server sets a terminal title that starts with `user@host`, that title wins. The tab gets its project name back once the connection ends. Tabs you rename yourself keep their name. After editing the script, run Restart Automatic Tab Names from the command palette. Its log is in `~/Library/Logs/rex-auto-label.log`.
 
 The YouTrack address is internal, so it lives in `.config/rex/local.lua`, which git ignores. Create it on a new machine with the following content.
 
