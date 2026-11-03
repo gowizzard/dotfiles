@@ -1,4 +1,6 @@
 -- Set default options from vim configuration
+vim.g.mapleader = " "
+
 local set = vim.opt
 
 set.tabstop = 4
@@ -12,3 +14,4 @@ set.number = true
 set.title = true
 set.swapfile = false
 set.termguicolors = false
+set.signcolumn = 'yes'

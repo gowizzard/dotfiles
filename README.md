@@ -129,6 +129,48 @@ The theme is not part of the Rex configuration and has to be imported once in th
 ~/.config/ghostty/themes/jjideenschmiede
 ```
 
+## Neovim
+
+The Neovim configuration lives in `.config/nvim` and needs Neovim 0.12 or newer. Plugins are managed by the built-in `vim.pack`, so no plugin manager has to be installed. On the first start, Neovim clones the plugins and installs the Treesitter parsers, which needs `tree-sitter-cli` from the Brewfile.
+
+| Plugin | Purpose |
+| --- | --- |
+| `nvim-lspconfig`, `mason.nvim`, `mason-lspconfig.nvim` | Language servers for Go, Zig, PHP, TypeScript, Lua, Python and Terraform. |
+| `blink.cmp` | Autocompletion with documentation and signature help. |
+| `nvim-treesitter` | Syntax highlighting and indentation. |
+| `fzf-lua` | Fuzzy search for files, text, buffers, symbols and diagnostics. |
+| `conform.nvim` | Format on save, with the language server as fallback. |
+| `gitsigns.nvim` | Git changes in the sign column. |
+
+Mason installs the language servers listed in `lua/lsp.lua` automatically. On a new machine you can also install them right away with the following command.
+
+```shell
+nvim --headless -c "MasonInstall basedpyright gopls intelephense lua-language-server terraform-ls typescript-language-server zls" -c "qa"
+```
+
+The leader key is `Space`.
+
+| Shortcut | Action |
+| --- | --- |
+| `<leader>f` | Find files. |
+| `<leader>g` | Search text in the project. |
+| `<leader>b` | Switch between open buffers. |
+| `<leader>s` | Show symbols in the current file. |
+| `<leader>d` | Show diagnostics of the workspace. |
+| `<leader>r` | Resume the last search. |
+| `<leader>l` | Open lazygit in a new tab. |
+| `<leader>e` | Show the diagnostic under the cursor. |
+| `gd` / `gD` / `gy` | Go to definition, declaration or type definition. |
+| `K` | Show documentation under the cursor. |
+| `grn` / `gra` / `grr` / `gri` | Rename, code action, references and implementation. |
+| `[d` / `]d` | Jump to the previous or next diagnostic. |
+
+To update all plugins, run the following command in Neovim and write the confirmation buffer with `:w`.
+
+```vim
+:lua vim.pack.update()
+```
+
 ## Git hooks
 
 This repository is public, so a pre-commit hook blocks commits that contain an `autoMode` block in the Claude Code settings, tokens, private keys or passwords. Claude Code only reads `autoMode` from `~/.claude/settings.json`, which is linked to this repository, so a git filter removes the block from every commit while the local file keeps it. To enable both after cloning the repository, run the following commands in the dotfiles directory.
