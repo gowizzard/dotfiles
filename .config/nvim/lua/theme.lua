@@ -1,23 +1,150 @@
--- Set terminal colors and transparent highlights for neovim
+-- Set goland dark colors with a transparent background for neovim
 local hl = vim.api.nvim_set_hl
 
-vim.cmd.colorscheme('vim')
+vim.cmd.colorscheme('default')
 vim.opt.fillchars = { eob = ' ' }
 
-hl(0, 'Normal', { bg = 'none' })
-hl(0, 'LineNr', { ctermfg = 8 })
-hl(0, 'Statement', { ctermfg = 4 })
-hl(0, 'StatusLine', { ctermfg = 7, ctermbg = 'none', cterm = { bold = true } })
-hl(0, 'StatusLineNC', { ctermfg = 8, ctermbg = 'none' })
-hl(0, 'WinSeparator', { ctermfg = 8 })
-hl(0, 'SignColumn', { ctermbg = 'none' })
-hl(0, 'Pmenu', { ctermfg = 7, ctermbg = 'none' })
-hl(0, 'PmenuSel', { ctermfg = 15, ctermbg = 8, cterm = { bold = true } })
-hl(0, 'PmenuSbar', { ctermbg = 'none' })
-hl(0, 'PmenuThumb', { ctermbg = 8 })
-hl(0, 'NormalFloat', { ctermbg = 'none' })
-hl(0, 'FloatBorder', { ctermfg = 8, ctermbg = 'none' })
-hl(0, 'BlinkCmpMenuBorder', { link = 'FloatBorder' })
-hl(0, 'BlinkCmpDocBorder', { link = 'FloatBorder' })
-hl(0, 'BlinkCmpSignatureHelpBorder', { link = 'FloatBorder' })
-hl(0, 'BlinkCmpLabelMatch', { ctermfg = 4, cterm = { bold = true } })
+local c = {
+  fg = '#BCBEC4',
+  muted = '#6F737A',
+  comment = '#7A7E85',
+  line = '#4B5059',
+  border = '#43454A',
+  keyword = '#CF8E6D',
+  func = '#56A8F5',
+  call = '#B3AE60',
+  string = '#6AAB73',
+  number = '#2AACB8',
+  type = '#16BAAC',
+  field = '#C77DBB',
+  selection = '#214283',
+  popup = '#2E436E',
+  search = '#32593D',
+  current = '#5F4B1A',
+  error = '#F75464',
+  warn = '#F2C55C',
+  added = '#73BD79',
+  changed = '#70AEFF',
+}
+
+local groups = {
+  Normal = { fg = c.fg, bg = 'none' },
+  NormalFloat = { fg = c.fg, bg = 'none' },
+  FloatBorder = { fg = c.border, bg = 'none' },
+  FloatTitle = { fg = c.fg, bold = true },
+  NonText = { fg = c.line },
+  Whitespace = { fg = c.line },
+  LineNr = { fg = c.line },
+  CursorLineNr = { fg = '#A1A3AB' },
+  CursorLine = { bg = '#26282E' },
+  SignColumn = { bg = 'none' },
+  WinSeparator = { fg = c.border },
+  StatusLine = { fg = c.fg, bg = 'none', bold = true },
+  StatusLineNC = { fg = c.muted, bg = 'none' },
+  TabLine = { fg = c.muted, bg = 'none' },
+  TabLineSel = { fg = c.fg, bg = 'none', bold = true },
+  TabLineFill = { bg = 'none' },
+  Visual = { bg = c.selection },
+  Search = { bg = c.search },
+  CurSearch = { bg = c.current },
+  IncSearch = { link = 'CurSearch' },
+  MatchParen = { bg = c.border, bold = true },
+  Folded = { fg = c.comment, bg = '#2B2D30' },
+  Directory = { fg = c.func },
+  Title = { fg = c.fg, bold = true },
+  ErrorMsg = { fg = c.error },
+  WarningMsg = { fg = c.warn },
+  MoreMsg = { fg = c.string },
+  Question = { fg = c.string },
+
+  Pmenu = { fg = c.fg, bg = 'none' },
+  PmenuSel = { bg = c.popup, bold = true },
+  PmenuSbar = { bg = 'none' },
+  PmenuThumb = { bg = c.border },
+  PmenuMatch = { fg = c.func, bold = true },
+  BlinkCmpMenuBorder = { link = 'FloatBorder' },
+  BlinkCmpDocBorder = { link = 'FloatBorder' },
+  BlinkCmpSignatureHelpBorder = { link = 'FloatBorder' },
+  BlinkCmpLabelMatch = { link = 'PmenuMatch' },
+  BlinkCmpKind = { fg = c.muted },
+
+  Comment = { fg = c.comment },
+  String = { fg = c.string },
+  Character = { fg = c.string },
+  Number = { fg = c.number },
+  Boolean = { fg = c.keyword },
+  Constant = { fg = c.field, italic = true },
+  Identifier = { fg = c.fg },
+  Function = { fg = c.func },
+  Statement = { fg = c.keyword },
+  Keyword = { fg = c.keyword },
+  Operator = { fg = c.fg },
+  PreProc = { fg = c.keyword },
+  Type = { fg = c.type },
+  Special = { fg = c.keyword },
+  Delimiter = { fg = c.fg },
+  Todo = { fg = '#8BB33D', italic = true },
+
+  ['@variable'] = { fg = c.fg },
+  ['@variable.builtin'] = { fg = c.keyword },
+  ['@variable.member'] = { fg = c.field },
+  ['@property'] = { fg = c.field },
+  ['@module'] = { fg = c.fg },
+  ['@constant.builtin'] = { fg = c.keyword },
+  ['@type.builtin'] = { fg = c.keyword },
+  ['@type.definition'] = { fg = c.fg },
+  ['@function.call'] = { fg = c.call },
+  ['@function.method.call'] = { fg = c.call },
+  ['@function.builtin'] = { fg = c.call },
+  ['@constructor'] = { fg = c.type },
+  ['@string.escape'] = { fg = c.keyword },
+  ['@attribute'] = { fg = c.call },
+  ['@tag'] = { fg = c.keyword },
+  ['@tag.attribute'] = { fg = c.fg },
+  ['@markup.heading'] = { fg = c.keyword, bold = true },
+  ['@markup.link'] = { fg = c.func, underline = true },
+  ['@markup.raw'] = { fg = c.string },
+
+  ['@lsp.type.function'] = { fg = c.call },
+  ['@lsp.type.method'] = { fg = c.call },
+  ['@lsp.typemod.function.definition'] = { fg = c.func },
+  ['@lsp.typemod.method.definition'] = { fg = c.func },
+  ['@lsp.type.namespace'] = { fg = c.fg },
+  ['@lsp.type.parameter'] = { fg = c.fg },
+  ['@lsp.type.variable'] = { fg = c.fg },
+  ['@lsp.type.property'] = { fg = c.field },
+  ['@lsp.type.type'] = { fg = c.type },
+  ['@lsp.type.typeParameter'] = { fg = c.type },
+  ['@lsp.typemod.type.definition'] = { fg = c.fg },
+  ['@lsp.typemod.type.defaultLibrary'] = { fg = c.keyword },
+  ['@lsp.typemod.variable.defaultLibrary'] = { fg = c.keyword },
+  ['@lsp.typemod.variable.readonly'] = { fg = c.field, italic = true },
+
+  DiagnosticError = { fg = c.error },
+  DiagnosticWarn = { fg = c.warn },
+  DiagnosticInfo = { fg = c.func },
+  DiagnosticHint = { fg = c.comment },
+  DiagnosticOk = { fg = c.string },
+  DiagnosticUnderlineError = { undercurl = true, sp = c.error },
+  DiagnosticUnderlineWarn = { undercurl = true, sp = c.warn },
+  DiagnosticUnderlineInfo = { undercurl = true, sp = c.func },
+  DiagnosticUnderlineHint = { underline = true, sp = c.comment },
+  DiagnosticUnnecessary = { fg = c.muted },
+  DiagnosticDeprecated = { strikethrough = true },
+  LspReferenceText = { bg = '#373B39' },
+  LspReferenceRead = { bg = '#373B39' },
+  LspReferenceWrite = { bg = '#402F33' },
+  LspInlayHint = { fg = c.comment, bg = '#2B2D30' },
+
+  Added = { fg = c.added },
+  Changed = { fg = c.changed },
+  Removed = { fg = c.error },
+  DiffAdd = { bg = '#294436' },
+  DiffChange = { bg = '#2C3A52' },
+  DiffDelete = { fg = c.muted, bg = '#3E2A2D' },
+  DiffText = { bg = '#385570' },
+}
+
+for name, spec in pairs(groups) do
+  hl(0, name, spec)
+end

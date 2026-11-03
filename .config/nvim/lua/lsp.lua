@@ -25,6 +25,7 @@ vim.lsp.config('gopls', {
   settings = {
     gopls = {
       gofumpt = false,
+      semanticTokens = true,
       staticcheck = true,
       usePlaceholders = true,
     },
