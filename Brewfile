@@ -47,6 +47,7 @@ brew "tree"
 brew "tree-sitter-cli"
 brew "zig"
 brew "zoxide"
+brew "hashicorp/tap/packer", trusted: true
 brew "hashicorp/tap/terraform", trusted: true
 brew "jetbrains/utils/teamcity", trusted: true
 brew "oven-sh/bun/bun", trusted: true
