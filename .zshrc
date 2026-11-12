@@ -10,8 +10,6 @@ export PATH="/opt/homebrew/sbin:$PATH"
 
 export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
 
-export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
-
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.cargo/env:$PATH"
 
