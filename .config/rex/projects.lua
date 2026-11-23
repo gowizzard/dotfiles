@@ -1,57 +1,98 @@
-local terminal = "com.superlogical.terminal"
-local shell = "com.superlogical.terminal.shell"
+local common = require("common")
+local shell = common.shell
+local check = common.check
+local cwd = common.cwd
 local home = os.getenv("HOME")
 
-local function url_decode(s)
-  return (s:gsub("%%(%x%x)", function(hex) return string.char(tonumber(hex, 16)) end))
+local function projects_root()
+  local root = os.getenv("PROJECTS_DIRECTORY") or (home .. "/Documents/Projects")
+  return (root:gsub("^~", home):gsub("/+$", ""))
 end
 
-local function cwd(ctx)
-  if ctx.block_id == nil then return nil end
-  local r = rex.block.call(terminal, "pwd", { block_id = ctx.block_id })
-  if r == nil or r.pwd == nil or r.pwd == "" then return nil end
-  local path = r.pwd:match("^file://[^/]*(/.*)$") or r.pwd
-  return url_decode(path)
+local project_sessions_store = home .. "/Library/Caches/rex-project-sessions.json"
+
+local function read_project_sessions()
+  local f = io.open(project_sessions_store, "r")
+  if f == nil then return {} end
+  local data = rex.json.decode(f:read("*a")) or {}
+  f:close()
+  return data
 end
 
-local function check(result, err)
-  if err ~= nil then error(err, 0) end
-  return result
+local function write_project_sessions(data)
+  local f = io.open(project_sessions_store, "w")
+  if f == nil then return end
+  f:write(rex.json.encode(data))
+  f:close()
 end
 
-local function shell_quote(s)
-  return "'" .. s:gsub("'", "\\'") .. "'"
+local function open_project_sessions()
+  local live, by_label = {}, {}
+  for _, session in ipairs(check(rex.call("session.list", {})).sessions or {}) do
+    live[session.session_id] = true
+    by_label[session.label] = session.session_id
+  end
+  local open = {}
+  for dir, session_id in pairs(read_project_sessions()) do
+    if live[session_id] then open[dir] = session_id end
+  end
+  return open, by_label
+end
+
+local function project_items(root, open, by_label)
+  local r = check(rex.exec({
+    "find", root, "-mindepth", "1", "-maxdepth", "1", "-type", "d", "-not", "-name", ".*", "-print0",
+  }))
+  if not r.ok then error("cannot list " .. root .. ": " .. r.stderr, 0) end
+  local items = {}
+  for path in r.stdout:gmatch("[^%z]+") do
+    local name = path:match("([^/]+)$")
+    items[#items + 1] = {
+      id = path,
+      title = name,
+      icon = "folder",
+      detail = (open[path] or by_label[name]) and "open" or nil,
+    }
+  end
+  table.sort(items, function(a, b) return a.title:lower() < b.title:lower() end)
+  return items
 end
 
 rex.action{
   name = "go_to_project",
   title = "Go to Project…",
-  description = "Change the focused shell to the projects directory and open Go to Directory there.",
+  description = "Pick a project and switch to its session, creating the session when the project has none.",
   category = "Projects",
-  keywords = "projects directory folder cd",
+  keywords = "projects directory folder session",
   run = function(ctx, args)
-    if ctx.block_id == nil then error("no focused pane", 0) end
-    local root = os.getenv("PROJECTS_DIRECTORY") or (home .. "/Documents/Projects")
-    root = root:gsub("^~", home)
-
-    local process = check(rex.block.call(terminal, "process", { block_id = ctx.block_id }))
-    local foreground = process.foreground and process.foreground.name or ""
-    if not foreground:match("^%-?fish$") then
-      error("the pane is running " .. foreground .. ", not an idle fish shell", 0)
+    local root = projects_root()
+    local open, by_label = open_project_sessions()
+    local dir, why = rex.ui.pick{
+      title = "Go to project",
+      placeholder = "Filter projects",
+      items = project_items(root, open, by_label),
+    }
+    if dir == nil then
+      if why == "cancelled" then return end
+      error("no project chosen: " .. tostring(why), 0)
     end
 
-    if cwd(ctx) ~= root then
-      check(rex.block.call(terminal, "write", {
-        block_id = ctx.block_id,
-        data = "\005\021cd " .. shell_quote(root) .. "\r",
+    local name = dir:match("([^/]+)$")
+    local session_id = open[dir] or by_label[name]
+    if session_id == nil then
+      local session = check(rex.call("session.create", {
+        label = name,
+        initial_windows = {
+          { layout = rex.layout.block{ flavor = shell, options = { cwd = dir } } },
+        },
       }))
-      for _ = 1, 40 do
-        if cwd(ctx) == root then break end
-        rex.exec({ "sleep", "0.05" })
-      end
+      session_id = session.session_id
     end
 
-    rex.client.queue("pane.go_to_directory")
+    open[dir] = session_id
+    write_project_sessions(open)
+    rex.client.queue("session.select", { session_id = session_id })
+    return { project = dir, session_id = session_id }
   end,
 }
 
@@ -77,72 +118,5 @@ rex.action{
   keywords = "claude agent ai",
   run = function(ctx, args)
     open_claude(ctx)
-  end,
-}
-
-local function git(dir, ...)
-  local r = check(rex.exec({ "git", ... }, { cwd = dir }))
-  if not r.ok then return nil end
-  return (r.stdout:gsub("%s+$", ""))
-end
-
-local ok, settings = pcall(require, "local")
-if not ok then settings = {} end
-
-local function ticket(ctx)
-  local dir = cwd(ctx)
-  if dir == nil then error("the pane has not reported its directory", 0) end
-  local branch = git(dir, "branch", "--show-current")
-  if branch == nil or branch == "" then error("not on a git branch", 0) end
-  local project, number = branch:match("(%a+)%-(%d+)")
-  if project == nil then error("no ticket ID in branch " .. branch, 0) end
-  return project:upper() .. "-" .. number
-end
-
-rex.action{
-  name = "youtrack_open",
-  title = "Open YouTrack Ticket of Branch",
-  description = "Open the YouTrack ticket named in the current git branch in the browser.",
-  category = "Tickets",
-  keywords = "youtrack issue ticket branch browser",
-  run = function(ctx, args)
-    if settings.youtrack_url == nil then error("youtrack_url is not set in .config/rex/local.lua", 0) end
-    local id = ticket(ctx)
-    local url = settings.youtrack_url:gsub("/+$", "") .. "/issue/" .. id
-    check(rex.exec({ "open", url }))
-    return { ticket = id, url = url }
-  end,
-}
-
-local function web_url(remote)
-  local host, path
-  local rest = remote:match("^%a[%w+.-]*://(.+)$")
-  if rest ~= nil then
-    local authority
-    authority, path = rest:match("^([^/]+)/(.+)$")
-    if authority == nil then return nil end
-    host = authority:gsub("^.*@", ""):gsub(":%d+$", "")
-  else
-    host, path = remote:match("^[%w%.%-]+@([^:]+):(.+)$")
-  end
-  if host == nil or path == nil then return nil end
-  return "https://" .. host .. "/" .. path:gsub("%.git$", "")
-end
-
-rex.action{
-  name = "open_remote",
-  title = "Open Repository in Browser",
-  description = "Open the origin remote of the focused pane's repository in the browser.",
-  category = "Projects",
-  keywords = "git github gitlab browser remote",
-  run = function(ctx, args)
-    local dir = cwd(ctx)
-    if dir == nil then error("the pane has not reported its directory", 0) end
-    local r = check(rex.exec({ "git", "remote", "get-url", "origin" }, { cwd = dir }))
-    if not r.ok then error("no origin remote in " .. dir, 0) end
-    local url = web_url((r.stdout:gsub("%s+$", "")))
-    if url == nil then error("unsupported remote: " .. r.stdout, 0) end
-    check(rex.exec({ "open", url }))
-    return { url = url }
   end,
 }

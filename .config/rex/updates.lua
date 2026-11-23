@@ -1,4 +1,4 @@
-local shell = "com.superlogical.terminal.shell"
+local shell = require("common").shell
 local label = "updates"
 
 rex.action{

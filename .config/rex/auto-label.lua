@@ -1,7 +1,8 @@
 package.path = os.getenv("HOME") .. "/.config/rex/?.lua;" .. package.path
+local common = require("common")
 local labels = require("labels")
 
-local terminal = "com.superlogical.terminal"
+local terminal = common.terminal
 local remote = {}
 
 local function focused_window(block_id)
@@ -42,7 +43,7 @@ rex.on("terminal.pwd_changed", function(ctx, ev)
   if is_ssh(foreground(ctx.block_id)) then return end
   local window = automatic_window(ctx.block_id)
   if window == nil then return end
-  apply(window, labels.project_name(labels.url_to_path(ev.pwd)))
+  apply(window, labels.project_name(common.url_to_path(ev.pwd)))
 end)
 
 rex.on("terminal.process_changed", function(ctx, ev)

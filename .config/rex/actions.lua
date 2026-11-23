@@ -1,4 +1,4 @@
-local terminal = "com.superlogical.terminal"
+local terminal = require("common").terminal
 
 rex.action{
   name = "close_pane_or_tab",

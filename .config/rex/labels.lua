@@ -2,11 +2,6 @@ local M = {}
 
 local store = os.getenv("HOME") .. "/Library/Caches/rex-auto-labels.json"
 
-function M.url_to_path(url)
-  local path = url:match("^file://[^/]*(/.*)$") or url
-  return (path:gsub("%%(%x%x)", function(hex) return string.char(tonumber(hex, 16)) end))
-end
-
 function M.project_name(dir)
   local r = rex.exec({ "git", "rev-parse", "--show-toplevel" }, { cwd = dir })
   local root = dir
