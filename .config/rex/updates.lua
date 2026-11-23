@@ -1,35 +1,89 @@
-local shell = require("common").shell
+local common = require("common")
+local shell = common.shell
+local check = common.check
+
 local label = "updates"
+local command = { "fish", "-c", "update_all" }
+local bounds = { 0.1, 0.1, 0.8, 0.8 }
+local store = os.getenv("HOME") .. "/Library/Caches/rex-update-session"
+
+local function find_layer(view)
+  for _, window in ipairs(view.windows or {}) do
+    for _, layer in ipairs(window.layers or {}) do
+      if layer.kind == "floating" then
+        for _, block in ipairs(layer.blocks or {}) do
+          if block.label == label then return layer, block, window end
+        end
+      end
+    end
+  end
+  return nil
+end
+
+local function read_session()
+  local f = io.open(store, "r")
+  if f == nil then return nil end
+  local session_id = f:read("*l")
+  f:close()
+  return session_id
+end
+
+local function write_session(session_id)
+  local f = io.open(store, "w")
+  if f == nil then return end
+  f:write(session_id)
+  f:close()
+end
+
+local function is_live(session_id)
+  for _, session in ipairs(check(rex.call("session.list", {})).sessions or {}) do
+    if session.session_id == session_id then return true end
+  end
+  return false
+end
+
+local function is_running()
+  local r = rex.exec({ "pgrep", "-f", table.concat(command, " ") })
+  return r ~= nil and r.ok
+end
 
 rex.action{
   name = "update_all",
   title = "Update Everything",
-  description = "Run the update_all fish function in a background tab, or focus that tab when it is already open.",
+  description = "Run the update_all fish function in a floating pane, or show and hide that pane when it already exists.",
   category = "System",
   keywords = "brew homebrew dotfiles pipx upgrade update",
   run = function(ctx, args)
-    local view, err = rex.session.view{}
-    if err ~= nil then error(err, 0) end
-    for _, window in ipairs(view.windows or {}) do
-      if window.label == label then
-        local _, focus_err = rex.session.focus_window{ window_id = window.window_id }
-        if focus_err ~= nil then error(focus_err, 0) end
-        return { window_id = window.window_id, running = true }
-      end
+    local view = check(rex.session.view{})
+    local layer, block, window = find_layer(view)
+    if layer ~= nil then
+      local shown = layer.state ~= "minimized"
+        and window.window_id == view.active_window_id
+        and window.focused_block_id == block.block_id
+      check(rex.session.set_layer_state{
+        layer_id = layer.layer_id,
+        state = shown and "minimized" or "normal",
+        focus = not shown,
+      })
+      return { layer_id = layer.layer_id, shown = not shown }
     end
 
-    local w, new_err = rex.session.new_window{
-      window_label = label,
-      focus = false,
+    local other = read_session()
+    if other ~= nil and other ~= view.session_id and is_running() and is_live(other) then
+      rex.client.queue("session.select", { session_id = other })
+      return { session_id = other, running = true }
+    end
+
+    local created = check(rex.session.new_layer{
+      bounds = bounds,
+      focus = true,
       layout = rex.layout.block{
         flavor = shell,
-        options = {
-          command = { "fish", "-c", "update_all" },
-          exit = { on_completion = false },
-        },
+        label = label,
+        options = { command = command, exit = { on_completion = false } },
       },
-    }
-    if new_err ~= nil then error(new_err, 0) end
-    return { window_id = w.window_id, running = false }
+    })
+    write_session(view.session_id)
+    return { layer_id = created.layer_id, running = true }
   end,
 }
