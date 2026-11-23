@@ -38,7 +38,33 @@ local function automatic_window(block_id)
   return window
 end
 
+local function live_windows()
+  local live = {}
+  for _, session in ipairs((rex.call("session.list", {}) or {}).sessions or {}) do
+    local view = rex.call("session.view", { session_id = session.session_id })
+    if view == nil then return nil end
+    for _, window in ipairs(view.windows or {}) do live[window.window_id] = true end
+  end
+  return live
+end
+
+local pruned = false
+
+local function prune_once()
+  if pruned then return end
+  local live = live_windows()
+  if live == nil then return end
+  labels.prune(live)
+  pruned = true
+end
+
+rex.on("window_closed", function(ctx, ev)
+  remote[ev.window_id] = nil
+  labels.forget(ev.window_id)
+end)
+
 rex.on("terminal.pwd_changed", function(ctx, ev)
+  prune_once()
   if ev.pwd == nil or ev.pwd == "" then return end
   if is_ssh(foreground(ctx.block_id)) then return end
   local window = automatic_window(ctx.block_id)

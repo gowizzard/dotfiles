@@ -1,11 +1,12 @@
 local common = require("common")
+local terminal = common.terminal
 local shell = common.shell
 local check = common.check
 
 local label = "updates"
 local command = { "fish", "-c", "update_all" }
 local bounds = { 0.1, 0.1, 0.8, 0.8 }
-local store = os.getenv("HOME") .. "/Library/Caches/rex-update-session"
+local store = os.getenv("HOME") .. "/Library/Caches/rex-update-session.json"
 
 local function find_layer(view)
   for _, window in ipairs(view.windows or {}) do
@@ -20,26 +21,16 @@ local function find_layer(view)
   return nil
 end
 
-local function read_session()
-  local f = io.open(store, "r")
-  if f == nil then return nil end
-  local session_id = f:read("*l")
-  f:close()
-  return session_id
-end
-
-local function write_session(session_id)
-  local f = io.open(store, "w")
-  if f == nil then return end
-  f:write(session_id)
-  f:close()
-end
-
 local function is_live(session_id)
   for _, session in ipairs(check(rex.call("session.list", {})).sessions or {}) do
     if session.session_id == session_id then return true end
   end
   return false
+end
+
+local function has_exited(block_id)
+  local process = rex.block.call(terminal, "process", { block_id = block_id })
+  return process ~= nil and process.child == nil and process.last_exit ~= nil
 end
 
 local function is_running()
@@ -50,12 +41,16 @@ end
 rex.action{
   name = "update_all",
   title = "Update Everything",
-  description = "Run the update_all fish function in a floating pane, or show and hide that pane when it already exists.",
+  description = "Run the update_all fish function in a floating pane, show and hide that pane while it runs, and start over once it has finished.",
   category = "System",
   keywords = "brew homebrew dotfiles pipx upgrade update",
   run = function(ctx, args)
     local view = check(rex.session.view{})
     local layer, block, window = find_layer(view)
+    if layer ~= nil and has_exited(block.block_id) then
+      check(rex.session.close_layer{ layer_id = layer.layer_id })
+      layer = nil
+    end
     if layer ~= nil then
       local shown = layer.state ~= "minimized"
         and window.window_id == view.active_window_id
@@ -68,7 +63,7 @@ rex.action{
       return { layer_id = layer.layer_id, shown = not shown }
     end
 
-    local other = read_session()
+    local other = common.read_json(store).session_id
     if other ~= nil and other ~= view.session_id and is_running() and is_live(other) then
       rex.client.queue("session.select", { session_id = other })
       return { session_id = other, running = true }
@@ -83,7 +78,7 @@ rex.action{
         options = { command = command, exit = { on_completion = false } },
       },
     })
-    write_session(view.session_id)
+    common.write_json(store, { session_id = view.session_id })
     return { layer_id = created.layer_id, running = true }
   end,
 }

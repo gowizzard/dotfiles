@@ -1,3 +1,5 @@
+local common = require("common")
+
 local M = {}
 
 local store = os.getenv("HOME") .. "/Library/Caches/rex-auto-labels.json"
@@ -66,21 +68,37 @@ function M.title_target(title)
   return user .. "@" .. M.short_host(host)
 end
 
+local known = nil
+
 local function load()
-  local f = io.open(store, "r")
-  if f == nil then return {} end
-  local data = rex.json.decode(f:read("*a")) or {}
-  f:close()
-  return data
+  if known == nil then known = common.read_json(store) end
+  return known
 end
 
 function M.remember(window_id, label)
   local data = load()
+  if data[window_id] == label then return end
   data[window_id] = label
-  local f = io.open(store, "w")
-  if f == nil then return end
-  f:write(rex.json.encode(data))
-  f:close()
+  common.write_json(store, data)
+end
+
+function M.forget(window_id)
+  local data = load()
+  if data[window_id] == nil then return end
+  data[window_id] = nil
+  common.write_json(store, data)
+end
+
+function M.prune(live)
+  local data = load()
+  local changed = false
+  for window_id in pairs(data) do
+    if not live[window_id] then
+      data[window_id] = nil
+      changed = true
+    end
+  end
+  if changed then common.write_json(store, data) end
 end
 
 function M.is_automatic(window)

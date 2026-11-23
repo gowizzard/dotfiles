@@ -20,4 +20,19 @@ function M.cwd(ctx)
   return M.url_to_path(r.pwd)
 end
 
+function M.read_json(path)
+  local f = io.open(path, "r")
+  if f == nil then return {} end
+  local data = rex.json.decode(f:read("*a")) or {}
+  f:close()
+  return data
+end
+
+function M.write_json(path, data)
+  local f = io.open(path, "w")
+  if f == nil then return end
+  f:write(rex.json.encode(data))
+  f:close()
+end
+
 return M

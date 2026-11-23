@@ -11,21 +11,6 @@ end
 
 local project_sessions_store = home .. "/Library/Caches/rex-project-sessions.json"
 
-local function read_project_sessions()
-  local f = io.open(project_sessions_store, "r")
-  if f == nil then return {} end
-  local data = rex.json.decode(f:read("*a")) or {}
-  f:close()
-  return data
-end
-
-local function write_project_sessions(data)
-  local f = io.open(project_sessions_store, "w")
-  if f == nil then return end
-  f:write(rex.json.encode(data))
-  f:close()
-end
-
 local function open_project_sessions()
   local live, by_label = {}, {}
   for _, session in ipairs(check(rex.call("session.list", {})).sessions or {}) do
@@ -33,7 +18,7 @@ local function open_project_sessions()
     by_label[session.label] = session.session_id
   end
   local open = {}
-  for dir, session_id in pairs(read_project_sessions()) do
+  for dir, session_id in pairs(common.read_json(project_sessions_store)) do
     if live[session_id] then open[dir] = session_id end
   end
   return open, by_label
@@ -54,7 +39,10 @@ local function project_items(root, open, by_label)
       detail = (open[path] or by_label[name]) and "open" or nil,
     }
   end
-  table.sort(items, function(a, b) return a.title:lower() < b.title:lower() end)
+  table.sort(items, function(a, b)
+    if (a.detail ~= nil) ~= (b.detail ~= nil) then return a.detail ~= nil end
+    return a.title:lower() < b.title:lower()
+  end)
   return items
 end
 
@@ -90,7 +78,7 @@ rex.action{
     end
 
     open[dir] = session_id
-    write_project_sessions(open)
+    common.write_json(project_sessions_store, open)
     rex.client.queue("session.select", { session_id = session_id })
     return { project = dir, session_id = session_id }
   end,
