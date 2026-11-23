@@ -14,7 +14,6 @@ This repository contains dotfiles and configuration settings for:
 - Rex: Terminal multiplexer to manage sessions, tabs and panes.
 - Neovim: My text editor of choice for terminal.
 - Starship: A minimal, fast, and customizable prompt for any shell.
-- Karabiner-Elements: Keyboard customizer for macOS.
 - Git: My version control of choice.
 - Claude Code: Global settings, agents, commands and skills.
 - ... and various other tools that boost my productivity!
