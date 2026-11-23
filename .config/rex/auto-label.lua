@@ -74,6 +74,7 @@ end)
 
 rex.on("terminal.process_changed", function(ctx, ev)
   local process = ev.foreground
+  if not is_ssh(process) and next(remote) == nil then return end
   local window = automatic_window(ctx.block_id)
   if window == nil then return end
 

@@ -53,6 +53,7 @@ rex.action{
   category = "Projects",
   keywords = "projects directory folder session",
   run = function(ctx, args)
+    if ctx.server ~= nil then error("the session is on " .. ctx.server .. ", and the projects are here", 0) end
     local root = projects_root()
     local open, by_label = open_project_sessions()
     local dir, why = rex.ui.pick{
@@ -61,7 +62,7 @@ rex.action{
       items = project_items(root, open, by_label),
     }
     if dir == nil then
-      if why == "cancelled" then return end
+      if why == "cancelled" or why == "timeout" then return end
       error("no project chosen: " .. tostring(why), 0)
     end
 
@@ -84,20 +85,6 @@ rex.action{
   end,
 }
 
-local function open_claude(ctx)
-  if ctx.block_id == nil then error("no focused pane", 0) end
-  check(rex.session.new_split{
-    anchor_id = ctx.block_id,
-    direction = "horizontal",
-    side = "before",
-    focus = true,
-    layout = rex.layout.block{
-      flavor = shell,
-      options = { cwd = cwd(ctx), command = { "claude" } },
-    },
-  })
-end
-
 rex.action{
   name = "claude_split",
   title = "Open Claude Code on the Left",
@@ -105,6 +92,16 @@ rex.action{
   category = "Projects",
   keywords = "claude agent ai",
   run = function(ctx, args)
-    open_claude(ctx)
+    if ctx.block_id == nil then error("no focused pane", 0) end
+    check(rex.session.new_split{
+      anchor_id = ctx.block_id,
+      direction = "horizontal",
+      side = "before",
+      focus = true,
+      layout = rex.layout.block{
+        flavor = shell,
+        options = { cwd = cwd(ctx), command = { "claude" } },
+      },
+    })
   end,
 }

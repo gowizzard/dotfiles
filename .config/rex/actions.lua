@@ -1,4 +1,6 @@
-local terminal = require("common").terminal
+local common = require("common")
+local terminal = common.terminal
+local check = common.check
 
 rex.action{
   name = "close_pane_or_tab",
@@ -7,8 +9,7 @@ rex.action{
   category = "Panes",
   run = function(ctx, args)
     if ctx.block_id == nil then error("no focused pane", 0) end
-    local _, err = rex.call("block.close", { session_id = ctx.session_id, block_id = ctx.block_id })
-    if err ~= nil then error(err, 0) end
+    check(rex.call("block.close", { session_id = ctx.session_id, block_id = ctx.block_id }))
   end,
 }
 
@@ -54,16 +55,15 @@ rex.action{
   keywords = "clipboard pbcopy output",
   args = { command = "boolean?" },
   run = function(ctx, args)
-    local screen, err = rex.block.call(terminal, "format", {
+    if ctx.block_id == nil then error("no focused pane", 0) end
+    local screen = check(rex.block.call(terminal, "format", {
       block_id = ctx.block_id,
       format = "text",
       trim = true,
       unwrap = true,
-    })
-    if err ~= nil then error(err, 0) end
+    }))
     local output = last_output(screen.content, args.command)
-    local r, exec_err = rex.exec({ "pbcopy" }, { stdin = output, env = { LC_CTYPE = "UTF-8" } })
-    if r == nil then error(exec_err, 0) end
+    local r = check(rex.exec({ "pbcopy" }, { stdin = output, env = { LC_CTYPE = "UTF-8" } }))
     if not r.ok then error("pbcopy failed: " .. r.stderr, 0) end
   end,
 }

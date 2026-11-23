@@ -29,10 +29,12 @@ function M.read_json(path)
 end
 
 function M.write_json(path, data)
-  local f = io.open(path, "w")
+  local tmp = path .. ".tmp"
+  local f = io.open(tmp, "w")
   if f == nil then return end
   f:write(rex.json.encode(data))
   f:close()
+  os.rename(tmp, path)
 end
 
 return M

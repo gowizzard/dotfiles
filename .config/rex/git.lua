@@ -67,10 +67,10 @@ rex.action{
   run = function(ctx, args)
     local dir = cwd(ctx)
     if dir == nil then error("the pane has not reported its directory", 0) end
-    local r = check(rex.exec({ "git", "remote", "get-url", "origin" }, { cwd = dir }))
-    if not r.ok then error("no origin remote in " .. dir, 0) end
-    local url = web_url((r.stdout:gsub("%s+$", "")))
-    if url == nil then error("unsupported remote: " .. r.stdout, 0) end
+    local remote = git(dir, "remote", "get-url", "origin")
+    if remote == nil then error("no origin remote in " .. dir, 0) end
+    local url = web_url(remote)
+    if url == nil then error("unsupported remote: " .. remote, 0) end
     check(rex.exec({ "open", url }))
     return { url = url }
   end,

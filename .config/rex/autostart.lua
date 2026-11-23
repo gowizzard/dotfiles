@@ -9,8 +9,10 @@ if [ -f "$1" ] && kill -0 "$(cat "$1")" 2>/dev/null; then exit 0; fi
 echo $$ > "$1"
 while true; do
   "$2" do --autostart=false --all "$3" >> "$4" 2>&1
+  "$2" --autostart=false whoami > /dev/null 2>&1 || break
   sleep 5
 done
+rm -f "$1"
 ]]
 
 local function start()
