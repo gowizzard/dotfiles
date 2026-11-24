@@ -10,8 +10,7 @@ Here you can find my dotfiles and configurations that I use on my macOS system. 
 This repository contains dotfiles and configuration settings for:
 
 - Fish: My shell of choice.
-- Ghostty: A fast, feature-rich, and cross-platform terminal emulator.
-- Rex: Terminal multiplexer to manage sessions, tabs and panes.
+- Rex: My terminal of choice, built on libghostty, to manage sessions, tabs and panes.
 - Neovim: My text editor of choice for terminal.
 - Starship: A minimal, fast, and customizable prompt for any shell.
 - Git: My version control of choice.
@@ -86,11 +85,9 @@ To update the completions for Fish, you can run the following command in the ter
 fish_update_completions
 ```
 
-## Ghostty
-
-The color theme `jjideenschmiede` is based on the colors of the J&J Ideenschmiede logo and lives in `.config/ghostty/themes`. Ghostty starts the shell directly, so no multiplexer is configured here.
-
 ## Rex
+
+Rex runs on libghostty and has replaced Ghostty as my terminal. Ghostty stays in my heart, though. 👻
 
 The Rex configuration lives in `.config/rex`. `init.lua` loads the custom actions from `actions.lua`, `projects.lua` and `updates.lua` and binds them in `keys.lua`. All actions also appear in the command palette.
 
@@ -121,10 +118,10 @@ Rex does not watch the configuration file, so reload it after every change.
 rex config reload
 ```
 
-The theme is not part of the Rex configuration and has to be imported once in the app. Open the command palette, run the Ghostty import and select the following file.
+The color theme `jjideenschmiede` is based on the colors of the J&J Ideenschmiede logo and lives in `.config/rex/themes`. It is a Ghostty theme file that Rex does not load on its own, so it has to be imported once in the app. Open the command palette, run Import Theme File and select the following file.
 
 ```text
-~/.config/ghostty/themes/jjideenschmiede
+~/.config/rex/themes/jjideenschmiede
 ```
 
 ## Neovim
