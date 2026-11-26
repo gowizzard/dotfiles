@@ -55,16 +55,9 @@
   },
   "enabledPlugins": {
     "codex@openai-codex": true,
-    "gitkraken-hooks@gitkraken": true,
     "shopify-plugin@shopify-ai-toolkit": true
   },
   "extraKnownMarketplaces": {
-    "gitkraken": {
-      "source": {
-        "source": "directory",
-        "path": "/Users/gowizzard/.claude/plugins/marketplaces/gitkraken"
-      }
-    },
     "openai-codex": {
       "source": {
         "source": "github",
