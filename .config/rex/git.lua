@@ -43,6 +43,29 @@ rex.action{
   end,
 }
 
+rex.action{
+  name = "lazygit_float",
+  title = "Open lazygit in a Floating Pane",
+  description = "Open lazygit for the focused pane's repository in a floating pane.",
+  category = "Projects",
+  keywords = "git lazygit float floating popup",
+  run = function(ctx, args)
+    local dir = cwd(ctx)
+    if dir == nil then error("the pane has not reported its directory", 0) end
+    if git(dir, "rev-parse", "--git-dir") == nil then error("not a git repository: " .. dir, 0) end
+    local layer = check(rex.session.new_layer{
+      bounds = { 0.1, 0.1, 0.8, 0.8 },
+      focus = true,
+      layout = rex.layout.block{
+        flavor = common.shell,
+        label = "lazygit",
+        options = { cwd = dir, command = { "lazygit" } },
+      },
+    })
+    return { layer_id = layer.layer_id, directory = dir }
+  end,
+}
+
 local function web_url(remote)
   local host, path
   local rest = remote:match("^%a[%w+.-]*://(.+)$")
