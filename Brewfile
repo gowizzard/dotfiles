@@ -50,6 +50,7 @@ brew "zoxide"
 brew "hashicorp/tap/packer", trusted: true
 brew "hashicorp/tap/terraform", trusted: true
 brew "jetbrains/utils/teamcity", trusted: true
+brew "jetbrains/utils/youtrack", trusted: true
 brew "oven-sh/bun/bun", trusted: true
 brew "shopify/shopify/shopify-cli", trusted: true
 cask "1password"
