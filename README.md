@@ -2,9 +2,6 @@
 
 Here you can find my dotfiles and configurations that I use on my macOS system. I have been using these configurations for a while now, and I am quite happy with them. I have tried to keep the configurations as simple as possible, so that they can be easily understood and modified.
 
-> [!NOTE]
-> I have recently switched to macOS, so I am still in the process of setting up my system. I will update this repository as I make changes.
-
 ![macOS](https://github.com/user-attachments/assets/f7ce588e-80bd-48b8-af45-e4899843cf01)
 
 This repository contains dotfiles and configuration settings for:
@@ -23,7 +20,7 @@ To install the configurations, you need to clone the repository and follow the n
 
 ## Homebrew
 
-On macOS I use Homebrew as my package manager, so here you can find a Brewfile that contains all taps, brews, casks & vscode extensions that I use. To install the packages, you can run the following command in the terminal.
+On macOS I use Homebrew as my package manager, so here you can find a Brewfile that contains all taps, brews, casks & npm packages that I use. To install the packages, you can run the following command in the terminal.
 
 > [!NOTE]
 > Make sure to install Homebrew before running the following commands. You can find more information about Homebrew on their [website](https://brew.sh/).
@@ -31,18 +28,22 @@ On macOS I use Homebrew as my package manager, so here you can find a Brewfile t
 ```shell
 brew bundle --file=Brewfile
 ```
-After installing the packages, I run the following command to clean up the cache and remove old versions of the packages.
+
+To bring a machine back in line with the Brewfile, I run the following command.
+
+> [!WARNING]
+> This uninstalls every package that is not listed in the Brewfile.
 
 ```shell
 brew bundle cleanup --file=Brewfile --force
 ```
 
-### Autoupdate
+### Agent machine
 
-To keep all packages up to date automatically, I use the `homebrew/autoupdate` tap. It runs `brew upgrade` and `brew cleanup` every 24 hours in the background via launchd. To enable it, run the following command in the terminal.
+`Brewfile.agent` is a smaller package list for a machine that runs agents unattended. It contains the command-line tools and only the few apps such a machine needs. Use it in place of `Brewfile` in the commands above.
 
 ```shell
-brew autoupdate start 86400 --upgrade --cleanup
+brew bundle --file=Brewfile.agent
 ```
 
 ## GNU Stow
@@ -89,14 +90,15 @@ fish_update_completions
 
 Rex runs on libghostty and has replaced Ghostty as my terminal. Ghostty stays in my heart, though. 👻
 
-The Rex configuration lives in `.config/rex`. `init.lua` loads the custom actions from `actions.lua`, `projects.lua` and `updates.lua` and binds them in `keys.lua`. All actions also appear in the command palette.
+The Rex configuration lives in `.config/rex`. `init.lua` loads the custom actions from `actions.lua`, `projects.lua`, `git.lua`, `updates.lua` and `autostart.lua` and binds them in `keys.lua`. All actions also appear in the command palette.
 
 | Shortcut | Action |
 | --- | --- |
 | `⌘W` | Close the focused pane, or the whole tab when it is the last pane. |
 | `⌘⌥C` | Copy the output of the last command to the clipboard. |
 | `⌘⌥⇧C` | Copy the last command together with its output. |
-| `⌘P` | Change the focused shell to the projects directory and open Go to Directory there. |
+| `⌘P` | Pick a project and switch to its session, creating the session when the project has none. |
+| `⌘⇧G` | Open lazygit for the focused pane's repository in a floating pane. |
 | `⌘⇧K` | Start Claude Code on the left of the focused pane in the same directory. |
 | `⌘⇧O` | Open the origin remote of the focused pane's repository in the browser. |
 | `⌘⇧U` | Run `update_all` in a background tab named `updates`, or focus that tab when it is already open. |
@@ -164,6 +166,16 @@ To update all plugins, run the following command in Neovim and write the confirm
 
 ```vim
 :lua vim.pack.update()
+```
+
+## Git
+
+Commits and tags are signed with an SSH key that lives in 1Password. `.gitconfig` points git at `op-ssh-sign`, so 1Password asks for approval whenever a commit is signed. On a new machine, install the 1Password app, enable its SSH agent in the developer settings and make sure the vault contains the key named in `user.signingkey`. Until then, every commit fails.
+
+The public key also has to be registered as a signing key on GitHub and GitLab, otherwise commits show up as unverified. `.config/git/allowed_signers` lets git verify the signatures locally.
+
+```shell
+git log --show-signature -1
 ```
 
 ## Git hooks

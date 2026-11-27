@@ -1,5 +1,4 @@
 tap "ardia-browser/tap"
-tap "domt4/autoupdate", "https://github.com/DomT4/homebrew-autoupdate.git", trusted: true
 tap "hashicorp/tap", trusted: true
 tap "homebrew/bundle"
 tap "jetbrains/utils", trusted: true
