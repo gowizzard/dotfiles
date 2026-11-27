@@ -2,7 +2,9 @@
   "respectGitignore": true,
   "env": {
     "CLAUDE_CODE_SHELL": "/opt/homebrew/bin/fish",
-    "PROJECTS_DIRECTORY": "~/Documents/Projects"
+    "PROJECTS_DIRECTORY": "~/Documents/Projects",
+    "YOUTRACK_RO": "1",
+    "YOUTRACK_NO_UPDATE": "1"
   },
   "attribution": {
     "commit": "🤖 Generated with Claude Code\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
